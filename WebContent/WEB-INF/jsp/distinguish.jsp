@@ -335,8 +335,30 @@
         
         $(function(){
             $("#btn").click(function(){
-                $.post("mvc/getPerson",{name:"SSS"},function(data){
-                 	  alert(data);
+            	var context = "";
+                $.ajax({
+                    url:"getText_1",
+                    type:"GET",
+                    dataType: 'text',
+                    async:false,
+                    success: function (data) {
+                        var datas = data.split("\n");
+                        for (var i = 0; i < datas.length; i++) {
+                            datas[i] = $.trim(datas[i]);
+                            if(datas[i] != ""){
+                                var temp = addStrSign(datas[i], "##");
+                                temp = "<li class='content'>" + temp + "</li>";
+                                context = context + temp;
+                            }
+                        }
+                        $("li").remove(".content");
+                        $("#markupTextHtml").append(context);
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    	alert(XMLHttpRequest);
+                        alert("读取文件失败，请检查下列原因。\n1、是否将标注的文件放在该系统下的【needMark】文件夹中。\n2、文件名是否输入错误，需要加扩展名。");
+                    },
+
                 });
   
             });

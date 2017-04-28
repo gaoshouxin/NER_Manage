@@ -1,6 +1,8 @@
 package test.SpringMVC;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import test.SpringMVC.model.Person;
+import java.lang.Runtime;
+import java.net.URLDecoder;
 
 @Controller
 @RequestMapping("/mvc")
@@ -85,5 +89,60 @@ public class mvcController {
     public String sayHello(){
         return "name";
     }
+    
+    @RequestMapping("/getText_1")
+    public static void getText_1(HttpServletRequest req,HttpServletResponse response){
+    	String realpath = req.getSession().getServletContext().getRealPath("/resources/crf"); 
+    	System.out.println(req);
+    	PrintWriter out;
+		Process p;
+		try {
+			p = Runtime.getRuntime().exec("crf_test -m /home/cz/model /home/cz/learn.txt");
+			BufferedReader br = null;
+			br = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			String line = null;
+			StringBuilder sb = new StringBuilder();
+			out = response.getWriter();
+			while ((line = br.readLine()) != null) {
+				if(line.length() < 1){
+					System.out.println("\n");
+					sb.append("\n");
+					continue;
+				}
+				System.out.println(line);
+				out.write(line+"\n");
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    }
+    
+    public static void main(String[] args) {
+//    	System.out.println("hello");
+//    	String commandStr = "crf_learn -c 8 -p 14 template_baseline learn.txt model";
+    	String commandStr = "crf_test -m model learn.txt";
+//    	String commandStr = "ping www.baidu.com";
+    	Process p;
+		try {
+			p = Runtime.getRuntime().exec(commandStr);
+			BufferedReader br = null;
+			br = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			String line = null;
+			StringBuilder sb = new StringBuilder();
+			while ((line = br.readLine()) != null) {
+				if(line.length() < 1){
+					System.out.println("\n");
+					sb.append("\n");
+					continue;
+				}
+				System.out.println(line);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
     
 }

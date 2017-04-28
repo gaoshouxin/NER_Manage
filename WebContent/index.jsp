@@ -117,31 +117,116 @@
          */
         function readFile(filePath) {
         	var context = "";
-            $.ajax({
-                url:filePath,
-                type:"GET",
-                dataType: 'text',
-                success: function (data) {
-                    var datas = data.split("\n");
-                    for (var i = 0; i < datas.length; i++) {
-                        datas[i] = $.trim(datas[i]);
-                        if(datas[i] != ""){
-                            var temp = addStrSign(datas[i], "##");
-                            temp = "<li class='content'>" + temp + "</li>";
-                            context = context + temp;
-                        }
-                    }
-                    $("li").remove(".content");
-                    $("#markupTextHtml").append(context);
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                	alert(XMLHttpRequest);
-                    alert("读取文件失败，请检查下列原因。\n1、是否将标注的文件放在该系统下的【needMark】文件夹中。\n2、文件名是否输入错误，需要加扩展名。");
-                },
-
-            });
+        	var subString = filePath.slice(-3,filePath.length);
+        	if(subString == "txt"){
+        		$.ajax({
+                    url:filePath,
+                    type:"GET",
+                    dataType: "text",
+                    success: function (data) {
+                        var datas = data.split("\n");
+                        for (var i = 0; i < datas.length; i++) {
+                            datas[i] = $.trim(datas[i]);
+                            if(datas[i] != ""){
+                                var temp = addStrSign(datas[i], "##");
+                                temp = "<li class='content'>" + temp + "</li>";
+                                context = context + temp;
+                            }
+                        } 
+                        $("li").remove(".content");
+                        $("#markupTextHtml").append(context);
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        alert("读取文件失败，请检查下列原因。\n1、是否将标注的文件放在该系统下的【needMark】文件夹中。\n2、文件格式是否正确，仅支持后缀为txt和json。");
+                    },
+                });
+        	}else{
+        		$.ajax({
+                    url:filePath,
+                    type:"GET",
+                    dataType: "json",
+                    success: function (data) {
+                        $.each(data,function(index,item){
+                        	if((item.question != "" )&& (item.question != "\"" )&&(item.question != "空" )&&(typeof(item.question)!="undefined")&&($.trim(item.question) != "" )){
+                        		var temp = addStrSign(item.question.toString(),"##");
+                        		//var temp = item.question
+                        		temp = "<li class='content'>" + temp + "</li>";
+                                context = context + temp;
+                        	}
+                        	if((item.answers != "" )&& (item.answers != "\"" )&&(item.answers != "空" )&&(typeof(item.answers)!="undefined")&&($.trim(item.answers) != "" )){
+                        		var temp = addStrSign(item.answers.toString(),"##");
+                        		//var temp = item.answers
+                        		temp = "<li class='content'>" + temp + "</li>";
+                                context = context + temp;
+                        	}
+                        });
+                        $("li").remove(".content");
+                        $("#markupTextHtml").append(context);
+                    },
+                    error: function(XMLHttpRequest, textStatus, errorThrown) {
+                        alert("读取文件失败，请检查下列原因。\n1、是否将标注的文件放在该系统下的【needMark】文件夹中。\n2、文件格式是否正确，仅支持后缀为txt和json。");
+                    },
+                });
+        	}
         }
-        //标注
+        
+
+        //获取到需要添加标记的文本
+        function getSelectedText() {
+            if (window.getSelection) {
+                return window.getSelection().toString();
+            } else if (document.getSelection) {
+                return document.getSelection();
+            } else if (document.selection) {
+                return document.selection.createRange().text;
+            }
+        }
+        //将<li class="content"> </li> 替换成空，仅仅保存该标签里面的内容
+        function processSourceTextFormat(text){
+            text=text.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&nbsp;/g, " ").replace(/&#39;/g, "\'").replace(/&quot;/g, "\"").replace(/<li class="content">/g, "").replace(/<\/li>/g, "\n").trim();
+            return text;
+        }
+
+        function setDivMmarkupTextHtml() {
+            var text = $("#markupTextSourceTextarea").html().replace(/\n/g, "<p></p>");
+            alert(text);
+            $("#markupTextHtml").html(text);
+            showDivMmarkupTextHtml();
+        }
+
+        function showDivMmarkupTextHtml() {
+            $("#markupTextHtml").show();
+            $("#markupTextSourceTextarea").hide();
+            // $("#liHtml").setAttribute('class','active');
+            // $("#liTxt").setAttribute('class','');
+        }
+
+        function showDivMmarkupTextSourceTextarea() {
+            $("#markupTextSourceTextarea").show();
+            // $("#liHtml").setAttribute('class','');
+            // $("#liTxt").setAttribute('class','active');
+        }
+        $("#markupTextHtml").hide();
+
+        //选择你要标注的文件
+        function selectFile(){
+            var fileName = prompt("请输入你需要读取的文件名称","");//将输入的内容赋给变量 fileName ，
+            //这里需要注意的是，prompt有两个参数，前面是提示的话，后面是当对话框出来后，在对话框里的默认值
+            var localObj = window.location.host;
+            var filePath = "http://"+localObj+"/NewSpring/resources/needMark/"+fileName;
+            if(fileName != null)//如果返回的有内容
+            {
+                readFile(filePath);
+            }
+        }
+
+        //下载标注的文件
+        function download(){
+            var data = getFileStr("#");
+            export_raw("new.txt", data);
+        }
+		
+      //标注
         function markupElement(e) {
             var choosedText = "";
             choosedText = getSelectedText();  //获取到需要添加标记的文本
@@ -214,95 +299,11 @@
             }
 
             //以下代码为替换编辑框中的html源文件
-            updateSourceText();
+           // updateSourceText();
 
             afterHtml1=afterHtml2=afterHtml3=null;
             $("#btnForward").attr("disabled",true);
 
-        }
-
-        //获取到需要添加标记的文本
-        function getSelectedText() {
-            if (window.getSelection) {
-                return window.getSelection().toString();
-            } else if (document.getSelection) {
-                return document.getSelection();
-            } else if (document.selection) {
-                return document.selection.createRange().text;
-            }
-        }
-        //将<li class="content"> </li> 替换成空，仅仅保存该标签里面的内容
-        function processSourceTextFormat(text){
-            text=text.replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&nbsp;/g, " ").replace(/&#39;/g, "\'").replace(/&quot;/g, "\"").replace(/<li class="content">/g, "").replace(/<\/li>/g, "\n").trim();
-            return text;
-        }
-
-        function setDivMmarkupTextHtml() {
-            var text = $("#markupTextSourceTextarea").html().replace(/\n/g, "<p></p>");
-            alert(text);
-            $("#markupTextHtml").html(text);
-            showDivMmarkupTextHtml();
-        }
-
-        function showDivMmarkupTextHtml() {
-            $("#markupTextHtml").show();
-            $("#markupTextSourceTextarea").hide();
-            // $("#liHtml").setAttribute('class','active');
-            // $("#liTxt").setAttribute('class','');
-        }
-
-        function showDivMmarkupTextSourceTextarea() {
-            $("#markupTextSourceTextarea").show();
-            // $("#liHtml").setAttribute('class','');
-            // $("#liTxt").setAttribute('class','active');
-        }
-        $("#markupTextHtml").hide();
-
-        //选择你要标注的文件
-        function selectFile(){
-            var fileName = prompt("请输入你需要读取的文件名称","");//将输入的内容赋给变量 fileName ，
-            //这里需要注意的是，prompt有两个参数，前面是提示的话，后面是当对话框出来后，在对话框里的默认值
-            var localObj = window.location.host;
-            var filePath = "http://"+localObj+"/NewSpring/resources/needMark/"+fileName;
-            if(fileName != null)//如果返回的有内容
-            {
-                readFile(filePath);
-            }
-        }
-
-        //下载标注的文件
-        function download(){
-            var data = getFileStr("##");
-            export_raw("标记文件.txt", data);
-        }
-
-
-        //撤销
-        function backward(){
-            afterHtml3 = afterHtml2;
-            afterHtml2 = afterHtml1;
-            afterHtml1 = $("#markupTextHtml").html();
-            $("#markupTextHtml").html(beforeHtml1);
-            beforeHtml1 = beforeHtml2;
-            beforeHtml2 = beforeHtml3;
-            beforeHtml3 = null;
-
-            //以下代码修改源文件
-            var newSourceMarkupTextHtml = $("#markupTextHtml").html();
-            newSourceMarkupTextHtml=processSourceTextFormat(newSourceMarkupTextHtml);
-            $("#markupTextSourceTextarea").html(newSourceMarkupTextHtml);
-
-            if(beforeHtml1==null){
-                $("#btnBackward").attr("disabled",true);
-            }else{
-                $("#btnBackward").attr("disabled",false);
-            }
-
-            if(afterHtml1==null){
-                $("#btnForward").attr("disabled",true);
-            }else{
-                $("#btnForward").attr("disabled",false);
-            }
         }
 
         //前进
@@ -332,13 +333,45 @@
                 $("#btnForward").attr("disabled",false);
             }
         }
+
+        //撤销
+        function backward(){
+            afterHtml3 = afterHtml2;
+            afterHtml2 = afterHtml1;
+            afterHtml1 = $("#markupTextHtml").html();
+            $("#markupTextHtml").html(beforeHtml1);
+            beforeHtml1 = beforeHtml2;
+            beforeHtml2 = beforeHtml3;
+            beforeHtml3 = null;
+
+            //以下代码修改源文件
+            var newSourceMarkupTextHtml = $("#markupTextHtml").html();
+            newSourceMarkupTextHtml=processSourceTextFormat(newSourceMarkupTextHtml);
+            $("#markupTextSourceTextarea").html(newSourceMarkupTextHtml);
+
+            if(beforeHtml1==null){
+                $("#btnBackward").attr("disabled",true);
+            }else{
+                $("#btnBackward").attr("disabled",false);
+            }
+
+            if(afterHtml1==null){
+                $("#btnForward").attr("disabled",true);
+            }else{
+                $("#btnForward").attr("disabled",false);
+            }
+        }
         
         $(function(){
             $("#btn").click(function(){
-                $.post("mvc/getPerson",{name:"SSS"},function(data){
+                /* $.post("http://dsc.nlp-bigdatalab.org:8090/GetListContent?text=",{name:"SSS"},function(data){
                  	  alert(data);
+                });*/
+            	$.get(
+                  "http://dsc.nlp-bigdatalab.org:8090/GetListContent?text=你好，你的情况很有可能是由于胆囊息肉引起的症状，一般会导致恶心呕吐以及口苦以及右上腹部疼痛等症状，是由于息肉引起的胆囊堵塞肿胀水肿引起的较多，有些还有胆囊炎症",
+                     function (data) {
+                    	alert(data);
                 });
-  
             });
         });
 
