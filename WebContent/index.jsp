@@ -394,7 +394,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav side-nav">
-            <li><a href="#"><i class="fa fa-dashboard"></i> 数据采集</a></li>
+            <li><a href="#"><i class="fa fa-dashboard"></i> </a></li>
             <li><a href="#"><i class="fa fa-edit"></i> 标记系统</a></li>
             <li><a href="<%=request.getContextPath()%>/mvc/distinguish"><i class="fa fa-desktop"></i> 识别系统</a></li>
             <li><a href="#"><i class="fa fa-font"></i> 翻译系统</a></li>
@@ -487,10 +487,7 @@
                 <ol id="markupTextHtml" style="line-height:50px;">
                 </ol>
             </div>
-
-            <button id="btnHtml" type="button" class="btn btn-default" style="display:none;">标注页面</button>
-            <button id="btnTxt" type="button" class="btn btn-default" style="display:none;">文本页面</button>
-            <button id="btnStartLabel" type="button" class="btn btn-default" style="display:none;">进行标注</button>
+           
         </div>
 
     </div>

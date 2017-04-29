@@ -4,8 +4,15 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,15 +24,15 @@ import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import net.sf.json.JSONArray;
 import test.SpringMVC.model.Person;
-import java.lang.Runtime;
-import java.net.URLDecoder;
+import test.SpringMVC.model.Project;
 
 @Controller
 @RequestMapping("/mvc")
 public class mvcController {
 	@RequestMapping("/hello")
-    public String hello(){        
+    public String hello(){
         return "success";
     }
 	
@@ -93,7 +100,6 @@ public class mvcController {
     @RequestMapping("/getText_1")
     public static void getText_1(HttpServletRequest req,HttpServletResponse response){
     	String realpath = req.getSession().getServletContext().getRealPath("/resources/crf"); 
-    	System.out.println(req);
     	PrintWriter out;
 		Process p;
 		try {
@@ -145,4 +151,136 @@ public class mvcController {
 		}
 	}
     
+    @RequestMapping("/getWelcome")
+    public String getWelcome(){
+    	return "welcome";
+    }
+    
+    @RequestMapping("/getManageMark")
+    public String getManageMark(){
+    	return "manageMark";
+    }
+    /**
+     * 查询返回所有已存在项目
+     * @param req
+     * @param pw
+     */
+    @RequestMapping("/queryAllProject")
+    public void queryAllProject(HttpServletRequest req,HttpServletResponse rep){
+    	rep.setContentType("text/html;charset=utf-8");//设置响应的编码格式，不然会出现中文乱码现象  
+    	PreparedStatement queryStatment = null;
+    	Connection conn = connectMysql();
+    	ResultSet rs =null;
+    	try {
+			queryStatment = conn.prepareStatement("select pro_name from project where user_id = ? ORDER BY update_time ");
+			queryStatment.setString(1,req.getParameter("user_id"));
+	    	rs = queryStatment.executeQuery();
+	    	PrintWriter out = rep.getWriter();
+	    	List<Project> list = new ArrayList<Project>();
+	    	Project pro = null;
+	    	while(rs.next()){
+	    		String proName = rs.getString("pro_name");
+	    		pro = new Project();
+	    		pro.setProName(proName);
+	    		list.add(pro);
+	    	}
+	    	JSONArray json = JSONArray.fromObject(list);
+	    	out.write(json.toString());  
+	        out.flush();  
+	        out.close(); 
+	    	rs.close();
+	    	queryStatment.close();
+	    	conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch(IOException e){
+			e.printStackTrace();
+		}
+    	
+    }
+    /**
+     * 创建项目，遇到重复时会反馈
+     * @param req
+     * @param pw
+     */
+    @RequestMapping("/createProject")
+    public void createProject(HttpServletRequest req,PrintWriter pw){
+    	PreparedStatement insertStatement = null;
+    	PreparedStatement queryStatment = null;
+    	Connection conn = connectMysql();
+    	ResultSet rs =null;
+    	boolean isInserted;
+    	//创建一个Statement对象  
+        try {
+        	queryStatment = conn.prepareStatement("select count(*) record from project where pro_name = ?");
+        	queryStatment.setString(1,req.getParameter("project_name"));
+        	rs = queryStatment.executeQuery();
+        	isInserted = false;
+        	while(rs.next()){
+        		int rowNum = rs.getInt("record");
+        		if(rowNum < 1){
+        			isInserted = true;
+        			insertStatement = conn.prepareStatement("insert into " + "project" +   
+        					" (user_id,pro_name,pro_sign,update_time) values (?,?,?,?)");
+		        	insertStatement.setString(1, "45");
+		        	insertStatement.setString(2, req.getParameter("project_name"));
+		        	insertStatement.setString(3, req.getParameter("mark_sign"));
+		        	Date time = new Date();
+                    SimpleDateFormat timesf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
+                    String updatetime = timesf.format(time);
+                    insertStatement.setString(4,updatetime);
+		        	insertStatement.executeUpdate();  
+		            conn.commit();
+		            pw.write("1");
+        		}else{
+        			pw.write("0");
+        		}
+        	}
+        	//关闭连接，与之前的操作反着来
+        	rs.close();
+        	if(isInserted){
+        		insertStatement.close();
+        	}else{
+        		queryStatment.close();
+        	}
+        	conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+    }
+    
+    /**
+     * 连接数据库
+     * @return 数据库
+     */
+   private Connection connectMysql(){
+    	try {  
+            //调用Class.forName()方法加载驱动程序  
+            Class.forName("com.mysql.jdbc.Driver");  
+        } catch (ClassNotFoundException e) {  
+            e.printStackTrace();  
+        } 
+    	String hostname = "115.159.40.100";
+    	String port = "3306";
+    	String databaseName = "mark_system";
+    	String url = "jdbc:mysql://" + hostname + ":" + port + "/" + databaseName;
+    	String user = "root";
+    	String password = "root";
+    	Connection conn = null; 
+    	try {  
+            conn = DriverManager.getConnection(url, user, password);  
+            conn.setAutoCommit(false); 
+
+        } catch (SQLException e) {  
+            e.printStackTrace();  
+            System.exit(1);  
+        }  
+        return conn;
+    }
+   
+   
 }
