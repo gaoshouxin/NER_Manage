@@ -18,7 +18,7 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav side-nav">
             <li><a href="<%=request.getContextPath()%>/mvc/getManageMark"><i class="fa fa-dashboard"></i> 项目管理</a></li>
-            <li><a href="#"><i class="fa fa-edit"></i> 标记系统</a></li>
+            <li><a href="<%=request.getContextPath()%>/mvc/getMark"><i class="fa fa-edit"></i> 标记系统</a></li>
             <li><a href="<%=request.getContextPath()%>/mvc/distinguish"><i class="fa fa-desktop"></i> 识别系统</a></li>
             <li><a href="#"><i class="fa fa-font"></i> 翻译系统</a></li>
             <li class="dropdown">

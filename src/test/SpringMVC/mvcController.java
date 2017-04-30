@@ -1,9 +1,11 @@
 package test.SpringMVC;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -18,13 +20,18 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import net.sf.json.JSONArray;
+import test.SpringMVC.model.FileInfo;
 import test.SpringMVC.model.Person;
 import test.SpringMVC.model.Project;
 
@@ -92,9 +99,23 @@ public class mvcController {
     public void getPerson(String name,PrintWriter pw){
         pw.write("hello,"+"SAASAASA");        
     }
+    
+    /**
+     * 
+     * @return
+     */
     @RequestMapping("/name")
     public String sayHello(){
         return "name";
+    }
+    
+    /**
+     * 跳转到标记页面
+     * @return
+     */
+    @RequestMapping("/getMark")
+    public String getMark(){
+    	return "mark";
     }
     
     @RequestMapping("/getText_1")
@@ -161,6 +182,87 @@ public class mvcController {
     	return "manageMark";
     }
     /**
+     * 上传文件
+     * @param file
+     * @param request
+     * @param response
+     * @throws IOException
+     */
+    @RequestMapping(value="/fileUpload", method = RequestMethod.POST)
+    public void fileUpLoad(@RequestParam("file") MultipartFile file,HttpServletRequest request, HttpServletResponse response) throws IOException{ 
+    	String realPath = request.getServletContext().getRealPath("/resources/needMark/");
+    	String fileName =file.getOriginalFilename();
+    	File filePath =new File(realPath);   
+    	
+    	//如果文件夹不存在则创建    
+    	if  (!filePath.exists()  && !filePath.isDirectory())      
+    	{        
+    	    filePath .mkdir();    
+    	} 
+    	if(!file.isEmpty()){
+    		FileUtils.copyInputStreamToFile(file.getInputStream(), new File(realPath+"\\",fileName));
+    		PreparedStatement insertStatement = null;
+        	Connection conn = connectMysql();
+        	try {
+        		insertStatement  = conn.prepareStatement("insert into " + "file" +   
+						"(user_id,url,file_name,update_time) values (?,?,?,?)");
+				insertStatement.setString(1, "45");
+	        	insertStatement.setString(2, realPath+"\\"+fileName);
+	        	insertStatement.setString(3, fileName);
+	        	Date time = new Date();
+                SimpleDateFormat timesf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
+                String updatetime = timesf.format(time);
+                insertStatement.setString(4,updatetime);
+	        	insertStatement.executeUpdate();  
+	            conn.commit();
+	            insertStatement.close();
+	            conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+    	
+    }  
+    /**
+     * 查询所有已存在文件
+     * @param req
+     * @param rep
+     */
+    @RequestMapping("/queryAllFile")
+    public void queryAllFile(HttpServletRequest req,HttpServletResponse rep){
+    	rep.setContentType("text/html;charset=utf-8");//设置响应的编码格式，不然会出现中文乱码现象  
+    	PreparedStatement queryStatment = null;
+    	Connection conn = connectMysql();
+    	ResultSet rs =null;
+    	try {
+			queryStatment = conn.prepareStatement("select file_name from file where user_id = ? ORDER BY update_time DESC ");
+			queryStatment.setString(1,req.getParameter("user_id"));
+	    	rs = queryStatment.executeQuery();
+	    	PrintWriter out = rep.getWriter();
+	    	List<FileInfo> list = new ArrayList<FileInfo>();
+	    	FileInfo file = null;
+	    	while(rs.next()){
+	    		String fileName = rs.getString("file_name");
+	    		file = new FileInfo();
+	    		file.setFileName(fileName);
+	    		list.add(file);
+	    	}
+	    	JSONArray json = JSONArray.fromObject(list);
+	    	out.write(json.toString());  
+	        out.flush();  
+	        out.close(); 
+	    	rs.close();
+	    	queryStatment.close();
+	    	conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch(IOException e){
+			e.printStackTrace();
+		}
+    }
+    /**
      * 查询返回所有已存在项目
      * @param req
      * @param pw
@@ -172,7 +274,7 @@ public class mvcController {
     	Connection conn = connectMysql();
     	ResultSet rs =null;
     	try {
-			queryStatment = conn.prepareStatement("select pro_name from project where user_id = ? ORDER BY update_time ");
+			queryStatment = conn.prepareStatement("select pro_name from project where user_id = ? ORDER BY update_time DESC ");
 			queryStatment.setString(1,req.getParameter("user_id"));
 	    	rs = queryStatment.executeQuery();
 	    	PrintWriter out = rep.getWriter();
@@ -281,6 +383,4 @@ public class mvcController {
         }  
         return conn;
     }
-   
-   
 }
