@@ -2,8 +2,12 @@ package test.SpringMVC;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.URLDecoder;
 import java.sql.Connection;
@@ -47,14 +51,6 @@ public class mvcController {
     public String distinguish(){        
         return "distinguish";
     }
-	
-	//ajax 返回请求结果
-	@RequestMapping("/getText")
-	public void getText(HttpServletRequest request,HttpServletResponse response)throws IOException{
-		
-		String str="This is a test";
-		response.getWriter().print(str); 
-	}
 	
 	//match automatically
     @RequestMapping("/person")
@@ -181,6 +177,59 @@ public class mvcController {
     public String getManageMark(){
     	return "manageMark";
     }
+    
+    @RequestMapping("/saveServer")
+    public void saveServer(HttpServletRequest request,HttpServletResponse response) throws FileNotFoundException{
+    	String realPath = request.getServletContext().getRealPath("/resources/marked/");
+    	System.out.println(realPath);
+    	String targetPath =realPath + "/"+"marked_"+request.getParameter("fileName");
+    	System.out.println(targetPath);
+    	File file =new File(targetPath);  
+    	OutputStream out = null ; // 准备好一个输出的对象
+    	try {
+			out = new FileOutputStream(file)  ;
+			String str = request.getParameter("data");  
+	    	byte b[] = str.getBytes() ;   // 只能输出byte数组，所以将字符串变为byte数组
+	    	out.write(b) ;      // 将内容输出，
+	    	out.close() ;      // 关闭输出流
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+    	
+    }
+    
+    /**
+     * 获取上传文件的内容
+     * @param request
+     * @param response
+     */
+    @RequestMapping("/getText")
+    public void getText(HttpServletRequest request,HttpServletResponse response){
+    	 FileInputStream fis = null;  
+         OutputStream os = null; 
+         File file = null;
+         response.setContentType("text/html;charset=utf-8");
+         try {  
+        	 file = new File(request.getParameter("file_url"));
+             fis = new FileInputStream(file);  
+             os = response.getOutputStream();  
+             int count = 0;  
+             byte[] buffer = new byte[1024 * 8];  
+             while ((count = fis.read(buffer)) != -1) {  
+                 os.write(buffer, 0, count);  
+                 os.flush();  
+             }  
+         } catch (Exception e) {  
+             e.printStackTrace();  
+         }  
+         try {  
+             fis.close();  
+             os.close();  
+         } catch (IOException e) {  
+             e.printStackTrace();  
+         }  
+    }
     /**
      * 上传文件
      * @param file
@@ -191,23 +240,25 @@ public class mvcController {
     @RequestMapping(value="/fileUpload", method = RequestMethod.POST)
     public void fileUpLoad(@RequestParam("file") MultipartFile file,HttpServletRequest request, HttpServletResponse response) throws IOException{ 
     	String realPath = request.getServletContext().getRealPath("/resources/needMark/");
+    	System.out.println(realPath);
     	String fileName =file.getOriginalFilename();
     	File filePath =new File(realPath);   
     	
     	//如果文件夹不存在则创建    
     	if  (!filePath.exists()  && !filePath.isDirectory())      
-    	{        
+    	{ 
+    		System.out.println("文件夹不存在");
     	    filePath .mkdir();    
     	} 
     	if(!file.isEmpty()){
-    		FileUtils.copyInputStreamToFile(file.getInputStream(), new File(realPath+"\\",fileName));
+    		FileUtils.copyInputStreamToFile(file.getInputStream(), new File(realPath+"/",fileName));
     		PreparedStatement insertStatement = null;
         	Connection conn = connectMysql();
         	try {
         		insertStatement  = conn.prepareStatement("insert into " + "file" +   
 						"(user_id,url,file_name,update_time) values (?,?,?,?)");
 				insertStatement.setString(1, "45");
-	        	insertStatement.setString(2, realPath+"\\"+fileName);
+	        	insertStatement.setString(2, realPath+"/"+fileName);
 	        	insertStatement.setString(3, fileName);
 	        	Date time = new Date();
                 SimpleDateFormat timesf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
@@ -236,7 +287,7 @@ public class mvcController {
     	Connection conn = connectMysql();
     	ResultSet rs =null;
     	try {
-			queryStatment = conn.prepareStatement("select file_name from file where user_id = ? ORDER BY update_time DESC ");
+			queryStatment = conn.prepareStatement("select file_name,url from file where user_id = ? ORDER BY update_time DESC ");
 			queryStatment.setString(1,req.getParameter("user_id"));
 	    	rs = queryStatment.executeQuery();
 	    	PrintWriter out = rep.getWriter();
@@ -244,8 +295,10 @@ public class mvcController {
 	    	FileInfo file = null;
 	    	while(rs.next()){
 	    		String fileName = rs.getString("file_name");
+	    		String url = rs.getString("url");
 	    		file = new FileInfo();
 	    		file.setFileName(fileName);
+	    		file.setUrl(url);
 	    		list.add(file);
 	    	}
 	    	JSONArray json = JSONArray.fromObject(list);
