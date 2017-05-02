@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -18,8 +19,10 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -173,30 +176,305 @@ public class mvcController {
     	return "welcome";
     }
     
+    /**
+     * 跳转到项目管理模块
+     * @return
+     */
     @RequestMapping("/getManageMark")
     public String getManageMark(){
     	return "manageMark";
     }
     
-    @RequestMapping("/saveServer")
-    public void saveServer(HttpServletRequest request,HttpServletResponse response) throws FileNotFoundException{
-    	String realPath = request.getServletContext().getRealPath("/resources/marked/");
+    /**
+     * 跳转到识别模块
+     * @return
+     */
+    @RequestMapping("/getIdentification")
+    public String getIdentification(){
+		return "identification";
+    }
+    
+    @RequestMapping("/train")
+    public void train(HttpServletRequest request,HttpServletResponse response){
+    	String realPath = request.getServletContext().getRealPath("/resources/formated/");
+    	String fileName=request.getParameter("fileName");
     	System.out.println(realPath);
+    	response.setContentType("text/html;charset=utf-8");
+    	PrintWriter out;
+    	String cmdString=realPath+"/crf_test -m model learn.txt";
+    	
+		Process p;
+		try {
+			p = Runtime.getRuntime().exec("crf_test -m /home/cz/model /home/cz/learn.txt");
+			BufferedReader br  = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			String line = null;
+			StringBuilder sb = new StringBuilder();
+			out = response.getWriter();
+			while ((line = br.readLine()) != null) {
+				if(line.length() < 1){
+					System.out.println("\n");
+					sb.append("\n");
+					continue ;
+				}
+				System.out.println(line);
+				out.write(line+"\n");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+    /**
+     * 查询所有格式化为文件
+     * @param req
+     * @param rep
+     */
+    @RequestMapping("/queryAllFormatedFile")
+    public void queryAllFormatedFile(HttpServletRequest req,HttpServletResponse rep){
+    	rep.setContentType("text/html;charset=utf-8");//设置响应的编码格式，不然会出现中文乱码现象  
+    	PreparedStatement queryStatment = null;
+    	Connection conn = connectMysql();
+    	ResultSet rs =null;
+    	try {
+			queryStatment = conn.prepareStatement("select file_name,url from file where user_id = ? and file_type= ? ORDER BY update_time DESC ");
+			queryStatment.setString(1,req.getParameter("user_id"));
+			queryStatment.setString(2, "F");
+	    	rs = queryStatment.executeQuery();
+	    	PrintWriter out = rep.getWriter();
+	    	List<FileInfo> list = new ArrayList<FileInfo>();
+	    	FileInfo file = null;
+	    	while(rs.next()){
+	    		String fileName = rs.getString("file_name");
+	    		String url = rs.getString("url");
+	    		file = new FileInfo();
+	    		file.setFileName(fileName);
+	    		file.setUrl(url);
+	    		list.add(file);
+	    	}
+	    	JSONArray json = JSONArray.fromObject(list);
+	    	out.write(json.toString());  
+	        out.flush();  
+	        out.close(); 
+	    	rs.close();
+	    	queryStatment.close();
+	    	conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch(IOException e){
+			e.printStackTrace();
+		}
+    }
+    
+    /**
+     * 将标记后的文本内容转为crf训练需要的格式
+     * @param filePah
+     * @param targetPath
+     * @return
+     */
+    private String filter(String filePah, String targetPath){
+    	String result = null;
+    	try {
+            String encoding="UTF-8";
+            File file=new File(filePah);
+            if(file.isFile() && file.exists()){ //判断文件是否存在
+                InputStreamReader read = new InputStreamReader(
+                new FileInputStream(file),encoding);//考虑到编码格式
+                BufferedReader bufferedReader = new BufferedReader(read);
+                String lineTxt = null;
+                boolean startTag = true;
+                boolean hasQueue = false;
+                boolean hasMarked = false;
+                Queue<Character> queue = new LinkedList<Character>();
+                FileWriter fw  = new FileWriter(targetPath,false);
+                while((lineTxt = bufferedReader.readLine()) != null){
+                	startTag = true;
+                	hasQueue = false;
+                	int j = 0;
+                	hasMarked  = false;
+                	while(j<lineTxt.length()){
+                		if(lineTxt.charAt(j++)=='#'){
+                			hasMarked = true;
+                			break;
+                		}
+                	}
+                	if(!hasMarked){
+                		continue;
+                	}
+                	int i=0;
+                	while(i<lineTxt.length()){
+                		if('#'== lineTxt.charAt(i) && startTag){
+                			i++;
+                			startTag = false;
+                		}else if('#' != lineTxt.charAt(i) && (!startTag)){
+                			queue.offer(lineTxt.charAt(i));
+                			hasQueue = true;
+                			i++;
+                		}else if('#' != lineTxt.charAt(i)&& startTag){
+                			fw.write(lineTxt.charAt(i)+"\t"+"O\n");
+                			i++;
+                		}else if('#' == lineTxt.charAt(i)&& (!startTag)){
+                			startTag = true;
+                			if(hasQueue){//一定不为空
+                				fw.write(queue.poll()+"\t"+"B\n");
+                				while(!queue.isEmpty()){
+                					if(1 != queue.size()){
+                						fw.write(queue.poll()+"\t"+"M\n");
+                					}else{
+                						fw.write(queue.poll()+"\t"+"E\n");
+                					}
+                				}
+                			}
+                			hasQueue = false;
+                			i++;
+                		}
+                	}
+                	fw.write("\n");
+                }
+                read.close();
+                fw.close();
+                result="格式化成功";
+        }else{
+            System.out.println("找不到指定的文件");
+            result = "找不到指定文件";
+        }
+        } catch (Exception e) {
+            System.out.println("读取文件内容出错");
+            e.printStackTrace();
+            result = "读取文件内容出错";
+        }
+    	return result;
+    }
+    
+    /**
+     * 过滤无标记的句子，将内容格式化为crf训练需要的格式
+     * @param request
+     * @param response
+     */
+    @RequestMapping("/formatText")
+    public void formatText(HttpServletRequest request,HttpServletResponse response){
+    	response.setContentType("text/html;charset=utf-8");
+    	String filePath = request.getParameter("fileUrl");
+    	String fileName = request.getParameter("fileName");
+    	String realPath = request.getServletContext().getRealPath("/resources/formated/");
+    	String targetPath =realPath + "/"+"formated_"+fileName;
+    	System.out.println(filePath);
+    	String result= filter(filePath,targetPath);
+    	PreparedStatement insertStatement = null;
+    	Connection conn = connectMysql();
+    	PrintWriter out;
+    	try{
+    		 out = response.getWriter();
+        	if(result.equals("格式化成功")){
+        		
+    	    	//保存数据库
+    	    	insertStatement  = conn.prepareStatement("insert into " + "file" +   
+    					"(user_id,url,file_name,update_time,file_type) values (?,?,?,?,?)");
+    			insertStatement.setString(1, "45");
+            	insertStatement.setString(2, targetPath);
+            	insertStatement.setString(3, "formated_"+request.getParameter("fileName"));
+            	Date time = new Date();
+                SimpleDateFormat timesf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
+                String updatetime = timesf.format(time);
+                insertStatement.setString(4,updatetime);
+            	insertStatement.setString(5, "F");//格式化的文件
+                insertStatement.executeUpdate();  
+                conn.commit();
+                insertStatement.close();
+                conn.close();
+        	}
+        	out.write(result);
+        	out.close() ;
+    	}catch (Exception e){
+    		e.printStackTrace();
+    	}
+    }
+    
+    /**
+     * 返回所有标注好的文件
+     * @param req
+     * @param rep
+     */
+    @RequestMapping("/queryAllMarkedFile")
+    public void queryAllMarkedFile(HttpServletRequest req,HttpServletResponse rep){
+    	rep.setContentType("text/html;charset=utf-8");//设置响应的编码格式，不然会出现中文乱码现象  
+    	PreparedStatement queryStatment = null;
+    	Connection conn = connectMysql();
+    	ResultSet rs =null;
+    	try {
+			queryStatment = conn.prepareStatement("select file_name,url from file where user_id = ? and file_type= ? ORDER BY update_time DESC ");
+			queryStatment.setString(1,req.getParameter("user_id"));
+			queryStatment.setString(2, "M");
+	    	rs = queryStatment.executeQuery();
+	    	PrintWriter out = rep.getWriter();
+	    	List<FileInfo> list = new ArrayList<FileInfo>();
+	    	FileInfo file = null;
+	    	while(rs.next()){
+	    		String fileName = rs.getString("file_name");
+	    		String url = rs.getString("url");
+	    		file = new FileInfo();
+	    		file.setFileName(fileName);
+	    		file.setUrl(url);
+	    		list.add(file);
+	    	}
+	    	JSONArray json = JSONArray.fromObject(list);
+	    	out.write(json.toString());  
+	        out.flush();  
+	        out.close(); 
+	    	rs.close();
+	    	queryStatment.close();
+	    	conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch(IOException e){
+			e.printStackTrace();
+		}
+    }
+    /**
+     * 将标注好的数据保存到服务器
+     * @param request
+     * @param response
+     * @return
+     * @throws FileNotFoundException
+     */
+    @RequestMapping("/saveServer")
+    public String saveServer(HttpServletRequest request,HttpServletResponse response){
+    	String realPath = request.getServletContext().getRealPath("/resources/marked/");
     	String targetPath =realPath + "/"+"marked_"+request.getParameter("fileName");
-    	System.out.println(targetPath);
     	File file =new File(targetPath);  
     	OutputStream out = null ; // 准备好一个输出的对象
+    	PreparedStatement insertStatement = null;
+    	Connection conn = connectMysql();
     	try {
 			out = new FileOutputStream(file)  ;
 			String str = request.getParameter("data");  
 	    	byte b[] = str.getBytes() ;   // 只能输出byte数组，所以将字符串变为byte数组
 	    	out.write(b) ;      // 将内容输出，
+	    	//保存数据库
+	    	insertStatement  = conn.prepareStatement("insert into " + "file" +   
+					"(user_id,url,file_name,update_time,file_type) values (?,?,?,?,?)");
+			insertStatement.setString(1, "45");
+        	insertStatement.setString(2, targetPath);
+        	insertStatement.setString(3, "marked_"+request.getParameter("fileName"));
+        	Date time = new Date();
+            SimpleDateFormat timesf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
+            String updatetime = timesf.format(time);
+            insertStatement.setString(4,updatetime);
+        	insertStatement.setString(5, "M");
+            insertStatement.executeUpdate();  
+            conn.commit();
+            insertStatement.close();
+            conn.close();
+	    	
 	    	out.close() ;      // 关闭输出流
+	    	
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
-    	
+		} catch (SQLException e){
+			e.printStackTrace();
+		}
+    	return "identification";
     }
     
     /**
@@ -256,7 +534,7 @@ public class mvcController {
         	Connection conn = connectMysql();
         	try {
         		insertStatement  = conn.prepareStatement("insert into " + "file" +   
-						"(user_id,url,file_name,update_time) values (?,?,?,?)");
+						"(user_id,url,file_name,update_time,file_type) values (?,?,?,?,?)");
 				insertStatement.setString(1, "45");
 	        	insertStatement.setString(2, realPath+"/"+fileName);
 	        	insertStatement.setString(3, fileName);
@@ -264,6 +542,7 @@ public class mvcController {
                 SimpleDateFormat timesf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
                 String updatetime = timesf.format(time);
                 insertStatement.setString(4,updatetime);
+                insertStatement.setString(5, "O");
 	        	insertStatement.executeUpdate();  
 	            conn.commit();
 	            insertStatement.close();
@@ -276,7 +555,7 @@ public class mvcController {
     	
     }  
     /**
-     * 查询所有已存在文件
+     * 查询所有已存在未标记文件文件
      * @param req
      * @param rep
      */
@@ -287,8 +566,9 @@ public class mvcController {
     	Connection conn = connectMysql();
     	ResultSet rs =null;
     	try {
-			queryStatment = conn.prepareStatement("select file_name,url from file where user_id = ? ORDER BY update_time DESC ");
+			queryStatment = conn.prepareStatement("select file_name,url from file where user_id = ? and file_type= ? ORDER BY update_time DESC ");
 			queryStatment.setString(1,req.getParameter("user_id"));
+			queryStatment.setString(2, "O");
 	    	rs = queryStatment.executeQuery();
 	    	PrintWriter out = rep.getWriter();
 	    	List<FileInfo> list = new ArrayList<FileInfo>();
@@ -412,7 +692,7 @@ public class mvcController {
      * 连接数据库
      * @return 数据库
      */
-   private Connection connectMysql(){
+    private Connection connectMysql(){
     	try {  
             //调用Class.forName()方法加载驱动程序  
             Class.forName("com.mysql.jdbc.Driver");  

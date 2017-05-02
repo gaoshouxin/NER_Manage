@@ -207,8 +207,8 @@ function saveServer(){
         url:"saveServer",
         type:"post",
         data : {
-			fileName : fileName，
-			data ：data
+			fileName : fileName,
+			data :data
 		},
 		async : false,
         success: function (data) {
