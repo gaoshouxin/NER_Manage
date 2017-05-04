@@ -20,17 +20,21 @@
                 <div style="height:550px">
                 	<div class="form-group input-group" >
 		        	
-			        <select id="marked_file" style="width: 35%" class="form-control">
-		            </select>
-		            <button type="button" class="btn btn-info" onclick="formatText()">格式化文件</button>
-		            <select id="file_url" style="display:none"></select>
-		            
-		            <select id="formated_file" style="width: 35%" class="form-control">
-		            </select>
-		            <select id="formated_file_url" style="display:none"></select>
-		            <button  type="button" class="btn btn-success" onclick="train()">训练</button>
-			     </div>
-                </div>
+				        <select id="marked_file" style="width: 30%" class="form-control">
+			            </select>
+			            <button type="button" class="btn btn-info" onclick="formatText()">格式化文件</button>
+			            <select id="file_url" style="display:none"></select>
+			            
+			            <select id="formated_file" style="width: 30%" class="form-control">
+			            </select>
+			            <select id="formated_file_url" style="display:none"></select>
+			            <button  type="button" class="btn btn-success" onclick="train()">训练</button>
+			     	</div>
+			     	<div class="form-group">
+		                <label>训练数据</label>
+		                <textarea id="trained_data" class="form-control" rows="20"></textarea>
+		            </div>
+	            </div>
               </div>
             </div>
           </div>
@@ -41,6 +45,19 @@
               </div>
               <div class="panel-body">
                 <div style="height:550px">
+                	<div class="form-group input-group" >
+			        	<span  class="input-group-btn">
+				            <label><h4>选择模型</h4></label>
+				        </span>
+				        <select id="select_model" style="width: 30%" class="form-control">
+			            </select>
+			            <select id="model_url" style="display:none"></select>
+			            <button type="button" class="btn btn-info" onclick="testModel()">测试</button>
+			     	</div>
+			     	<div class="form-group">
+			                <label>测试数据</label>
+			                <textarea id="tested_data" class="form-control" rows="15"></textarea>
+			        </div>
                 </div>
               </div>
             </div>

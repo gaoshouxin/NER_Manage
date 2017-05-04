@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.net.URLDecoder;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -22,6 +21,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Queue;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,6 +37,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import jdk.management.resource.internal.inst.SocketOutputStreamRMHooks;
 import net.sf.json.JSONArray;
 import test.SpringMVC.model.FileInfo;
 import test.SpringMVC.model.Person;
@@ -93,21 +94,6 @@ public class mvcController {
         return "show";
     }
     
-  //pass the parameters to front-end using ajax
-    @RequestMapping("/getPerson")
-    public void getPerson(String name,PrintWriter pw){
-        pw.write("hello,"+"SAASAASA");        
-    }
-    
-    /**
-     * 
-     * @return
-     */
-    @RequestMapping("/name")
-    public String sayHello(){
-        return "name";
-    }
-    
     /**
      * 跳转到标记页面
      * @return
@@ -139,7 +125,6 @@ public class mvcController {
 				out.write(line+"\n");
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	
@@ -193,19 +178,96 @@ public class mvcController {
     public String getIdentification(){
 		return "identification";
     }
+    /**
+     * 跳转到应用模块
+     * @return
+     */
+    @RequestMapping("/getApplication")
+    public String getApplication(){
+    	return "application";
+    }
     
-    @RequestMapping("/train")
-    public void train(HttpServletRequest request,HttpServletResponse response){
-    	String realPath = request.getServletContext().getRealPath("/resources/formated/");
-    	String fileName=request.getParameter("fileName");
-    	System.out.println(realPath);
+    /**
+     * 判断是否是Linux操作系统
+     * @return
+     */
+    public boolean isOSLinux() {
+        Properties prop = System.getProperties();
+
+        String os = prop.getProperty("os.name");
+        if (os != null && os.toLowerCase().indexOf("linux") > -1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    /**
+     * 将用户输入的文本识别之后返回
+     * @param request
+     * @param response
+     */
+    @RequestMapping("/identity")
+    public void identity(HttpServletRequest request,HttpServletResponse response){
+    	String modelPath = request.getServletContext().getRealPath("/resources/model/");
+    	String sourceData = request.getParameter("text");
+    	String modelName = request.getParameter("modelName");
+    	String targetPath =modelPath + "/"+"temp.data";
+    	response.setContentType("text/html;charset=utf-8");
+    	File file =new File(targetPath); 
+    	PrintWriter pw;
+    	try {
+			OutputStream out  = new FileOutputStream(file)  ;
+			for(int i=0;i<sourceData.length();i++){
+				String tmp=String.valueOf(sourceData.charAt(i));
+				if(!tmp.equals("\n"))
+					tmp+="\n";
+				byte [] b= tmp.getBytes();
+				out.write(b);
+			}
+			out.close();
+			//linux系统使用如下命令,成功运行
+			String cmdLinux= "crf_test -m "+modelPath+"/"+modelName+" "+modelPath+"/temp.data";
+			//windows系统使用如下命令,成功运行
+			String cmdWin = modelPath+"/crf_test -m "+ modelPath+"/"+modelName+" "+modelPath+"/temp.data";
+			String cmd = isOSLinux() ? cmdLinux : cmdWin;
+			System.out.println(cmd);
+			Process p = Runtime.getRuntime().exec(cmd);
+			BufferedReader br  = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			String line = null;
+			pw = response.getWriter();
+			while ((line = br.readLine()) != null) {
+				if(line.length() < 1){
+					pw.write("\n");
+					continue ;
+				}
+				if(line.charAt(2)=='B')
+					pw.write("#");
+				pw.write(line.charAt(0));
+				if(line.charAt(2)=='E')
+					pw.write("#");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
+    
+    /**
+     * 测试生成模型的效果
+     * @param request
+     * @param response
+     */
+    @RequestMapping("/test")
+    public void test(HttpServletRequest request,HttpServletResponse response){
+    	String realPath = request.getServletContext().getRealPath("/resources/");
     	response.setContentType("text/html;charset=utf-8");
     	PrintWriter out;
-    	String cmdString=realPath+"/crf_test -m model learn.txt";
-    	
+    	//String cmdString="crf_test -m /home/cz/model /home/cz/learn.txt";
+    	String cmd = "ls -l " + realPath+"/";
+    	System.out.println(cmd);
 		Process p;
 		try {
-			p = Runtime.getRuntime().exec("crf_test -m /home/cz/model /home/cz/learn.txt");
+			p = Runtime.getRuntime().exec(cmd);
 			BufferedReader br  = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			String line = null;
 			StringBuilder sb = new StringBuilder();
@@ -220,6 +282,83 @@ public class mvcController {
 				out.write(line+"\n");
 			}
 		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+    /**
+     * 将选择的格式化文件训练生成crf模型
+     * @param request
+     * @param response
+     */
+    @RequestMapping("/train")
+    public void train(HttpServletRequest request,HttpServletResponse response){
+    	String templatePath = request.getServletContext().getRealPath("/resources/formated/")+"/template";
+    	String formatedFilePath=request.getParameter("fileUrl");
+    	String modelPath = request.getServletContext().getRealPath("/resources/model/")+"/";
+    	String modelName = request.getParameter("fileName")+".model";
+    	response.setContentType("text/html;charset=utf-8");
+    	PrintWriter out;
+    	String cmdString="crf_learn -f 2 -c 1.5 -p 14 "+templatePath+" "+formatedFilePath+" "+modelPath+modelName ;
+    	System.out.println(cmdString);
+		String testCmd="crf_learn -f 2 -c 1.5 -p 14 /home/cz/template_baseline /home/cz/learn.txt /home/cz/txt.model";
+    	Process p;
+		try {
+			p = Runtime.getRuntime().exec(testCmd);
+			BufferedReader br  = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			String line = null;
+			StringBuilder sb = new StringBuilder();
+			out = response.getWriter();
+			while ((line = br.readLine()) != null) {
+				if(line.length() < 1){
+					System.out.println("\n");
+					sb.append("\n");
+					continue ;
+				}
+				System.out.println(line);
+				out.write(line+"\n");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+    /**
+     * 查询所有已存在模型
+     * @param req
+     * @param rep
+     */
+    @RequestMapping("/queryAllModel")
+    public void queryAllModel(HttpServletRequest req,HttpServletResponse rep){
+    	rep.setContentType("text/html;charset=utf-8");//设置响应的编码格式，不然会出现中文乱码现象  
+    	PreparedStatement queryStatment = null;
+    	Connection conn = connectMysql();
+    	ResultSet rs =null;
+    	try {
+			queryStatment = conn.prepareStatement("select file_name,url from file where user_id = ? and file_type= ? ORDER BY update_time DESC ");
+			queryStatment.setString(1,req.getParameter("user_id"));
+			queryStatment.setString(2, "D");
+	    	rs = queryStatment.executeQuery();
+	    	PrintWriter out = rep.getWriter();
+	    	List<FileInfo> list = new ArrayList<FileInfo>();
+	    	FileInfo file = null;
+	    	while(rs.next()){
+	    		String fileName = rs.getString("file_name");
+	    		String url = rs.getString("url");
+	    		file = new FileInfo();
+	    		file.setFileName(fileName);
+	    		file.setUrl(url);
+	    		list.add(file);
+	    	}
+	    	JSONArray json = JSONArray.fromObject(list);
+	    	out.write(json.toString());  
+	        out.flush();  
+	        out.close(); 
+	    	rs.close();
+	    	queryStatment.close();
+	    	conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch(IOException e){
 			e.printStackTrace();
 		}
     }

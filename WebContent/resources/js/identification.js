@@ -5,6 +5,7 @@ $(document).ready(function() {
 	// 获取以标记文件夹
 	showMarkedFile();
 	showFormatedFile();
+	showAllModel();
 });
 
 /**
@@ -92,14 +93,18 @@ function showFormatedFile(){
 
 function train(){
 	var fileName = $("#formated_file option:selected").val();
+	var selectIndex =  $("#formated_file option:selected").index();
+	$("#formated_file_url").get(0).selectedIndex=selectIndex;
+	var fileUrl = $("#formated_file_url option:selected").val();
 	$.ajax({
 		url : "train",
 		type : "post",
 		data : {
+			fileUrl : fileUrl,
 			fileName : fileName
 		},
 		success : function(data) {
-			alert(data);
+			$("#trained_data").val(data);
 		},
 		error : function(XMLHttpRequest, textStatus, errorThrown) {
 			alert("网络错误，请重试");
@@ -107,6 +112,44 @@ function train(){
 	});
 }
 
-function test(){
-	
+function showAllModel(){
+	$.ajax({
+		url : "queryAllModel",
+		type : "post",
+		data : {
+			user_id : "45"
+		},
+		dataType : "json",
+		async : false,
+		success : function(data) {
+			var context = "";
+			var url = "";
+			$.each(data,function(index,item){
+				var temp = item.fileName;
+        		temp = "<option>" + temp + "</option>";
+                context = context + temp;
+                temp =item.url;
+                temp = "<option>" + temp +"</option>";
+                url = url + temp;
+			});
+            $("#select_model").append(context);
+            $("#model_url").append(url);
+		},
+		error : function(XMLHttpRequest, textStatus, errorThrown) {
+			alert("网络错误，请重试");
+		},
+	});
+}
+
+function testModel(){
+	$.ajax({
+		url : "test",
+		type : "post",
+		success : function(data) {
+			$("#tested_data").val(data);
+		},
+		error : function(XMLHttpRequest, textStatus, errorThrown) {
+			alert("网络错误，请重试");
+		},
+	});
 }

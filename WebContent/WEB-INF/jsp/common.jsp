@@ -19,8 +19,8 @@
           <ul class="nav navbar-nav side-nav">
             <li><a href="<%=request.getContextPath()%>/mvc/getManageMark"><i class="fa fa-dashboard"></i> 项目管理</a></li>
             <li><a href="<%=request.getContextPath()%>/mvc/getMark"><i class="fa fa-edit"></i> 标记系统</a></li>
-            <li><a href="<%=request.getContextPath()%>/mvc/getIdentification"><i class="fa fa-desktop"></i> 识别系统</a></li>
-            <li><a href="#"><i class="fa fa-font"></i> 翻译系统</a></li>
+            <li><a href="<%=request.getContextPath()%>/mvc/getIdentification"><i class="fa fa-desktop"></i> 训练/测试</a></li>
+            <li><a href="<%=request.getContextPath()%>/mvc/getApplication"><i class="fa fa-font"></i> 识别应用</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-square-o-down"></i> 测试下拉框 <b class="caret"></b></a>
               <ul class="dropdown-menu">
