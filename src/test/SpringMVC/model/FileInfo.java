@@ -15,5 +15,11 @@ public class FileInfo {
 		this.url = url;
 	}
 	private String url;
-	
+	private String fileType;
+	public String getFileType() {
+		return fileType;
+	}
+	public void setFileType(String fileType) {
+		this.fileType = fileType;
+	}
 }

@@ -27,11 +27,11 @@
 				        <select id="select_model" style="width: 20%" class="form-control">
 			            </select>
 			            <select id="model_url" style="display:none"></select>
-			            <button type="button" class="btn btn-info" onclick="identification()">识别</button>
+			            <button type="button" class="btn btn-primary" onclick="identification()">识别</button>
 			     </div>
-			     <div class="form-group" style="height: 200px">
-			     <label>识别结果</label>
-			     	<div  style="font-size:20px" >
+			     <div class="form-group" style="height: 50%">
+			     	<label>识别结果</label>
+			     	<div  style="font-size:20px;overflow:auto" >
 		                <ol id="result" style="line-height:50px;">
 		                </ol>
 		            </div>

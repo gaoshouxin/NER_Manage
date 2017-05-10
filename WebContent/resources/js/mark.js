@@ -11,10 +11,11 @@ $(document).ready(function() {
  */
 function showAllFile(){
 	$.ajax({
-		url : "queryAllFile",
+		url : "queryAllOrgFile",
 		type : "post",
 		data : {
-			user_id : "45"
+			user_id : "45",
+			file_type : "O"
 		},
 		dataType : "json",
 		async : false,
@@ -196,7 +197,8 @@ function export_raw(name, data) {
 //下载标注的文件
 function download(){
     var data = getFileStr("#");
-    export_raw("new.txt", data);
+    var fileName = $("#select_file option:selected").val();
+    export_raw("marked_"+fileName, data);
 }
 
 //保存到服务器
@@ -219,3 +221,5 @@ function saveServer(){
         },
     });
 }
+
+

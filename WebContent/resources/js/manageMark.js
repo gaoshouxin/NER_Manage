@@ -67,7 +67,7 @@
 			      processData: false,  
 			      contentType: false,  
 			      success:function(data){  
-			            alert("操作成功！");
+			            alert("上传成功！");
 			            $("#file-list").empty();
 			            showAllFile();
 			      },  
@@ -96,8 +96,7 @@
 	 * 页面加载后执行的动作
 	 */
 	$(document).ready(function() {
-		// 获取所有工程
-		showProjetList();
+		// 获取所有文件
 		showAllFile();
 	});
 	
@@ -138,7 +137,8 @@
 				var context = "";
 				$.each(data,function(index,item){
 					var temp = item.fileName;
-            		temp = "<li class='list-group-item'>" + temp + "</li>";
+					var fileType = item.fileType;
+            		temp = "<tr clss='warning'><td>" + temp+"</td><td ><button type='button' class='btn btn-danger' onclick='deleteFile(this)'>删除</button></td>"+"</tr>";
                     context = context + temp;
 				});
                 $("#file-list").append(context);
@@ -148,3 +148,25 @@
 			},
 		});
 	}
+	
+	function deleteFile(obj){
+		var fileName = $(obj).parent().prev().text();
+		$.ajax({
+			url : "deleteFile",
+			type : "post",
+			data : {
+				userId : "45",
+				fileName : fileName
+			},
+			dataType : "text",
+			success : function(data) {
+				alert("删除成功！");
+				$("#file-list").empty();
+				showAllFile();
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+				alert("网络错误，请重试");
+			},
+		});
+	}
+	

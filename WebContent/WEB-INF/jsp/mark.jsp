@@ -9,30 +9,30 @@
 <div id="wrapper">
 	<%@ include file="common.jsp"%>
 	<div id ="page-wrapper">
-		 <div id="divCenter" class="col-md-15">
-            <div id="topbar" style="background: white;position:fixed">
+		 <div id="divCenter" class="col-md-15" style="position:fixed;text-Align:center;" >
+            <div id="topbar" style="background: white;">
 		        <div class="form-group input-group" >
-		        	<span  class="input-group-btn">
-			            <label><h4>选择已有文件</h4></label>
+		        	<span  class="input-group-btn" >
+			            <label><h4>选择待标注文件</h4></label>
 			        </span>
-			        <select id="select_file" style="width: 15%" class="form-control">
+			        <select id="select_file" style="width: 20%" class="form-control">
 		            </select>
 		            <select id="file_url" style="display:none"></select>
-		            <button id="show_down" type="button" class="btn btn-info" onclick="showText()">显示文件内容</button>
+		            <button id="show_down" type="button" class="btn btn-info" onclick="showText()">读取文件内容</button>
 		            <button id="btnDownload" type="button" class="btn btn-success" onclick="download()">下载标注结果</button>
 			     	<button id="save_server" type="button" class="btn btn-warning" onclick="saveServer()">保存标注结果</button>
 			     </div>
             </div>
+         </div>
             
 
-            <div style="width:100%;height: 20px"></div>
+            <div style="width:100%;height: 50px"></div>
 
             <div  style="font-size:20px" onmouseup="markupElement(event)">
                 <ol id="markupTextHtml" style="line-height:50px;">
                 </ol>
             </div>
         </div>
-	</div>
 </div>
 <script src="<%=request.getContextPath()%>/resources/js/mark.js"></script>
 <script type="text/javascript">
