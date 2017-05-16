@@ -27,6 +27,10 @@
 			     	<div class="form-group" >
 			            <button type="button" style="width: 100%" class="btn btn-primary" onclick="formatText()">格式化文件</button>
 			     	</div>
+			     	<div class="form-group">
+			                <label>输入交叉验证数值</label>
+			                <input class="form-control" id ="" >
+			        </div>
 			     	<div class="form-group" >
 			            <button type="button" style="width: 100%" class="btn btn-primary " onclick="formatText()">生成交叉实验数据</button>
 			     	</div>

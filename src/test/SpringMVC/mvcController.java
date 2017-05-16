@@ -447,34 +447,6 @@ public class mvcController {
                 	if(!hasMarked){
                 		continue;
                 	}
-//                	int i=0;
-//                	while(i<lineTxt.length()){
-//                		if('#'== lineTxt.charAt(i) && startTag){
-//                			i++;
-//                			startTag = false;
-//                		}else if('#' != lineTxt.charAt(i) && (!startTag)){
-//                			queue.offer(lineTxt.charAt(i));
-//                			hasQueue = true;
-//                			i++;
-//                		}else if('#' != lineTxt.charAt(i)&& startTag){
-//                			fw.write(lineTxt.charAt(i)+"\t"+"O\n");
-//                			i++;
-//                		}else if('#' == lineTxt.charAt(i)&& (!startTag)){
-//                			startTag = true;
-//                			if(hasQueue){//一定不为空
-//                				fw.write(queue.poll()+"\t"+"B\n");
-//                				while(!queue.isEmpty()){
-//                					if(1 != queue.size()){
-//                						fw.write(queue.poll()+"\t"+"M\n");
-//                					}else{
-//                						fw.write(queue.poll()+"\t"+"E\n");
-//                					}
-//                				}
-//                			}
-//                			hasQueue = false;
-//                			i++;
-//                		}
-//                	}
                 	CoNLLSentence sentence = HanLP.parseDependency(lineTxt);
                 	for(CoNLLWord word : sentence){
                 		if('#' == word.LEMMA.charAt(0)&&startTag){
@@ -490,7 +462,7 @@ public class mvcController {
                 			}
                 		}else if('#' == word.LEMMA.charAt(0)&& !startTag ){
                 			startTag = true;
-                			if(hasQueue){//一定不为空
+                			if(hasQueue){
                 				fw.write(queue.poll()+"\t"+"B\n");
                 				while(!queue.isEmpty()){
                 					if(1 != queue.size()){
