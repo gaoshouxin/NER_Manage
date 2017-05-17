@@ -46,3 +46,4 @@
           </ul>
         </div>
       </nav>
+<div id="mask" class="mask"></div>

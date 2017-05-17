@@ -52,12 +52,9 @@
 			if($.trim(fileName) == ""){
 				alert("请选择文件");
 				return ;
-			}else if((fileName.slice(-3,fileName.length)!="txt")&&(fileName.slice(-4,fileName.length)!="json")){
-				alert("已选择的文件格式不支持，请选择扩展名为txt或者json文件");
-				$("#file_name").val("");
-				return ;
 			}
 			var form = new FormData($("#file_form")[0]);
+            showMask();
 			$.ajax({  
 			      url:"fileUpload",  
 			      type:"post",  
@@ -66,7 +63,8 @@
 			      async: false, 
 			      processData: false,  
 			      contentType: false,  
-			      success:function(data){  
+			      success:function(data){
+                      	hideMask();
 			            alert("上传成功！");
 			            $("#file-list").empty();
 			            showAllFile();
@@ -100,30 +98,7 @@
 		showAllFile();
 	});
 	
-	function showProjetList(){
-		$.ajax({
-			url : "queryAllProject",
-			type : "post",
-			data : {
-				user_id : "45"
-			},
-			dataType : "json",
-			async : false,
-			success : function(data) {
-				var context = "";
-				$.each(data,function(index,item){
-					var temp = item.proName;
-            		temp = "<li class='list-group-item'>" + temp + "</li>";
-                    context = context + temp;
-				});
-                $("#project-list").append(context);
-			},
-			error : function(XMLHttpRequest, textStatus, errorThrown) {
-				alert("网络错误，请重试");
-			},
-		});
-	}
-	
+
 	function showAllFile(){
 		$.ajax({
 			url : "queryAllFile",
