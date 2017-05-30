@@ -1,15 +1,6 @@
 package test.SpringMVC;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -40,23 +31,14 @@ import com.hankcs.hanlp.corpus.dependency.CoNll.CoNLLSentence;
 import com.hankcs.hanlp.corpus.dependency.CoNll.CoNLLWord;
 
 import net.sf.json.JSONArray;
-import sun.awt.RepaintArea;
 import test.SpringMVC.model.FileInfo;
+import test.SpringMVC.model.Measure;
 import test.SpringMVC.model.Project;
 
 @Controller
 @RequestMapping("/mvc")
 public class mvcController {
-	@RequestMapping("/hello")
-    public String hello(){
-        return "success";
-    }
-	
-	@RequestMapping("/distinguish")
-    public String distinguish(){        
-        return "distinguish";
-    }
-    
+
     /**
      * 跳转到标记页面
      * @return
@@ -65,42 +47,7 @@ public class mvcController {
     public String getMark(){
     	return "mark";
     }
-    /**
-     * 测试用，以后删除
-     * @param req
-     * @param response
-     */
-    @RequestMapping("/getText_1")
-    public static void getText_1(HttpServletRequest req,HttpServletResponse response){
-    	PrintWriter out;
-		Process p;
-		try {
-			p = Runtime.getRuntime().exec("crf_test -m /home/cz/model /home/cz/learn.txt");
-			BufferedReader br = null;
-			br = new BufferedReader(new InputStreamReader(p.getInputStream()));
-			String line = null;
-			StringBuilder sb = new StringBuilder();
-			out = response.getWriter();
-			while ((line = br.readLine()) != null) {
-				if(line.length() < 1){
-					System.out.println("\n");
-					sb.append("\n");
-					continue;
-				}
-				System.out.println(line);
-				out.write(line+"\n");
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-    	
-    }
-    
-    
-    @RequestMapping("/getWelcome")
-    public String getWelcome(){
-    	return "welcome";
-    }
+
     
     /**
      * 跳转到项目管理模块
@@ -127,7 +74,16 @@ public class mvcController {
     public String getApplication(){
     	return "application";
     }
-    
+
+	/**
+	 * 跳转到文件识别应用
+	 * @return
+	 */
+    @RequestMapping("getIdentyFile")
+	public  String getIdentyFile(){
+    	return "identyfile";
+	}
+
     /**
      * 判断是否是Linux操作系统
      * @return
@@ -172,8 +128,11 @@ public class mvcController {
 			//windows系统使用如下命令,成功运行
 			String cmdWin[] ={ "cmd","/C","del "+filePath+"\\"+ fileName};
 			String cmd[] = isOSLinux() ? cmdLinux : cmdWin;
-			System.out.println(cmd.length);
-			Runtime.getRuntime().exec(cmdWin);
+			if(isOSLinux()){
+				Runtime.getRuntime().exec(cmdLinux);
+			}else{
+				Runtime.getRuntime().exec(cmdWin);
+			}
     		deleteStatment = conn.prepareStatement("delete from file where user_id = ? and file_name = ?");
     		deleteStatment.setString(1,userId);
     		deleteStatment.setString(2, fileName);
@@ -186,9 +145,6 @@ public class mvcController {
 	    	}
 	    	deleteStatment.close();
 	    	conn.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch(Exception e){
 			e.printStackTrace();
 		}
@@ -201,42 +157,45 @@ public class mvcController {
      */
     @RequestMapping("/identity")
     public void identity(HttpServletRequest request,HttpServletResponse response){
-    	String modelPath = request.getServletContext().getRealPath("/resources/model/");
-    	String sourceData = request.getParameter("text");
-    	String modelName = request.getParameter("modelName");
-    	String targetPath =modelPath + "/"+"temp.data";
+    	String modelPath = request.getParameter("modelUrl");
+    	String sourcePath = request.getServletContext().getRealPath("/resources/trainAndTest/") + "/"+"temp.data";
+    	String testPath = request.getServletContext().getRealPath("/resources/trainAndTest/");
     	response.setContentType("text/html;charset=utf-8");
-    	File file =new File(targetPath); 
     	PrintWriter pw;
     	try {
-			OutputStream out  = new FileOutputStream(file)  ;
-			for(int i=0;i<sourceData.length();i++){
-				String tmp=String.valueOf(sourceData.charAt(i));
-				if(!tmp.equals("\n"))
-					tmp+="\n";
-				byte [] b= tmp.getBytes();
-				out.write(b);
+			FileOutputStream fos = new FileOutputStream(sourcePath);
+			OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
+			String str = request.getParameter("text");
+			String [] strData = str.split("\n");
+			for (String strTemp : strData){
+				CoNLLSentence sentence = HanLP.parseDependency(strTemp);
+				for(CoNLLWord word : sentence){
+					for(int p=0;p<word.LEMMA.length();p++)
+					osw.write(word.LEMMA.charAt(p)+"\t"+word.POSTAG+"\t"+map.get(word.DEPREL)+"\t\n");
+				}
+				osw.write("\n");
+				osw.flush();
 			}
-			out.close();
-			//linux系统使用如下命令,成功运行
-			String cmdLinux= "crf_test -m "+modelPath+"/"+modelName+" "+modelPath+"/temp.data";
-			//windows系统使用如下命令,成功运行
-			String cmdWin = modelPath+"/crf_test -m "+ modelPath+"/"+modelName+" "+modelPath+"/temp.data";
+			osw.close();
+
+			String cmdLinux= "crf_test -m "+modelPath +" " + sourcePath;
+			String cmdWin = testPath+"/crf_test -m "+ modelPath+" "+ sourcePath;
 			String cmd = isOSLinux() ? cmdLinux : cmdWin;
 			System.out.println(cmd);
 			Process p = Runtime.getRuntime().exec(cmd);
-			BufferedReader br  = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			BufferedReader br  = new BufferedReader(new InputStreamReader(p.getInputStream(),"UTF-8"));
 			String line = null;
 			pw = response.getWriter();
 			while ((line = br.readLine()) != null) {
+				String strLine[] = line.split("\t");
 				if(line.length() < 1){
 					pw.write("\n");
 					continue ;
 				}
-				if(line.charAt(2)=='B')
+				if(strLine[3].equals("B"))
 					pw.write("#");
 				pw.write(line.charAt(0));
-				if(line.charAt(2)=='E')
+				if(strLine[3].equals("E"))
 					pw.write("#");
 			}
 		} catch (Exception e) {
@@ -249,30 +208,58 @@ public class mvcController {
      * @param request
      * @param response
      */
-    @RequestMapping("/test")
-    public void test(HttpServletRequest request,HttpServletResponse response){
-    	String realPath = request.getServletContext().getRealPath("/resources/");
+    @RequestMapping("/testModel")
+    public void testModel(HttpServletRequest request,HttpServletResponse response){
     	response.setContentType("text/html;charset=utf-8");
+    	String modelPath = request.getParameter("modelUrl");
+    	String testFilePath = request.getParameter("testFileUrl");
+		String cmdLinux = "crf_test -m "  + modelPath + " " + testFilePath;
+		String testPath = request.getServletContext().getRealPath("/resources/trainAndTest/");
+		String cmdWin = testPath+"/crf_test -m "+ modelPath +" "+ testFilePath;
+		String cmdStr = isOSLinux() ? cmdLinux : cmdWin;
+		System.out.println(cmdStr);
     	PrintWriter out;
-    	//String cmdString="crf_test -m /home/cz/model /home/cz/learn.txt";
-    	String cmd = "ls -l " + realPath+"/";
-    	System.out.println(cmd);
 		Process p;
 		try {
-			p = Runtime.getRuntime().exec(cmd);
-			BufferedReader br  = new BufferedReader(new InputStreamReader(p.getInputStream()));
-			String line = null;
-			StringBuilder sb = new StringBuilder();
+			p = Runtime.getRuntime().exec(cmdStr);
 			out = response.getWriter();
+			BufferedReader br  = new BufferedReader(new InputStreamReader(p.getInputStream(),"UTF-8"));
+			String line = null;
+			StringBuffer sb = new StringBuffer();
+			boolean flag = true;
+			int correct = 0;
+			int testData = 0;
+			int masterData = 0;
+			String [] strArray = null;
 			while ((line = br.readLine()) != null) {
-				if(line.length() < 1){
-					System.out.println("\n");
-					sb.append("\n");
-					continue ;
+				sb.append(line+"\n");
+				strArray = line.split("\t");
+				if(strArray.length >= 5){
+					if( strArray[4].equals("E") ){
+						testData += 1;
+						if(strArray[3].equals("E")){
+							correct += 1;
+						}
+					}
+					if(strArray[3].equals("E")){
+						masterData += 1;
+					}
 				}
-				System.out.println(line);
-				out.write(line+"\n");
 			}
+			double accuracyRate = correct*1.0/testData;
+			double recallRate = correct*1.0/masterData;
+			double fValue = 2*accuracyRate*recallRate/(accuracyRate+recallRate);
+			Measure measure = new Measure();
+			measure.setTestData(sb.toString());
+			measure.setAccuracyRate(Double.toString(accuracyRate));
+			measure.setRecallRate(Double.toString(recallRate));
+			measure.setfValue(Double.toString(fValue));
+			ArrayList<Measure> list = new ArrayList<Measure>();
+			list.add(measure);
+			JSONArray json = JSONArray.fromObject(list);
+			out.write(json.toString());
+			out.flush();
+			out.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -284,32 +271,34 @@ public class mvcController {
      */
     @RequestMapping("/train")
     public void train(HttpServletRequest request,HttpServletResponse response){
-    	String templatePath = request.getServletContext().getRealPath("/resources/formated/")+"/template";
-    	String formatedFilePath=request.getParameter("fileUrl");
-    	String modelPath = request.getServletContext().getRealPath("/resources/model/")+"/";
-    	String modelName = request.getParameter("fileName")+".model";
-    	response.setContentType("text/html;charset=utf-8");
+		response.setContentType("text/html;charset=utf-8");
+    	String trainFilePath = request.getParameter("trainFileUrl");
+    	String templateFilePath = request.getParameter("templateFileUrl");
+    	String parameter = request.getParameter("parameter");
+    	String fileName = trainFilePath.substring(trainFilePath.lastIndexOf('_') + 1,trainFilePath.indexOf('.'));
+    	String modelPath = request.getServletContext().getRealPath("/resources/model/")+"/"+fileName+"_model";
+
+		String cmdLinux = "crf_learn " + parameter + " " + templateFilePath + " "+trainFilePath+" " + modelPath;
+		String trainPath = request.getServletContext().getRealPath("/resources/trainAndTest/");
+		String cmdWin = trainPath+"/crf_learn "+ parameter +" "+ templateFilePath + " "+trainFilePath+" " + modelPath;
+		String cmdStr = isOSLinux() ? cmdLinux : cmdWin;
+		System.out.println(cmdStr);
+
     	PrintWriter out;
-    	String cmdString="crf_learn -f 2 -c 1.5 -p 14 "+templatePath+" "+formatedFilePath+" "+modelPath+modelName ;
-    	System.out.println(cmdString);
-		String testCmd="crf_learn -f 2 -c 1.5 -p 14 /home/cz/template_baseline /home/cz/learn.txt /home/cz/txt.model";
     	Process p;
 		try {
-			p = Runtime.getRuntime().exec(testCmd);
+			p = Runtime.getRuntime().exec(cmdStr);
 			BufferedReader br  = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			String line = null;
-			StringBuilder sb = new StringBuilder();
 			out = response.getWriter();
 			while ((line = br.readLine()) != null) {
-				if(line.length() < 1){
-					System.out.println("\n");
-					sb.append("\n");
-					continue ;
-				}
-				System.out.println(line);
 				out.write(line+"\n");
 			}
-		} catch (IOException e) {
+			File file = new File(modelPath);
+			if(file.exists()){
+				insertFileInfo(request.getServletContext().getRealPath("/resources/model/"),"D",fileName+"_model");
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
     }
@@ -323,7 +312,7 @@ public class mvcController {
     	rep.setContentType("text/html;charset=utf-8");//设置响应的编码格式，不然会出现中文乱码现象  
     	PreparedStatement queryStatment = null;
     	Connection conn = connectMysql();
-    	ResultSet rs =null;
+    	ResultSet rs = null;
     	try {
 			queryStatment = conn.prepareStatement("select file_name,url from file where user_id = ? and file_type= ? ORDER BY update_time DESC ");
 			queryStatment.setString(1,req.getParameter("user_id"));
@@ -348,7 +337,6 @@ public class mvcController {
 	    	queryStatment.close();
 	    	conn.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch(IOException e){
 			e.printStackTrace();
@@ -395,7 +383,10 @@ public class mvcController {
 			e.printStackTrace();
 		}
     }
-    
+
+
+
+
     /**
      * 将标记后的文本内容转为crf训练需要的格式
      * @param filePah
@@ -403,22 +394,7 @@ public class mvcController {
      * @return
      */
     private String filter(String filePah, String targetPath){
-    	Map<String,String> map = new HashMap<String,String>();
-		map.put("主谓关系", "SBV");
-		map.put("动宾关系", "VOB");
-		map.put("间宾关系", "IOB");
-		map.put("前置宾语", "FOB");
-		map.put("兼语", "DBL");
-		map.put("定中关系", "ATT");
-		map.put("状中结构", "ADV");
-		map.put("动补结构", "CMP");
-		map.put("并列关系", "COO");
-		map.put("介宾关系", "POB");
-		map.put("左附加关系", "LAD");
-		map.put("右附加关系", "RAD");
-		map.put("独立结构", "IS");
-		map.put("核心关系", "HED");
-		map.put("标点符号","BDF");
+
     	String result = null;
     	try {
             String encoding="UTF-8";
@@ -504,30 +480,13 @@ public class mvcController {
     	String fileName = request.getParameter("fileName");
     	String realPath = request.getServletContext().getRealPath("/resources/formated/");
     	String targetPath =realPath + "/"+"formated_"+fileName;
-    	System.out.println(filePath);
     	String result= filter(filePath,targetPath);
-    	PreparedStatement insertStatement = null;
-    	Connection conn = connectMysql();
     	PrintWriter out;
     	try{
-    		 out = response.getWriter();
+			out = response.getWriter();
         	if(result.equals("格式化成功")){
-        		
     	    	//保存数据库
-    	    	insertStatement  = conn.prepareStatement("insert into " + "file" +   
-    					"(user_id,url,file_name,update_time,file_type) values (?,?,?,?,?)");
-    			insertStatement.setString(1, "45");
-            	insertStatement.setString(2, targetPath);
-            	insertStatement.setString(3, "formated_"+request.getParameter("fileName"));
-            	Date time = new Date();
-                SimpleDateFormat timesf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
-                String updatetime = timesf.format(time);
-                insertStatement.setString(4,updatetime);
-            	insertStatement.setString(5, "F");//格式化的文件
-                insertStatement.executeUpdate();  
-                conn.commit();
-                insertStatement.close();
-                conn.close();
+				insertFileInfo(realPath,"F","formated_"+fileName);
         	}
         	out.write(result);
         	out.close() ;
@@ -575,7 +534,7 @@ public class mvcController {
 		return json;
     }
     /**
-     * 返回所有标注好的文件
+     * 查询所有标注好的文件
      * @param req
      * @param rep
      */
@@ -593,7 +552,74 @@ public class mvcController {
 			e.printStackTrace();
 		}
     }
-    
+
+	/**
+	 * 查询所有待训练文件
+	 * @param request
+	 * @param response
+	 */
+	@RequestMapping("/queryAllTrainFile")
+	public void queryAllTrainFile(HttpServletRequest request,HttpServletResponse response){
+		response.setContentType("text/html;charset=utf-8");//设置响应的编码格式，不然会出现中文乱码现象
+		String userId = request.getParameter("user_id");
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+			JSONArray json = queryTargetFile(userId,"A");
+			out.write(json.toString());
+			out.flush();
+			out.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 查询所有待测试文件
+	 * @param request
+	 * @param response
+	 */
+	@RequestMapping("/queryAllTestFile")
+	public void queryAllTestFile(HttpServletRequest request,HttpServletResponse response){
+		response.setContentType("text/html;charset=utf-8");//设置响应的编码格式，不然会出现中文乱码现象
+		String userId = request.getParameter("user_id");
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+			JSONArray json = queryTargetFile(userId,"E");
+			out.write(json.toString());
+			out.flush();
+			out.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 查询所有模板文件
+	 * @param request
+	 * @param response
+	 */
+	@RequestMapping("/queryAllTemplateFile")
+	public void queryAllTemplateFile(HttpServletRequest request,HttpServletResponse response){
+		response.setContentType("text/html;charset=utf-8");//设置响应的编码格式，不然会出现中文乱码现象
+		String userId = request.getParameter("user_id");
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+			JSONArray json = queryTargetFile(userId,"T");
+			out.write(json.toString());
+			out.flush();
+			out.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	/**
+	 * 查询所有待标记文件
+	 * @param request
+	 * @param response
+	 */
     @RequestMapping("/queryAllOrgFile")
     public void queryAllOrgFile(HttpServletRequest request,HttpServletResponse response){
     	response.setContentType("text/html;charset=utf-8");
@@ -610,6 +636,70 @@ public class mvcController {
 			e.printStackTrace();
 		}
     }
+
+	/**
+	 * 生成交叉验证的数据（分为训练数据和测试数据）
+	 * @param response
+	 * @param request
+	 */
+    @RequestMapping("/produceCrossedData")
+	public void produceCrossedData(HttpServletResponse response,HttpServletRequest request){
+    	String filePath = request.getParameter("fileUrl");
+    	String splitNum = request.getParameter("crossedVal");
+    	String fileName = request.getParameter("fileName");
+		response.setContentType("text/html;charset=utf-8");
+		try{
+			PrintWriter out = response.getWriter();
+			File file=new File(filePath);
+			if(file.isFile() && file.exists()){
+				InputStreamReader read = new InputStreamReader(new FileInputStream(file),"UTF-8");//考虑到编码格式
+				BufferedReader bufferedReader = new BufferedReader(read);
+				String lineTxt;
+				int count=0;
+				while((lineTxt = bufferedReader.readLine()) != null){
+					count++;
+				}
+				int splitPart = Integer.parseInt(splitNum); //将格式化的文件划分的块数
+				int splitPosition = (int)Math.ceil(count*(splitPart-1)/splitPart);
+				read = new InputStreamReader(new FileInputStream(file));
+				BufferedReader br = new BufferedReader(read);
+				String realPath = request.getServletContext().getRealPath("/resources/trainAndTest/");
+				String targetTarinPath =realPath + "/"+"train_"+fileName;
+				FileOutputStream fos = new FileOutputStream(targetTarinPath);
+				OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
+				int curser = 0;
+				while ((lineTxt = br.readLine()) != null){
+					osw.write(lineTxt+"\n");
+					osw.flush();
+					curser ++;
+					if(curser >= splitPosition){
+						if(lineTxt.equals("")){
+							break;
+						}
+					}
+				}
+				insertFileInfo(realPath,"A","train_"+fileName);
+				realPath = request.getServletContext().getRealPath("/resources/trainAndTest/");
+				String targetTestPath = realPath + "/" + "test_" + fileName;
+				FileWriter fwTest = new FileWriter(targetTestPath,false);
+				fos = new FileOutputStream(targetTestPath);
+				osw = new OutputStreamWriter(fos,"UTF-8");
+				while ((lineTxt = br.readLine()) != null){
+					osw.write(lineTxt+"\n");
+					osw.flush();
+				}
+				insertFileInfo(realPath,"E","test_"+fileName);
+				osw.close();
+				out.write("操作成功！");
+			}else{
+				System.out.println("找不到指定的文件");
+				out.write("找不到指定文件！");
+			}
+			out.close();
+		}catch (Exception e){
+    		e.printStackTrace();
+		}
+	}
     /**
      * 将标注好的数据保存到服务器
      * @param request
@@ -621,36 +711,15 @@ public class mvcController {
     public void saveServer(HttpServletRequest request,HttpServletResponse response){
     	String realPath = request.getServletContext().getRealPath("/resources/marked/");
     	String targetPath =realPath + "/"+"marked_"+request.getParameter("fileName");
-    	File file =new File(targetPath);  
-    	FileWriter fw = null;
-    	PreparedStatement insertStatement = null;
-    	Connection conn = connectMysql();
     	try {
-    		fw  = new FileWriter(file,false);
-			String str = request.getParameter("data");  
-	    	fw.write(str);
-	    	//保存数据库
-	    	insertStatement  = conn.prepareStatement("insert into " + "file" +   
-					"(user_id,url,file_name,update_time,file_type) values (?,?,?,?,?)");
-			insertStatement.setString(1, "45");
-        	insertStatement.setString(2, targetPath);
-        	insertStatement.setString(3, "marked_"+request.getParameter("fileName"));
-        	Date time = new Date();
-            SimpleDateFormat timesf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
-            String updatetime = timesf.format(time);
-            insertStatement.setString(4,updatetime);
-        	insertStatement.setString(5, "M");
-            insertStatement.executeUpdate();  
-            conn.commit();
-            insertStatement.close();
-            conn.close();
-	    	
-	    	fw.close() ;      // 关闭输出流
-	    	
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e){
+			FileOutputStream fos = new FileOutputStream(targetPath);
+			OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
+			String str = request.getParameter("data");
+			osw.write(str);
+			osw.flush();
+	    	insertFileInfo(targetPath,"M","marked_"+request.getParameter("fileName"));
+			osw.close();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
     }
@@ -697,18 +766,18 @@ public class mvcController {
     public void fileUpLoad(@RequestParam("file") MultipartFile file,HttpServletRequest request, HttpServletResponse response) throws IOException{ 
     	String fileType = new String( request.getParameter("file_type").getBytes("ISO-8859-1"),"utf-8");
     	String realPath = null;
-    	String fileFlag = "";
+    	String fileFlag = null;
     	if(fileType.equals("待标记文件")){
     		realPath = request.getServletContext().getRealPath("/resources/needMark/");
     		fileFlag = "O";
     	}else if(fileType.equals("训练模板")){
-    		realPath = request.getServletContext().getRealPath("/resources/formated/");
+    		realPath = request.getServletContext().getRealPath("/resources/trainAndTest/");
     		fileFlag = "T";
     	}else if(fileType.equals("可用模型")){
     		realPath = request.getServletContext().getRealPath("/resources/model/");
     		fileFlag = "D";
     	}else{
-    		realPath = request.getServletContext().getRealPath("/resources/formated/");
+    		realPath = request.getServletContext().getRealPath("/resources/trainAndTest/");
     		fileFlag = "E";
     	}
     	System.out.println(realPath);
@@ -737,7 +806,7 @@ public class mvcController {
     	PreparedStatement queryStatment = null;
     	PreparedStatement updateStatment = null;
     	Connection conn = connectMysql();
-    	ResultSet rs =null;
+    	ResultSet rs = null;
 		try {
 			queryStatment = conn.prepareStatement("select count(*) record from file where file_name = ? and file_type = ?");
 			queryStatment.setString(1,fileName);
@@ -821,7 +890,7 @@ public class mvcController {
     /**
      * 查询返回所有已存在项目
      * @param req
-     * @param pw
+     * @param
      */
     @RequestMapping("/queryAllProject")
     public void queryAllProject(HttpServletRequest req,HttpServletResponse rep){
@@ -939,4 +1008,23 @@ public class mvcController {
         }  
         return conn;
     }
+
+	public static Map<String,String> map = new HashMap<String,String>();
+	static {
+		map.put("主谓关系", "SBV");
+		map.put("动宾关系", "VOB");
+		map.put("间宾关系", "IOB");
+		map.put("前置宾语", "FOB");
+		map.put("兼语", "DBL");
+		map.put("定中关系", "ATT");
+		map.put("状中结构", "ADV");
+		map.put("动补结构", "CMP");
+		map.put("并列关系", "COO");
+		map.put("介宾关系", "POB");
+		map.put("左附加关系", "LAD");
+		map.put("右附加关系", "RAD");
+		map.put("独立结构", "IS");
+		map.put("核心关系", "HED");
+		map.put("标点符号","BDF");
+	}
 }

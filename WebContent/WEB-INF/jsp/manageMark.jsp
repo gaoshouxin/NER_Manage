@@ -18,28 +18,6 @@
               </div>
               <div class="panel-body">
                 <div style="height:500px">
-                <!--
-                	<form role="form">
-                		<div class="form-group">
-			                <label>项目名称</label>
-			                <input class="form-control" id="project_name" placeholder="请输入项目名称" >
-			            </div>
-			            <div class="form-group">
-			                <label>标注字符</label>
-			                <input class="form-control" id ="mark_sign" placeholder="字符长度为1，建议使用 #" >
-			            </div>
-			            <div style="text-Align:center;"> 
-			            	<button type="button" id="submit-project" class="btn btn-success">提交</button>
-			            	<button type="button" id="reset-project" class="btn btn-warning">重置</button>
-						</div> 
-                	</form>
-                	<div style="height: 2%"></div>
-                	<label>所有项目</label>
-                	<div style="height: 55%; overflow:auto">
-		            	<ul class="list-group" id="project-list">
-						</ul>
-					</div>
-					-->
 					<div style="height: 20%"></div>
 					<form role="form" id="file_form" enctype="multipart/form-data" accept-charset="utf-8" >
 						<label>上传文件</label>

@@ -20,7 +20,8 @@
             <li><a href="<%=request.getContextPath()%>/mvc/getManageMark"><i class="fa fa-dashboard"></i> 项目管理</a></li>
             <li><a href="<%=request.getContextPath()%>/mvc/getMark"><i class="fa fa-edit"></i> 标记系统</a></li>
             <li><a href="<%=request.getContextPath()%>/mvc/getIdentification"><i class="fa fa-desktop"></i> 训练/测试</a></li>
-            <li><a href="<%=request.getContextPath()%>/mvc/getApplication"><i class="fa fa-font"></i> 识别应用</a></li>
+            <li><a href="<%=request.getContextPath()%>/mvc/getApplication"><i class="fa fa-font"></i> 句子识别</a></li>
+            <li><a href="<%=request.getContextPath()%>/mvc/getIdentyFile"><i class="fa fa-font"></i> 文件识别</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-square-o-down"></i> 测试下拉框 <b class="caret"></b></a>
               <ul class="dropdown-menu">

@@ -30,20 +30,22 @@ function showAllModel(){
 		},
 		error : function(XMLHttpRequest, textStatus, errorThrown) {
 			alert("网络错误，请重试");
-		},
+		}
 	});
 }
 
 function identification(){
+    showMask();
 	var text = $("#source_data").val();
-	var modelName = $("#select_model").val();
-	
+    var selectIndex =  $("#select_model option:selected").index();
+    $("#model_url").get(0).selectedIndex=selectIndex;
+    var modelUrl = $("#model_url option:selected").val();
 	$.ajax({
 		url : "identity",
 		type : "post",
 		data : {
 			text : text,
-			modelName : modelName
+			modelUrl : modelUrl
 		},
 		success : function(data) {
 			var context= "";
@@ -58,10 +60,12 @@ function identification(){
             } 
             $("li").remove(".content");
             $("#result").append(context);
+            hideMask();
 		},
 		error : function(XMLHttpRequest, textStatus, errorThrown) {
 			alert("网络错误，请重试");
-		},
+			hideMask();
+		}
 	});
 }
 

@@ -20,19 +20,21 @@
 		                <label>原始数据</label>
 		                <textarea id="source_data" class="form-control" rows="10"></textarea>
 		        </div>
-		        <div class="form-group input-group" >
-			        	<span  class="input-group-btn">
-				            <label><h4>选择模型</h4></label>
-				        </span>
-				        <select id="select_model" style="width: 20%" class="form-control">
-			            </select>
-			            <select id="model_url" style="display:none"></select>
-			            <button type="button" class="btn btn-primary" onclick="identification()">识别</button>
-			     </div>
+
+			  <div class="form-group input-group" >
+					<span  class="input-group-btn">
+						<label><h4>选择模型</h4></label>
+					</span>
+				  <select id="select_model" style="width: 20%" class="form-control">
+				  </select>
+				  <select id="model_url" style="display:none"></select>
+				  <button type="button" class="btn btn-primary" onclick="identification()">识别</button>
+			  </div>
+
 			     <div class="form-group" style="height: 50%">
 			     	<label>识别结果</label>
 			     	<div  style="font-size:20px;overflow:auto" >
-		                <ol id="result" style="line-height:50px;">
+		                <ol id="result" style="line-height:30px;">
 		                </ol>
 		            </div>
 			     </div>

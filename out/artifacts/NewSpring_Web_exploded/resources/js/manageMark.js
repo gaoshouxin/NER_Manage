@@ -98,30 +98,7 @@
 		showAllFile();
 	});
 	
-	function showProjetList(){
-		$.ajax({
-			url : "queryAllProject",
-			type : "post",
-			data : {
-				user_id : "45"
-			},
-			dataType : "json",
-			async : false,
-			success : function(data) {
-				var context = "";
-				$.each(data,function(index,item){
-					var temp = item.proName;
-            		temp = "<li class='list-group-item'>" + temp + "</li>";
-                    context = context + temp;
-				});
-                $("#project-list").append(context);
-			},
-			error : function(XMLHttpRequest, textStatus, errorThrown) {
-				alert("网络错误，请重试");
-			},
-		});
-	}
-	
+
 	function showAllFile(){
 		$.ajax({
 			url : "queryAllFile",

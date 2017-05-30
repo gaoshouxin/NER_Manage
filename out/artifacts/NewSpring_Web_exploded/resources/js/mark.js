@@ -205,6 +205,7 @@ function download(){
 function saveServer(){
 	var data = getFileStr("#");
 	var fileName = $("#select_file option:selected").val();
+	showMask();
 	$.ajax({
         url:"saveServer",
         type:"post",
@@ -214,7 +215,8 @@ function saveServer(){
 		},
 		async : false,
         success: function (data) {
-           alert("保存成功")
+           alert("保存成功");
+            hideMask();
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) {
             alert("保存失败，请重试");

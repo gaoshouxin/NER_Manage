@@ -17,7 +17,7 @@
                 <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> CRF训练</h3>
               </div>
               <div class="panel-body">
-                <div style="height:550px">
+                <div style="height:570px">
                 	<label>选择已标记文件</label>
                 	<div class="form-group" >
 				        <select id="marked_file" style="width: 100%" class="form-control">
@@ -27,33 +27,40 @@
 			     	<div class="form-group" >
 			            <button type="button" style="width: 100%" class="btn btn-primary" onclick="formatText()">格式化文件</button>
 			     	</div>
+					<div class="form-group " >
+						<label>选择已格式化文件</label>
+						<select id="formated_file" style="width: 100%" class="form-control">
+						</select>
+						<select id="formated_file_url" style="display:none"></select>
+					</div>
+
 			     	<div class="form-group">
 			                <label>输入交叉验证数值</label>
-			                <input class="form-control" id ="" >
+			                <input class="form-control" id ="crossed_val" placeholder="请输入整数值" >
 			        </div>
 			     	<div class="form-group" >
-			            <button type="button" style="width: 100%" class="btn btn-primary " onclick="formatText()">生成交叉实验数据</button>
+			            <button type="button" style="width: 100%" class="btn btn-primary " onclick="produceCrossedData()">生成交叉实验数据</button>
 			     	</div>
-			     	
-			     	<div class="form-group " >
-			     		<label>选择训练文件</label>
-			            <select id="formated_file" style="width: 100%" class="form-control">
-			            </select>
-			            <select id="formated_file_url" style="display:none"></select>
-			     	</div>
+					<div class="form-group " >
+						<label>选择待训练文件</label>
+						<select id="train_file" style="width: 100%" class="form-control">
+						</select>
+						<select id="train_file_url" style="display:none"></select>
+					</div>
+
 			     	<div class="form-group " >
 			     		<label>选择模板文件</label>
-			            <select id="formated_file" style="width: 100%" class="form-control">
+			            <select id="template_file" style="width: 100%" class="form-control">
 			            </select>
-			            <select id="formated_file_url" style="display:none"></select>
+			            <select id="template_file_url" style="display:none"></select>
 			     	</div>
 			     	
 			     	<div class="form-group">
 			                <label>输入训练参数</label>
-			                <input class="form-control" id ="" >
+			                <input class="form-control" id ="train_param">
 			        </div>
 			        <div class="form-group" >
-			            <button type="button" style="width: 100%" class="btn btn-success " onclick="formatText()">训练</button>
+			            <button type="button" style="width: 100%" class="btn btn-success " onclick="train()">训练</button>
 			     	</div>
 			     	
 	            </div>
@@ -66,11 +73,11 @@
                 <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> CRF训练</h3>
               </div>
               <div class="panel-body">
-                <div style="height:550px">
+                <div style="height:570px">
                 	
 			     	<div class="form-group">
 			                <label>训练数据</label>
-			                <textarea id="tested_data" class="form-control" rows="27" style="overflow:auto"></textarea>
+			                <textarea id="trained_data" class="form-control" rows="27" style="overflow:auto"></textarea>
 			        </div>
                 </div>
               </div>
@@ -82,12 +89,12 @@
                 <h3 class="panel-title"><i class="fa fa-long-arrow-right"></i> CRF测试</h3>
               </div>
               <div class="panel-body">
-                <div style="height:550px">
+                <div style="height:570px">
 			     	<div class="form-group" >
 			     		<label>选择测试文件</label>
-			            <select id="" style="width: 100%" class="form-control">
+			            <select id="test_file" style="width: 100%" class="form-control">
 			            </select>
-			            <select id="" style="display:none"></select>
+			            <select id="test_file_url" style="display:none"></select>
 			     	</div>
 			     	<div class="form-group " >
 			     		<label>选择模型</label>
@@ -114,15 +121,15 @@
 				                 <tbody  id="file-list">
 				                 <tr class="warning">
 				                    <td>准确率</td>
-				                    <td>81.3%</td>
+				                    <td id="accuracyRate"></td>
 				                 </tr>
 				                 <tr class="warning">
 				                    <td>召回率</td>
-				                    <td>81.3%</td>
+				                    <td id="recallRate"></td>
 				                 </tr>
 				                 <tr class="warning">
 				                    <td>F值</td>
-				                    <td>81.3%</td>
+				                    <td id="fValue"></td>
 				                 </tr>
 				                 </tbody>
 				            </table>
