@@ -33,7 +33,7 @@ import com.hankcs.hanlp.corpus.dependency.CoNll.CoNLLWord;
 import net.sf.json.JSONArray;
 import test.SpringMVC.model.FileInfo;
 import test.SpringMVC.model.Measure;
-import test.SpringMVC.model.Project;
+import test.SpringMVC.model.User;
 
 @Controller
 @RequestMapping("/mvc")
@@ -84,6 +84,23 @@ public class mvcController {
     	return "identyfile";
 	}
 
+	/**
+	 * 注册页面
+	 * @return
+	 */
+	@RequestMapping("getRegister")
+	public String getRegister(){
+		return "register";
+	}
+
+	/**
+	 * 登录
+	 * @return
+	 */
+	@RequestMapping("getLogin")
+	public String getLogin(){
+		return "login";
+	}
     /**
      * 判断是否是Linux操作系统
      * @return
@@ -111,7 +128,7 @@ public class mvcController {
     	PreparedStatement deleteStatment = null;
     	PreparedStatement queryStatment = null;
     	Connection conn = connectMysql();
-    	ResultSet rs =null;
+    	ResultSet rs = null;
     	String url = null;
     	try {
     		queryStatment = conn.prepareStatement("select url from file where user_id = ? and file_name= ? ");
@@ -149,7 +166,39 @@ public class mvcController {
 			e.printStackTrace();
 		}
     }
-    
+
+    @RequestMapping("/identityFile")
+	public void identityFile(HttpServletRequest request,HttpServletResponse response){
+		String modelPath = request.getParameter("modelUrl");
+		String sourcePath = request.getServletContext().getRealPath("/resources/trainAndTest/") + "/"+"temp.data";
+		String testPath = request.getServletContext().getRealPath("/resources/trainAndTest/");
+		String filePath = request.getParameter("fileUrl");
+		response.setContentType("text/html;charset=utf-8");
+		try {
+			FileOutputStream fos = new FileOutputStream(sourcePath);
+			OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
+			File file = new File(filePath);
+			InputStreamReader read = new InputStreamReader(new FileInputStream(file),"UTF-8");//考虑到编码格式
+			BufferedReader bufferedReader = new BufferedReader(read);
+			String lineTxt = null;
+			while((lineTxt = bufferedReader.readLine()) != null){
+				if(lineTxt.length()<1){
+					continue;
+				}
+				CoNLLSentence sentence = HanLP.parseDependency(lineTxt);
+				for(CoNLLWord word : sentence){
+					for(int p=0;p<word.LEMMA.length();p++)
+						osw.write(word.LEMMA.charAt(p)+"\t"+word.POSTAG+"\t"+map.get(word.DEPREL)+"\t\n");
+				}
+				osw.write("\n");
+				osw.flush();
+			}
+			osw.close();
+			identityPrint(response,modelPath,testPath,sourcePath);
+		}catch (Exception e){
+
+		}
+	}
     /**
      * 将用户输入的文本识别之后返回
      * @param request
@@ -161,7 +210,6 @@ public class mvcController {
     	String sourcePath = request.getServletContext().getRealPath("/resources/trainAndTest/") + "/"+"temp.data";
     	String testPath = request.getServletContext().getRealPath("/resources/trainAndTest/");
     	response.setContentType("text/html;charset=utf-8");
-    	PrintWriter pw;
     	try {
 			FileOutputStream fos = new FileOutputStream(sourcePath);
 			OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
@@ -177,34 +225,44 @@ public class mvcController {
 				osw.flush();
 			}
 			osw.close();
-
-			String cmdLinux= "crf_test -m "+modelPath +" " + sourcePath;
-			String cmdWin = testPath+"/crf_test -m "+ modelPath+" "+ sourcePath;
-			String cmd = isOSLinux() ? cmdLinux : cmdWin;
-			System.out.println(cmd);
-			Process p = Runtime.getRuntime().exec(cmd);
-			BufferedReader br  = new BufferedReader(new InputStreamReader(p.getInputStream(),"UTF-8"));
-			String line = null;
-			pw = response.getWriter();
-			while ((line = br.readLine()) != null) {
-				String strLine[] = line.split("\t");
-				if(line.length() < 1){
-					pw.write("\n");
-					continue ;
-				}
-				if(strLine[3].equals("B"))
-					pw.write("#");
-				pw.write(line.charAt(0));
-				if(strLine[3].equals("E"))
-					pw.write("#");
-			}
+			identityPrint(response,modelPath,testPath,sourcePath);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
     }
-    
+
+	/**
+	 * 实体识别主要代码
+	 * @param response
+	 * @param modelPath
+	 * @param testPath
+	 * @param sourcePath
+	 * @throws Exception
+	 */
+    public void identityPrint(HttpServletResponse response,String modelPath,String testPath,String sourcePath) throws Exception {
+		String cmdLinux= "crf_test -m "+modelPath +" " + sourcePath;
+		String cmdWin = testPath+"/crf_test -m "+ modelPath+" "+ sourcePath;
+		String cmd = isOSLinux() ? cmdLinux : cmdWin;
+		System.out.println(cmd);
+		Process p = Runtime.getRuntime().exec(cmd);
+		BufferedReader br  = new BufferedReader(new InputStreamReader(p.getInputStream(),"UTF-8"));
+		String line = null;
+		PrintWriter pw = response.getWriter();
+		while ((line = br.readLine()) != null) {
+			String strLine[] = line.split("\t");
+			if(line.length() < 1){
+				pw.write("\n");
+				continue ;
+			}
+			if(strLine[3].equals("B"))
+				pw.write("#");
+			pw.write(line.charAt(0));
+			if(strLine[3].equals("E"))
+				pw.write("#");
+		}
+	}
     /**
-     * 测试生成模型的效果
+     * 测试生成模型的效果，计算三个参数的精度。
      * @param request
      * @param response
      */
@@ -226,7 +284,6 @@ public class mvcController {
 			BufferedReader br  = new BufferedReader(new InputStreamReader(p.getInputStream(),"UTF-8"));
 			String line = null;
 			StringBuffer sb = new StringBuffer();
-			boolean flag = true;
 			int correct = 0;
 			int testData = 0;
 			int masterData = 0;
@@ -725,7 +782,7 @@ public class mvcController {
     }
     
     /**
-     * 获取上传文件的内容
+     * 获取上传文件的内容,传送到前端页面
      * @param request
      * @param response
      */
@@ -786,8 +843,7 @@ public class mvcController {
     	
     	//如果文件夹不存在则创建    
     	if  (!filePath.exists()  && !filePath.isDirectory())      
-    	{ 
-    		System.out.println("文件夹不存在");
+    	{
     	    filePath .mkdir();    
     	} 
     	if(!file.isEmpty()){
@@ -887,111 +943,19 @@ public class mvcController {
 			e.printStackTrace();
 		}
     }
-    /**
-     * 查询返回所有已存在项目
-     * @param req
-     * @param
-     */
-    @RequestMapping("/queryAllProject")
-    public void queryAllProject(HttpServletRequest req,HttpServletResponse rep){
-    	rep.setContentType("text/html;charset=utf-8");//设置响应的编码格式，不然会出现中文乱码现象  
-    	PreparedStatement queryStatment = null;
-    	Connection conn = connectMysql();
-    	ResultSet rs =null;
-    	try {
-			queryStatment = conn.prepareStatement("select pro_name from project where user_id = ? ORDER BY update_time DESC ");
-			queryStatment.setString(1,req.getParameter("user_id"));
-	    	rs = queryStatment.executeQuery();
-	    	PrintWriter out = rep.getWriter();
-	    	List<Project> list = new ArrayList<Project>();
-	    	Project pro = null;
-	    	while(rs.next()){
-	    		String proName = rs.getString("pro_name");
-	    		pro = new Project();
-	    		pro.setProName(proName);
-	    		list.add(pro);
-	    	}
-	    	JSONArray json = JSONArray.fromObject(list);
-	    	out.write(json.toString());  
-	        out.flush();  
-	        out.close(); 
-	    	rs.close();
-	    	queryStatment.close();
-	    	conn.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch(IOException e){
-			e.printStackTrace();
-		}
-    	
-    }
-    /**
-     * 创建项目，遇到重复时会反馈
-     * @param req
-     * @param pw
-     */
-    @RequestMapping("/createProject")
-    public void createProject(HttpServletRequest req,PrintWriter pw){
-    	PreparedStatement insertStatement = null;
-    	PreparedStatement queryStatment = null;
-    	Connection conn = connectMysql();
-    	ResultSet rs =null;
-    	boolean isInserted;
-    	//创建一个Statement对象  
-        try {
-        	queryStatment = conn.prepareStatement("select count(*) record from project where pro_name = ?");
-        	queryStatment.setString(1,req.getParameter("project_name"));
-        	rs = queryStatment.executeQuery();
-        	isInserted = false;
-        	while(rs.next()){
-        		int rowNum = rs.getInt("record");
-        		if(rowNum < 1){
-        			isInserted = true;
-        			insertStatement = conn.prepareStatement("insert into " + "project" +   
-        					" (user_id,pro_name,pro_sign,update_time) values (?,?,?,?)");
-		        	insertStatement.setString(1, "45");
-		        	insertStatement.setString(2, req.getParameter("project_name"));
-		        	insertStatement.setString(3, req.getParameter("mark_sign"));
-		        	Date time = new Date();
-                    SimpleDateFormat timesf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
-                    String updatetime = timesf.format(time);
-                    insertStatement.setString(4,updatetime);
-		        	insertStatement.executeUpdate();  
-		            conn.commit();
-		            pw.write("1");
-        		}else{
-        			pw.write("0");
-        		}
-        	}
-        	//关闭连接，与之前的操作反着来
-        	rs.close();
-        	if(isInserted){
-        		insertStatement.close();
-        	}else{
-        		queryStatment.close();
-        	}
-        	conn.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception e){
-			e.printStackTrace();
-		}
-    }
     
     /**
      * 连接数据库
      * @return 数据库
      */
-    private Connection connectMysql(){
+    public Connection connectMysql(){
     	try {  
             //调用Class.forName()方法加载驱动程序  
             Class.forName("com.mysql.jdbc.Driver");  
         } catch (ClassNotFoundException e) {  
             e.printStackTrace();  
         } 
-    	String hostname = "115.159.40.100";
+    	String hostname = "localhost";
     	String port = "3306";
     	String databaseName = "mark_system";
     	String url = "jdbc:mysql://" + hostname + ":" + port + "/" + databaseName;
@@ -1026,5 +990,199 @@ public class mvcController {
 		map.put("独立结构", "IS");
 		map.put("核心关系", "HED");
 		map.put("标点符号","BDF");
+	}
+
+	/**
+	 * 注册用户
+	 * @param request
+	 * @param response
+	 */
+	@RequestMapping("/registerUser")
+	public void registerUser(HttpServletRequest request, HttpServletResponse response){
+		String userName = request.getParameter("user_name");
+		String password = request.getParameter("password");
+		String userPhone = request.getParameter("user_phone");
+		String userEmail = request.getParameter("user_email");
+		response.setContentType("text/html;charset=utf-8");
+		PreparedStatement insertStatement = null;
+		PreparedStatement queryStatment = null;
+		Connection conn = connectMysql();
+		ResultSet rs = null;
+		try {
+			queryStatment = conn.prepareStatement("select count(*) record from user where user_name = ?");
+			queryStatment.setString(1,userName);
+			rs = queryStatment.executeQuery();
+			PrintWriter out = response.getWriter();
+			int row = 0;
+			while(rs.next()){
+				row = rs.getInt("record");
+			}
+
+			if( row >0){
+				out.write("用户名已存在");
+				out.close();
+				conn.close();
+			}else {
+				insertStatement  = conn.prepareStatement("insert into user (user_name,password,user_phone,user_email) values (?,?,?,?)");
+				insertStatement.setString(1, userName);
+				insertStatement.setString(2, password);
+				insertStatement.setString(3, userPhone);
+				insertStatement.setString(4, userEmail);
+				insertStatement.executeUpdate();
+				conn.commit();
+				insertStatement.close();
+				queryStatment = conn.prepareStatement("select id from user where user_name = ?");
+				queryStatment.setString(1,userName);
+				rs = queryStatment.executeQuery();
+				int id = 0;
+				while (rs.next()){
+					id = rs.getInt("id");
+				}
+				conn.close();
+				out.write(Integer.toString(id));
+				out.close();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 登录用户
+	 * @param request
+	 * @param response
+	 */
+	@RequestMapping("/loginUser")
+	public void loginUser(HttpServletRequest request, HttpServletResponse response){
+		String userName = request.getParameter("user_name");
+		String password = request.getParameter("password");
+
+		response.setContentType("text/html;charset=utf-8");
+		PreparedStatement queryStatment = null;
+		Connection conn = connectMysql();
+		ResultSet rs = null;
+
+		try {
+			queryStatment = conn.prepareStatement("select count(*) record, id from user where user_name = ? and password = ?");
+			queryStatment.setString(1,userName);
+			queryStatment.setString(2,password);
+			rs = queryStatment.executeQuery();
+			PrintWriter out = response.getWriter();
+			int row = 0;
+			int id = 0;
+			while(rs.next()){
+				row = rs.getInt("record");
+				id  = rs.getInt("id");
+			}
+			if( row >0){
+				out.write(Integer.toString(id));
+				out.close();
+				conn.close();
+			}else {
+
+				conn.close();
+				out.write("用户名或密码错误");
+				out.close();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * 返回用户信息
+	 * @param request
+	 * @param response
+	 */
+	@RequestMapping("/queryUserInfo")
+	public void queryUserInfo(HttpServletRequest request,HttpServletResponse response){
+		response.setContentType("text/html;charset=utf-8");
+		String userId = request.getParameter("user_id");
+		PreparedStatement queryUserInfo = null;
+		Connection conn = connectMysql();
+		ResultSet rs = null;
+		try {
+			queryUserInfo = conn.prepareStatement("select user_phone,user_email,user_name,update_time from user where id = ?");
+			queryUserInfo.setString(1,userId);
+			rs = queryUserInfo.executeQuery();
+			PrintWriter out = response.getWriter();
+			List<User> list = new ArrayList<User>();
+			User user = null;
+			while(rs.next()){
+				String userName = rs.getString("user_name");
+				String userPhone = rs.getString("user_phone");
+				String userEmail = rs.getString("user_email");
+				String updateTime = rs.getString("update_time");
+				user = new User();
+				user.setUserPhone(userPhone);
+				user.setUserName(userName);
+				user.setUserEmail(userEmail);
+				user.setUpdateTime(updateTime);
+			}
+			queryUserInfo = conn.prepareStatement("select count(*) fileSum from file where user_id = ?");
+			queryUserInfo.setString(1,userId);
+			rs = queryUserInfo.executeQuery();
+			while (rs.next()){
+				int  fileSum = rs.getInt("fileSum");
+				user.setFileSum(Integer.toString(fileSum));
+			}
+			list.add(user);
+			JSONArray json = JSONArray.fromObject(list);
+			out.write(json.toString());
+			out.flush();
+			out.close();
+			rs.close();
+			queryUserInfo.close();
+			conn.close();
+		}  catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+
+	@RequestMapping("/updateUserInfo")
+	public void updateUserInfo(HttpServletRequest request,HttpServletResponse response){
+		response.setContentType("text/html;charset=utf-8");
+		String userId = request.getParameter("user_id");
+		String userPhone = request.getParameter("user_phone");
+		String userEmail = request.getParameter("user_email");
+		PreparedStatement queryUserInfo = null;
+		Connection conn = connectMysql();
+		ResultSet rs = null;
+		try {
+			queryUserInfo = conn.prepareStatement("select user_phone,user_email,user_name,update_time from user where id = ?");
+			queryUserInfo.setString(1,userId);
+			rs = queryUserInfo.executeQuery();
+			PrintWriter out = response.getWriter();
+			List<User> list = new ArrayList<User>();
+			User user = null;
+			while(rs.next()){
+				String userName = rs.getString("user_name");
+				String userPhone = rs.getString("user_phone");
+				String userEmail = rs.getString("user_email");
+				String updateTime = rs.getString("update_time");
+				user = new User();
+				user.setUserPhone(userPhone);
+				user.setUserName(userName);
+				user.setUserEmail(userEmail);
+				user.setUpdateTime(updateTime);
+			}
+			queryUserInfo = conn.prepareStatement("select count(*) fileSum from file where user_id = ?");
+			queryUserInfo.setString(1,userId);
+			rs = queryUserInfo.executeQuery();
+			while (rs.next()){
+				int  fileSum = rs.getInt("fileSum");
+				user.setFileSum(Integer.toString(fileSum));
+			}
+			list.add(user);
+			JSONArray json = JSONArray.fromObject(list);
+			out.write(json.toString());
+			out.flush();
+			out.close();
+			rs.close();
+			queryUserInfo.close();
+			conn.close();
+		}  catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 }

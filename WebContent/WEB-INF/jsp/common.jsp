@@ -21,26 +21,13 @@
             <li><a href="<%=request.getContextPath()%>/mvc/getMark"><i class="fa fa-edit"></i> 标记系统</a></li>
             <li><a href="<%=request.getContextPath()%>/mvc/getIdentification"><i class="fa fa-desktop"></i> 训练/测试</a></li>
             <li><a href="<%=request.getContextPath()%>/mvc/getApplication"><i class="fa fa-font"></i> 句子识别</a></li>
-            <li><a href="<%=request.getContextPath()%>/mvc/getIdentyFile"><i class="fa fa-font"></i> 文件识别</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-square-o-down"></i> 测试下拉框 <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Dropdown Item</a></li>
-                <li><a href="#">Another Item</a></li>
-                <li><a href="#">Third Item</a></li>
-                <li><a href="#">Last Item</a></li>
-              </ul>
-            </li>
+            <li><a href="<%=request.getContextPath()%>/mvc/getIdentyFile"><i class="fa fa-file"></i> 文件识别</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right navbar-user">
             <li class="dropdown user-dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> 高守信 <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-                <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
-                <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
-                <li class="divider"></li>
                 <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
               </ul>
             </li>

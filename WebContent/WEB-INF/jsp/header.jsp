@@ -14,6 +14,7 @@
       <!-- JavaScript -->
     <script src="<%=request.getContextPath()%>/resources/js/jquery-1.11.2.min.js"></script>
     <script src="<%=request.getContextPath()%>/resources/js/bootstrap.js"></script>
+    <script src="<%=request.getContextPath()%>/resources/js/jquerysession.js"></script>
     <style type="text/css">
         .mask {
             position: absolute; top: 0px; filter: alpha(opacity=60); background-color: #777;

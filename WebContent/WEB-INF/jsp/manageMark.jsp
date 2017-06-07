@@ -101,7 +101,7 @@
 			                <input class="form-control" id ="sum_file" readOnly="true">
 			            </div>
 			            <div style="text-Align:center;"> 
-			            	<button type="button" id="user_confirm" class="btn btn-success" disabled="true">确认</button>
+			            	<button type="button" id="user_confirm" class="btn btn-success" disabled="true" onclick="editConfirm()">确认</button>
 			            	<button type="button" id="user_editor" class="btn btn-danger">编辑</button>
 						</div> 
                 	</form>

@@ -193,7 +193,6 @@ function removeMarkupElement(event) {
 
         afterHtml1=afterHtml2=afterHtml3=null;
     }catch(e){
-
     }
 }
 

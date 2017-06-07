@@ -76,14 +76,9 @@
 		});
 		
 		$("#user_editor").click(function(){
-			$("#user_name").attr("readOnly",false);
 			$("#user_phone").attr("readOnly",false);
 			$("#user_email").attr("readOnly",false);
 			$("#user_confirm").attr("disabled",false);
-		});
-		
-		$("#user_confirm").click(function(){
-			
 		});
 
 	});
@@ -94,8 +89,8 @@
 	 * 页面加载后执行的动作
 	 */
 	$(document).ready(function() {
-		// 获取所有文件
 		showAllFile();
+		showUserInfo();
 	});
 	
 
@@ -141,7 +136,63 @@
 			},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("网络错误，请重试");
-			},
+
+			}
 		});
+	}
+
+	function showUserInfo() {
+		var user_id = $.session.get("user_id");
+		if( typeof(user_id) == "undefined"){
+            window.location.href = "getLogin";
+		}
+        $.ajax({
+            url : "queryUserInfo",
+            type : "get",
+            data : {
+                user_id : user_id
+            },
+            dataType : "json",
+            success : function(data) {
+                $.each(data,function(index,item){
+                	var user_name = item.userName;
+                	var user_phone = item.userPhone;
+                	var user_email = item.userEmail;
+                	var file_sum = item.fileSum;
+                	var update_time = item.updateTime;
+                	$("#user_name").val(user_name);
+                	$("#user_phone").val(user_phone);
+                	$("#user_email").val(user_email);
+                	$("#sum_file").val(file_sum);
+                	$("#update_time").val(update_time);
+                });
+            },
+            error : function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("网络错误，请登录重试");
+                window.location.href = "getLogin";
+            }
+        });
+    }
+
+    function editConfirm() {
+		var user_phone = $("#user_phone").val();
+		var user_email = $("#user_email").val();
+		var user_id = $.session.get("user_id");
+        $.ajax({
+            url : "updateUserInfo",
+            type : "post",
+            data : {
+                user_id : user_id,
+				user_phone : user_phone,
+				user_email : user_email
+            },
+            dataType : "text",
+            success : function(data) {
+
+            },
+            error : function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("网络错误，请重试");
+            }
+        });
 	}
 	

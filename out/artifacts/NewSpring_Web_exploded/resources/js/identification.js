@@ -66,7 +66,7 @@ function formatText(){
 		},
 		error : function(XMLHttpRequest, textStatus, errorThrown) {
 			alert("网络错误，请重试");
-		},
+		}
 	});
 }
 
@@ -160,7 +160,7 @@ function  produceCrossedData(){
         },
         error : function(XMLHttpRequest, textStatus, errorThrown) {
             alert("网络错误，请重试");
-        },
+        }
     });
 }
 
