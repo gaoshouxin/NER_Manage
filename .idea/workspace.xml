@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/test/SpringMVC/mvcController.java" line="307" mnemonic="8" />
+    <bookmark url="file://$PROJECT_DIR$/src/test/SpringMVC/mvcController.java" line="308" mnemonic="8" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18b29e7f-b92c-4489-b91a-f1d8359a39c2" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/test/SpringMVC/model/Person.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/test/SpringMVC/model/Project.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/classes/test/SpringMVC/model/Person.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/classes/test/SpringMVC/model/Project.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/SpringMVC/model/Person.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/SpringMVC/model/Project.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/needMark/test3.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/needMark/test4.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/SpringMVC/mvcController.class" afterPath="$PROJECT_DIR$/build/classes/test/SpringMVC/mvcController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/classes/test/SpringMVC/mvcController.class" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/classes/test/SpringMVC/mvcController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/model/test2_model" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/model/test2_model" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/trainAndTest/temp.data" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/trainAndTest/temp.data" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/common.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/common.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/header.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/header.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/identyfile.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/identyfile.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/manageMark.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/manageMark.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/mark.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/mark.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/resources/js/application.js" afterPath="$PROJECT_DIR$/WebContent/resources/js/application.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/resources/js/identification.js" afterPath="$PROJECT_DIR$/WebContent/resources/js/identification.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/resources/js/manageMark.js" afterPath="$PROJECT_DIR$/WebContent/resources/js/manageMark.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/resources/js/mark.js" afterPath="$PROJECT_DIR$/WebContent/resources/js/mark.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/resources/js/reg_login.js" afterPath="$PROJECT_DIR$/WebContent/resources/js/reg_login.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/jsp/common.jsp" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/jsp/common.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/jsp/header.jsp" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/jsp/header.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/jsp/mark.jsp" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/jsp/mark.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/jsp/manageMark.jsp" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/jsp/manageMark.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/formated/formated_marked_test2.txt" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/formated/formated_marked_test2.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/js/application.js" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/js/application.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/js/identification.js" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/js/identification.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/js/manageMark.js" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/js/manageMark.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/trainAndTest/temp.data" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/trainAndTest/temp.data" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/js/mark.js" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/js/mark.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/js/reg_login.js" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/js/reg_login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/marked/marked_test2.txt" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/marked/marked_test2.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/trainAndTest/train_formated_marked_test2.txt" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/trainAndTest/train_formated_marked_test2.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/SpringMVC/mvcController.java" afterPath="$PROJECT_DIR$/src/test/SpringMVC/mvcController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
@@ -55,73 +59,70 @@
       <file leaf-file-name="register.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/register.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="52" column="18" lean-forward="true" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
+            <state relative-caret-position="1206">
+              <caret line="51" column="22" lean-forward="true" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mvcController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mvcController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/SpringMVC/mvcController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="1146" column="62" lean-forward="false" selection-start-line="1146" selection-start-column="62" selection-end-line="1146" selection-end-column="62" />
+            <state relative-caret-position="-1412">
+              <caret line="670" column="12" lean-forward="true" selection-start-line="670" selection-start-column="12" selection-end-line="670" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1937#1938#0" expanded="true" />
-                <element signature="e#1966#1967#0" expanded="true" />
-                <element signature="e#2060#2061#0" expanded="true" />
-                <element signature="e#2084#2085#0" expanded="true" />
-                <element signature="e#2170#2171#0" expanded="true" />
-                <element signature="e#2191#2192#0" expanded="true" />
-                <element signature="method#produceCrossedData#0;class#mvcController#0" expanded="false" />
+                <element signature="method#isOSLinux#0;class#mvcController#0" expanded="false" />
+                <element signature="method#deleteFile#0;class#mvcController#0" expanded="false" />
+                <element signature="method#identityFile#0;class#mvcController#0" expanded="false" />
+                <element signature="method#testModel#0;class#mvcController#0" expanded="false" />
+                <element signature="method#train#0;class#mvcController#0" expanded="false" />
+                <element signature="method#filter#0;class#mvcController#0" expanded="false" />
                 <element signature="method#saveServer#0;class#mvcController#0" expanded="false" />
                 <element signature="method#getText#0;class#mvcController#0" expanded="false" />
-                <element signature="method#fileUpLoad#0;class#mvcController#0" expanded="false" />
                 <element signature="method#insertFileInfo#0;class#mvcController#0" expanded="false" />
+                <element signature="method#queryAllFile#0;class#mvcController#0" expanded="false" />
                 <element signature="method#connectMysql#0;class#mvcController#0" expanded="false" />
                 <element signature="initializer##0;class#mvcController#0" expanded="false" />
-                <element signature="e#35689#35695#0" expanded="true" />
-                <element signature="e#37365#37371#0" expanded="true" />
-                <marker date="1496850481057" expanded="true" signature="3077:3132" ph="select url f... file" />
-                <marker date="1496850481057" expanded="true" signature="3793:3845" ph="delete from " />
-                <marker date="1496850481057" expanded="true" signature="11777:11868" ph="select file_... file" />
-                <marker date="1496850481057" expanded="true" signature="13125:13216" ph="select file_... file" />
-                <marker date="1496850481057" expanded="true" signature="18381:18472" ph="select file_... file" />
-                <marker date="1496850481057" expanded="true" signature="28092:28162" ph="select count... file" />
-                <marker date="1496850481057" expanded="true" signature="28592:28661" ph="update file " />
-                <marker date="1496850481057" expanded="true" signature="28963:29062" ph="insert into file... " />
-                <marker date="1496850481057" expanded="true" signature="30011:30085" ph="select file_... file" />
-                <marker date="1496850481057" expanded="true" signature="32858:32910" ph="select count... user" />
-                <marker date="1496850481057" expanded="true" signature="33242:33318" ph="insert into file... " />
-                <marker date="1496850481057" expanded="true" signature="33628:33667" ph="select id fr... user" />
-                <marker date="1496850481057" expanded="true" signature="34445:34501" ph="select count... user" />
-                <marker date="1496850481057" expanded="true" signature="34445:34518" ph="select count... user" />
-                <marker date="1496850481057" expanded="true" signature="35459:35532" ph="select count... file" />
-                <marker date="1496850481057" expanded="true" signature="36151:36202" ph="select user_... user" />
-                <marker date="1496850481057" expanded="true" signature="37135:37208" ph="select user_... user" />
-                <marker date="1496850481057" expanded="true" signature="37827:37878" ph="select count... file" />
+                <element signature="method#registerUser#0;class#mvcController#0" expanded="false" />
+                <element signature="method#loginUser#0;class#mvcController#0" expanded="false" />
+                <marker date="1496908860153" expanded="true" signature="3116:3171" ph="select url f... file" />
+                <marker date="1496908860153" expanded="true" signature="3832:3884" ph="delete from " />
+                <marker date="1496908860153" expanded="true" signature="15914:16005" ph="select file_... file" />
+                <marker date="1496908860153" expanded="true" signature="27007:27077" ph="select count... file" />
+                <marker date="1496908860153" expanded="true" signature="27507:27576" ph="update file " />
+                <marker date="1496908860153" expanded="true" signature="27878:27977" ph="insert into file... " />
+                <marker date="1496908860153" expanded="true" signature="28887:28961" ph="select file_... file" />
+                <marker date="1496908860153" expanded="true" signature="31734:31786" ph="select count... user" />
+                <marker date="1496908860153" expanded="true" signature="32118:32194" ph="insert into file... " />
+                <marker date="1496908860153" expanded="true" signature="32504:32543" ph="select id fr... user" />
+                <marker date="1496908860153" expanded="true" signature="33321:33377" ph="select count... user" />
+                <marker date="1496908860153" expanded="true" signature="33321:33394" ph="select count... user" />
+                <marker date="1496908860153" expanded="true" signature="34335:34408" ph="select count... file" />
+                <marker date="1496908860153" expanded="true" signature="35011:35062" ph="select user_... user" />
+                <marker date="1496908860153" expanded="true" signature="35974:36034" ph="update user_... " />
+                <marker date="1496908860153" expanded="true" signature="35980:36034" ph="select user_... user" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="manageMark.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/resources/js/manageMark.js">
+      <file leaf-file-name="identification.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/identification.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="181" column="33" lean-forward="false" selection-start-line="181" selection-start-column="19" selection-end-line="181" selection-end-column="33" />
+            <state relative-caret-position="405">
+              <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="manageMark.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/manageMark.jsp">
+      <file leaf-file-name="common.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/common.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="103" column="130" lean-forward="false" selection-start-line="103" selection-start-column="117" selection-end-line="103" selection-end-column="130" />
+            <state relative-caret-position="81">
+              <caret line="19" column="108" lean-forward="false" selection-start-line="19" selection-start-column="108" selection-end-line="19" selection-end-column="108" />
               <folding />
             </state>
           </provider>
@@ -139,15 +140,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dis</find>
-      <find>queryAllFormatedFile</find>
       <find>filter</find>
       <find>insertF</find>
       <find>ISO</find>
       <find>format</find>
       <find>produc</find>
       <find>saveS</find>
-      <find>produceCrossedData</find>
       <find>train</find>
       <find>prod</find>
       <find>json</find>
@@ -158,9 +156,20 @@
       <find>iden</find>
       <find>test</find>
       <find>getText</find>
-      <find>formatText</find>
       <find>insert</find>
       <find>user_editor</find>
+      <find>formatText</find>
+      <find>produceCrossedData</find>
+      <find>insertFileInfo</find>
+      <find>saveServer</find>
+      <find>queryAllMarkedFile</find>
+      <find>queryTargetFile</find>
+      <find>&quot;D&quot;</find>
+      <find>queryAllFormatedFile</find>
+      <find>&quot;F&quot;</find>
+      <find>file_name</find>
+      <find>fileUpload</find>
+      <find>45</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -177,24 +186,24 @@
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/welcome.jsp" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/lib/json-lib-2.2.2-jdk15.jar!/net/sf/json/JSONArray.class" />
         <option value="$PROJECT_DIR$/src/test/SpringMVC/model/Measure.java" />
-        <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/identification.jsp" />
-        <option value="$PROJECT_DIR$/WebContent/resources/js/application.js" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/application.jsp" />
-        <option value="$PROJECT_DIR$/WebContent/resources/js/mark.js" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/identyfile.jsp" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/mark.jsp" />
         <option value="$PROJECT_DIR$/src/test/SpringMVC/regLoginController.java" />
-        <option value="$PROJECT_DIR$/WebContent/resources/js/identification.js" />
-        <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/header.jsp" />
         <option value="$PROJECT_DIR$/WebContent/resources/js/jquerysession.js" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/register.jsp" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/login.jsp" />
-        <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/common.jsp" />
-        <option value="$PROJECT_DIR$/WebContent/resources/js/reg_login.js" />
         <option value="$PROJECT_DIR$/src/test/SpringMVC/model/User.java" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/manageMark.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/resources/js/application.js" />
+        <option value="$PROJECT_DIR$/WebContent/resources/js/identification.js" />
         <option value="$PROJECT_DIR$/WebContent/resources/js/manageMark.js" />
+        <option value="$PROJECT_DIR$/WebContent/resources/js/mark.js" />
+        <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/header.jsp" />
         <option value="$PROJECT_DIR$/src/test/SpringMVC/mvcController.java" />
+        <option value="$PROJECT_DIR$/WebContent/resources/js/reg_login.js" />
+        <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/common.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/identification.jsp" />
       </list>
     </option>
   </component>
@@ -235,9 +244,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -400,6 +408,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -891,7 +900,7 @@
       <method />
     </configuration>
     <configuration default="false" name="Mark" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.39" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/NewSpring/mvc/getManageMark" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/NewSpring/mvc/getLogin" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="NewSpring:Web exploded">
@@ -995,11 +1004,13 @@
       <workItem from="1496798212232" duration="7665000" />
       <workItem from="1496817123101" duration="9024000" />
       <workItem from="1496830651754" duration="19105000" />
+      <workItem from="1496880030423" duration="12165000" />
+      <workItem from="1496894253027" duration="12481000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178278000" />
+    <option name="totallyTimeSpent" value="202924000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1012,6 +1023,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1033,10 +1045,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290993" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.324295" sideWeight="0.49676377" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1681128" sideWeight="0.49676377" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286334" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17910448" sideWeight="0.4935484" order="7" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18230277" sideWeight="0.4935484" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26226014" sideWeight="0.5064516" order="5" side_tool="true" content_ui="tabs" />
@@ -1056,7 +1068,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="17" />
+      <option name="time" value="18" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1065,7 +1077,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/success.jsp" />
     <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/mark.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1091,39 +1102,36 @@
           <caret line="70" column="22" lean-forward="false" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1937#1938#0" expanded="true" />
-            <element signature="e#1966#1967#0" expanded="true" />
-            <element signature="e#2060#2061#0" expanded="true" />
-            <element signature="e#2084#2085#0" expanded="true" />
-            <element signature="e#2170#2171#0" expanded="true" />
-            <element signature="e#2191#2192#0" expanded="true" />
-            <element signature="method#produceCrossedData#0;class#mvcController#0" expanded="false" />
+            <element signature="method#isOSLinux#0;class#mvcController#0" expanded="false" />
+            <element signature="method#deleteFile#0;class#mvcController#0" expanded="false" />
+            <element signature="method#identityFile#0;class#mvcController#0" expanded="false" />
+            <element signature="method#testModel#0;class#mvcController#0" expanded="false" />
+            <element signature="method#train#0;class#mvcController#0" expanded="false" />
+            <element signature="method#filter#0;class#mvcController#0" expanded="false" />
             <element signature="method#saveServer#0;class#mvcController#0" expanded="false" />
             <element signature="method#getText#0;class#mvcController#0" expanded="false" />
-            <element signature="method#fileUpLoad#0;class#mvcController#0" expanded="false" />
             <element signature="method#insertFileInfo#0;class#mvcController#0" expanded="false" />
+            <element signature="method#queryAllFile#0;class#mvcController#0" expanded="false" />
             <element signature="method#connectMysql#0;class#mvcController#0" expanded="false" />
             <element signature="initializer##0;class#mvcController#0" expanded="false" />
-            <element signature="e#35689#35695#0" expanded="true" />
-            <element signature="e#37365#37371#0" expanded="true" />
-            <marker date="1496850481057" expanded="true" signature="3077:3132" ph="select url f... file" />
-            <marker date="1496850481057" expanded="true" signature="3793:3845" ph="delete from " />
-            <marker date="1496850481057" expanded="true" signature="11777:11868" ph="select file_... file" />
-            <marker date="1496850481057" expanded="true" signature="13125:13216" ph="select file_... file" />
-            <marker date="1496850481057" expanded="true" signature="18381:18472" ph="select file_... file" />
-            <marker date="1496850481057" expanded="true" signature="28092:28162" ph="select count... file" />
-            <marker date="1496850481057" expanded="true" signature="28592:28661" ph="update file " />
-            <marker date="1496850481057" expanded="true" signature="28963:29062" ph="insert into file... " />
-            <marker date="1496850481057" expanded="true" signature="30011:30085" ph="select file_... file" />
-            <marker date="1496850481057" expanded="true" signature="32858:32910" ph="select count... user" />
-            <marker date="1496850481057" expanded="true" signature="33242:33318" ph="insert into file... " />
-            <marker date="1496850481057" expanded="true" signature="33628:33667" ph="select id fr... user" />
-            <marker date="1496850481057" expanded="true" signature="34445:34501" ph="select count... user" />
-            <marker date="1496850481057" expanded="true" signature="34445:34518" ph="select count... user" />
-            <marker date="1496850481057" expanded="true" signature="35459:35532" ph="select count... file" />
-            <marker date="1496850481057" expanded="true" signature="36151:36202" ph="select user_... user" />
-            <marker date="1496850481057" expanded="true" signature="37135:37208" ph="select user_... user" />
-            <marker date="1496850481057" expanded="true" signature="37827:37878" ph="select count... file" />
+            <element signature="method#registerUser#0;class#mvcController#0" expanded="false" />
+            <element signature="method#loginUser#0;class#mvcController#0" expanded="false" />
+            <marker date="1496908860153" expanded="true" signature="3116:3171" ph="select url f... file" />
+            <marker date="1496908860153" expanded="true" signature="3832:3884" ph="delete from " />
+            <marker date="1496908860153" expanded="true" signature="15914:16005" ph="select file_... file" />
+            <marker date="1496908860153" expanded="true" signature="27007:27077" ph="select count... file" />
+            <marker date="1496908860153" expanded="true" signature="27507:27576" ph="update file " />
+            <marker date="1496908860153" expanded="true" signature="27878:27977" ph="insert into file... " />
+            <marker date="1496908860153" expanded="true" signature="28887:28961" ph="select file_... file" />
+            <marker date="1496908860153" expanded="true" signature="31734:31786" ph="select count... user" />
+            <marker date="1496908860153" expanded="true" signature="32118:32194" ph="insert into file... " />
+            <marker date="1496908860153" expanded="true" signature="32504:32543" ph="select id fr... user" />
+            <marker date="1496908860153" expanded="true" signature="33321:33377" ph="select count... user" />
+            <marker date="1496908860153" expanded="true" signature="33321:33394" ph="select count... user" />
+            <marker date="1496908860153" expanded="true" signature="34335:34408" ph="select count... file" />
+            <marker date="1496908860153" expanded="true" signature="35011:35062" ph="select user_... user" />
+            <marker date="1496908860153" expanded="true" signature="35974:36034" ph="update user_... " />
+            <marker date="1496908860153" expanded="true" signature="35980:36034" ph="select user_... user" />
           </folding>
         </state>
       </provider>
@@ -1191,39 +1199,36 @@
           <caret line="70" column="22" lean-forward="true" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1937#1938#0" expanded="true" />
-            <element signature="e#1966#1967#0" expanded="true" />
-            <element signature="e#2060#2061#0" expanded="true" />
-            <element signature="e#2084#2085#0" expanded="true" />
-            <element signature="e#2170#2171#0" expanded="true" />
-            <element signature="e#2191#2192#0" expanded="true" />
-            <element signature="method#produceCrossedData#0;class#mvcController#0" expanded="false" />
+            <element signature="method#isOSLinux#0;class#mvcController#0" expanded="false" />
+            <element signature="method#deleteFile#0;class#mvcController#0" expanded="false" />
+            <element signature="method#identityFile#0;class#mvcController#0" expanded="false" />
+            <element signature="method#testModel#0;class#mvcController#0" expanded="false" />
+            <element signature="method#train#0;class#mvcController#0" expanded="false" />
+            <element signature="method#filter#0;class#mvcController#0" expanded="false" />
             <element signature="method#saveServer#0;class#mvcController#0" expanded="false" />
             <element signature="method#getText#0;class#mvcController#0" expanded="false" />
-            <element signature="method#fileUpLoad#0;class#mvcController#0" expanded="false" />
             <element signature="method#insertFileInfo#0;class#mvcController#0" expanded="false" />
+            <element signature="method#queryAllFile#0;class#mvcController#0" expanded="false" />
             <element signature="method#connectMysql#0;class#mvcController#0" expanded="false" />
             <element signature="initializer##0;class#mvcController#0" expanded="false" />
-            <element signature="e#35689#35695#0" expanded="true" />
-            <element signature="e#37365#37371#0" expanded="true" />
-            <marker date="1496850481057" expanded="true" signature="3077:3132" ph="select url f... file" />
-            <marker date="1496850481057" expanded="true" signature="3793:3845" ph="delete from " />
-            <marker date="1496850481057" expanded="true" signature="11777:11868" ph="select file_... file" />
-            <marker date="1496850481057" expanded="true" signature="13125:13216" ph="select file_... file" />
-            <marker date="1496850481057" expanded="true" signature="18381:18472" ph="select file_... file" />
-            <marker date="1496850481057" expanded="true" signature="28092:28162" ph="select count... file" />
-            <marker date="1496850481057" expanded="true" signature="28592:28661" ph="update file " />
-            <marker date="1496850481057" expanded="true" signature="28963:29062" ph="insert into file... " />
-            <marker date="1496850481057" expanded="true" signature="30011:30085" ph="select file_... file" />
-            <marker date="1496850481057" expanded="true" signature="32858:32910" ph="select count... user" />
-            <marker date="1496850481057" expanded="true" signature="33242:33318" ph="insert into file... " />
-            <marker date="1496850481057" expanded="true" signature="33628:33667" ph="select id fr... user" />
-            <marker date="1496850481057" expanded="true" signature="34445:34501" ph="select count... user" />
-            <marker date="1496850481057" expanded="true" signature="34445:34518" ph="select count... user" />
-            <marker date="1496850481057" expanded="true" signature="35459:35532" ph="select count... file" />
-            <marker date="1496850481057" expanded="true" signature="36151:36202" ph="select user_... user" />
-            <marker date="1496850481057" expanded="true" signature="37135:37208" ph="select user_... user" />
-            <marker date="1496850481057" expanded="true" signature="37827:37878" ph="select count... file" />
+            <element signature="method#registerUser#0;class#mvcController#0" expanded="false" />
+            <element signature="method#loginUser#0;class#mvcController#0" expanded="false" />
+            <marker date="1496908860153" expanded="true" signature="3116:3171" ph="select url f... file" />
+            <marker date="1496908860153" expanded="true" signature="3832:3884" ph="delete from " />
+            <marker date="1496908860153" expanded="true" signature="15914:16005" ph="select file_... file" />
+            <marker date="1496908860153" expanded="true" signature="27007:27077" ph="select count... file" />
+            <marker date="1496908860153" expanded="true" signature="27507:27576" ph="update file " />
+            <marker date="1496908860153" expanded="true" signature="27878:27977" ph="insert into file... " />
+            <marker date="1496908860153" expanded="true" signature="28887:28961" ph="select file_... file" />
+            <marker date="1496908860153" expanded="true" signature="31734:31786" ph="select count... user" />
+            <marker date="1496908860153" expanded="true" signature="32118:32194" ph="insert into file... " />
+            <marker date="1496908860153" expanded="true" signature="32504:32543" ph="select id fr... user" />
+            <marker date="1496908860153" expanded="true" signature="33321:33377" ph="select count... user" />
+            <marker date="1496908860153" expanded="true" signature="33321:33394" ph="select count... user" />
+            <marker date="1496908860153" expanded="true" signature="34335:34408" ph="select count... file" />
+            <marker date="1496908860153" expanded="true" signature="35011:35062" ph="select user_... user" />
+            <marker date="1496908860153" expanded="true" signature="35974:36034" ph="update user_... " />
+            <marker date="1496908860153" expanded="true" signature="35980:36034" ph="select user_... user" />
           </folding>
         </state>
       </provider>
@@ -1249,39 +1254,36 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1937#1938#0" expanded="true" />
-            <element signature="e#1966#1967#0" expanded="true" />
-            <element signature="e#2060#2061#0" expanded="true" />
-            <element signature="e#2084#2085#0" expanded="true" />
-            <element signature="e#2170#2171#0" expanded="true" />
-            <element signature="e#2191#2192#0" expanded="true" />
-            <element signature="method#produceCrossedData#0;class#mvcController#0" expanded="false" />
+            <element signature="method#isOSLinux#0;class#mvcController#0" expanded="false" />
+            <element signature="method#deleteFile#0;class#mvcController#0" expanded="false" />
+            <element signature="method#identityFile#0;class#mvcController#0" expanded="false" />
+            <element signature="method#testModel#0;class#mvcController#0" expanded="false" />
+            <element signature="method#train#0;class#mvcController#0" expanded="false" />
+            <element signature="method#filter#0;class#mvcController#0" expanded="false" />
             <element signature="method#saveServer#0;class#mvcController#0" expanded="false" />
             <element signature="method#getText#0;class#mvcController#0" expanded="false" />
-            <element signature="method#fileUpLoad#0;class#mvcController#0" expanded="false" />
             <element signature="method#insertFileInfo#0;class#mvcController#0" expanded="false" />
+            <element signature="method#queryAllFile#0;class#mvcController#0" expanded="false" />
             <element signature="method#connectMysql#0;class#mvcController#0" expanded="false" />
             <element signature="initializer##0;class#mvcController#0" expanded="false" />
-            <element signature="e#35689#35695#0" expanded="true" />
-            <element signature="e#37365#37371#0" expanded="true" />
-            <marker date="1496850481057" expanded="true" signature="3077:3132" ph="select url f... file" />
-            <marker date="1496850481057" expanded="true" signature="3793:3845" ph="delete from " />
-            <marker date="1496850481057" expanded="true" signature="11777:11868" ph="select file_... file" />
-            <marker date="1496850481057" expanded="true" signature="13125:13216" ph="select file_... file" />
-            <marker date="1496850481057" expanded="true" signature="18381:18472" ph="select file_... file" />
-            <marker date="1496850481057" expanded="true" signature="28092:28162" ph="select count... file" />
-            <marker date="1496850481057" expanded="true" signature="28592:28661" ph="update file " />
-            <marker date="1496850481057" expanded="true" signature="28963:29062" ph="insert into file... " />
-            <marker date="1496850481057" expanded="true" signature="30011:30085" ph="select file_... file" />
-            <marker date="1496850481057" expanded="true" signature="32858:32910" ph="select count... user" />
-            <marker date="1496850481057" expanded="true" signature="33242:33318" ph="insert into file... " />
-            <marker date="1496850481057" expanded="true" signature="33628:33667" ph="select id fr... user" />
-            <marker date="1496850481057" expanded="true" signature="34445:34501" ph="select count... user" />
-            <marker date="1496850481057" expanded="true" signature="34445:34518" ph="select count... user" />
-            <marker date="1496850481057" expanded="true" signature="35459:35532" ph="select count... file" />
-            <marker date="1496850481057" expanded="true" signature="36151:36202" ph="select user_... user" />
-            <marker date="1496850481057" expanded="true" signature="37135:37208" ph="select user_... user" />
-            <marker date="1496850481057" expanded="true" signature="37827:37878" ph="select count... file" />
+            <element signature="method#registerUser#0;class#mvcController#0" expanded="false" />
+            <element signature="method#loginUser#0;class#mvcController#0" expanded="false" />
+            <marker date="1496908860153" expanded="true" signature="3116:3171" ph="select url f... file" />
+            <marker date="1496908860153" expanded="true" signature="3832:3884" ph="delete from " />
+            <marker date="1496908860153" expanded="true" signature="15914:16005" ph="select file_... file" />
+            <marker date="1496908860153" expanded="true" signature="27007:27077" ph="select count... file" />
+            <marker date="1496908860153" expanded="true" signature="27507:27576" ph="update file " />
+            <marker date="1496908860153" expanded="true" signature="27878:27977" ph="insert into file... " />
+            <marker date="1496908860153" expanded="true" signature="28887:28961" ph="select file_... file" />
+            <marker date="1496908860153" expanded="true" signature="31734:31786" ph="select count... user" />
+            <marker date="1496908860153" expanded="true" signature="32118:32194" ph="insert into file... " />
+            <marker date="1496908860153" expanded="true" signature="32504:32543" ph="select id fr... user" />
+            <marker date="1496908860153" expanded="true" signature="33321:33377" ph="select count... user" />
+            <marker date="1496908860153" expanded="true" signature="33321:33394" ph="select count... user" />
+            <marker date="1496908860153" expanded="true" signature="34335:34408" ph="select count... file" />
+            <marker date="1496908860153" expanded="true" signature="35011:35062" ph="select user_... user" />
+            <marker date="1496908860153" expanded="true" signature="35974:36034" ph="update user_... " />
+            <marker date="1496908860153" expanded="true" signature="35980:36034" ph="select user_... user" />
           </folding>
         </state>
       </provider>
@@ -1292,39 +1294,36 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1937#1938#0" expanded="true" />
-            <element signature="e#1966#1967#0" expanded="true" />
-            <element signature="e#2060#2061#0" expanded="true" />
-            <element signature="e#2084#2085#0" expanded="true" />
-            <element signature="e#2170#2171#0" expanded="true" />
-            <element signature="e#2191#2192#0" expanded="true" />
-            <element signature="method#produceCrossedData#0;class#mvcController#0" expanded="false" />
+            <element signature="method#isOSLinux#0;class#mvcController#0" expanded="false" />
+            <element signature="method#deleteFile#0;class#mvcController#0" expanded="false" />
+            <element signature="method#identityFile#0;class#mvcController#0" expanded="false" />
+            <element signature="method#testModel#0;class#mvcController#0" expanded="false" />
+            <element signature="method#train#0;class#mvcController#0" expanded="false" />
+            <element signature="method#filter#0;class#mvcController#0" expanded="false" />
             <element signature="method#saveServer#0;class#mvcController#0" expanded="false" />
             <element signature="method#getText#0;class#mvcController#0" expanded="false" />
-            <element signature="method#fileUpLoad#0;class#mvcController#0" expanded="false" />
             <element signature="method#insertFileInfo#0;class#mvcController#0" expanded="false" />
+            <element signature="method#queryAllFile#0;class#mvcController#0" expanded="false" />
             <element signature="method#connectMysql#0;class#mvcController#0" expanded="false" />
             <element signature="initializer##0;class#mvcController#0" expanded="false" />
-            <element signature="e#35689#35695#0" expanded="true" />
-            <element signature="e#37365#37371#0" expanded="true" />
-            <marker date="1496850481057" expanded="true" signature="3077:3132" ph="select url f... file" />
-            <marker date="1496850481057" expanded="true" signature="3793:3845" ph="delete from " />
-            <marker date="1496850481057" expanded="true" signature="11777:11868" ph="select file_... file" />
-            <marker date="1496850481057" expanded="true" signature="13125:13216" ph="select file_... file" />
-            <marker date="1496850481057" expanded="true" signature="18381:18472" ph="select file_... file" />
-            <marker date="1496850481057" expanded="true" signature="28092:28162" ph="select count... file" />
-            <marker date="1496850481057" expanded="true" signature="28592:28661" ph="update file " />
-            <marker date="1496850481057" expanded="true" signature="28963:29062" ph="insert into file... " />
-            <marker date="1496850481057" expanded="true" signature="30011:30085" ph="select file_... file" />
-            <marker date="1496850481057" expanded="true" signature="32858:32910" ph="select count... user" />
-            <marker date="1496850481057" expanded="true" signature="33242:33318" ph="insert into file... " />
-            <marker date="1496850481057" expanded="true" signature="33628:33667" ph="select id fr... user" />
-            <marker date="1496850481057" expanded="true" signature="34445:34501" ph="select count... user" />
-            <marker date="1496850481057" expanded="true" signature="34445:34518" ph="select count... user" />
-            <marker date="1496850481057" expanded="true" signature="35459:35532" ph="select count... file" />
-            <marker date="1496850481057" expanded="true" signature="36151:36202" ph="select user_... user" />
-            <marker date="1496850481057" expanded="true" signature="37135:37208" ph="select user_... user" />
-            <marker date="1496850481057" expanded="true" signature="37827:37878" ph="select count... file" />
+            <element signature="method#registerUser#0;class#mvcController#0" expanded="false" />
+            <element signature="method#loginUser#0;class#mvcController#0" expanded="false" />
+            <marker date="1496908860153" expanded="true" signature="3116:3171" ph="select url f... file" />
+            <marker date="1496908860153" expanded="true" signature="3832:3884" ph="delete from " />
+            <marker date="1496908860153" expanded="true" signature="15914:16005" ph="select file_... file" />
+            <marker date="1496908860153" expanded="true" signature="27007:27077" ph="select count... file" />
+            <marker date="1496908860153" expanded="true" signature="27507:27576" ph="update file " />
+            <marker date="1496908860153" expanded="true" signature="27878:27977" ph="insert into file... " />
+            <marker date="1496908860153" expanded="true" signature="28887:28961" ph="select file_... file" />
+            <marker date="1496908860153" expanded="true" signature="31734:31786" ph="select count... user" />
+            <marker date="1496908860153" expanded="true" signature="32118:32194" ph="insert into file... " />
+            <marker date="1496908860153" expanded="true" signature="32504:32543" ph="select id fr... user" />
+            <marker date="1496908860153" expanded="true" signature="33321:33377" ph="select count... user" />
+            <marker date="1496908860153" expanded="true" signature="33321:33394" ph="select count... user" />
+            <marker date="1496908860153" expanded="true" signature="34335:34408" ph="select count... file" />
+            <marker date="1496908860153" expanded="true" signature="35011:35062" ph="select user_... user" />
+            <marker date="1496908860153" expanded="true" signature="35974:36034" ph="update user_... " />
+            <marker date="1496908860153" expanded="true" signature="35980:36034" ph="select user_... user" />
           </folding>
         </state>
       </provider>
@@ -1361,16 +1360,66 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/resources/js/identyfile.js" />
-    <entry file="file://$PROJECT_DIR$/WebContent/resources/js/application.js">
+    <entry file="file://$PROJECT_DIR$/src/springmvc-servlet.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1836">
-          <caret line="68" column="7" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="68" selection-end-column="7" />
+        <state relative-caret-position="-7">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/SpringMVC/regLoginController.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/SpringMVC/model/FileInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/SpringMVC/model/Project.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/SpringMVC/model/Measure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="9" column="33" lean-forward="false" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/SpringMVC/model/Person.java" />
+    <entry file="file://$PROJECT_DIR$/build/classes/test/SpringMVC/model/User.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/SpringMVC/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4">
+          <caret line="16" column="46" lean-forward="true" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+          <folding>
+            <element signature="e#361#362#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/resources/js/jquerysession.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="18" column="88" lean-forward="false" selection-start-line="18" selection-start-column="88" selection-end-line="18" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/resources/js/identification.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5154">
+          <caret line="60" column="21" lean-forward="false" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/identyfile.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6372">
+        <state relative-caret-position="571">
           <caret line="236" column="9" lean-forward="false" selection-start-line="236" selection-start-column="9" selection-end-line="236" selection-end-column="9" />
           <folding>
             <marker date="1496308159874" expanded="true" signature="3015:3025" ph="..." />
@@ -1380,18 +1429,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/identification.jsp">
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="13" column="10" lean-forward="false" selection-start-line="13" selection-start-column="10" selection-end-line="68" selection-end-column="16" />
+        <state relative-caret-position="290">
+          <caret line="33" column="112" lean-forward="true" selection-start-line="33" selection-start-column="112" selection-end-line="33" selection-end-column="112" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/resources/js/mark.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+          <folding>
+            <marker date="1496903596183" expanded="true" signature="4082:4096" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/mark.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="31" />
+        <state relative-caret-position="54">
+          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="41" />
           <folding>
             <marker date="1496798767831" expanded="true" signature="2995:3005" ph="..." />
             <marker date="1496798767831" expanded="true" signature="5791:5795" ph="..." />
@@ -1400,202 +1459,125 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/resources/js/mark.js">
+    <entry file="file://$PROJECT_DIR$/WebContent/resources/js/manageMark.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="543">
-          <caret line="177" column="44" lean-forward="false" selection-start-line="177" selection-start-column="44" selection-end-line="177" selection-end-column="44" />
-          <folding>
-            <marker date="1496302161651" expanded="true" signature="4062:4076" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/springmvc-servlet.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/application.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/SpringMVC/regLoginController.java" />
-    <entry file="file://$PROJECT_DIR$/WebContent/resources/js/identification.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="62" column="23" lean-forward="true" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/header.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="14" column="91" lean-forward="true" selection-start-line="14" selection-start-column="91" selection-end-line="14" selection-end-column="91" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/common.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="33" column="15" lean-forward="true" selection-start-line="33" selection-start-column="15" selection-end-line="33" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/SpringMVC/model/FileInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding>
-            <element signature="e#449#450#0" expanded="true" />
-            <element signature="e#480#481#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="33" column="112" lean-forward="true" selection-start-line="33" selection-start-column="112" selection-end-line="33" selection-end-column="112" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/SpringMVC/model/Project.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/SpringMVC/model/Measure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="9" column="33" lean-forward="false" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-          <folding>
-            <element signature="e#232#233#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/SpringMVC/model/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" column="5" lean-forward="true" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/resources/js/reg_login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="83" column="16" lean-forward="false" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build/classes/test/SpringMVC/model/User.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#1093#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/SpringMVC/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="16" column="46" lean-forward="true" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
-          <folding>
-            <element signature="e#361#362#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/register.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="52" column="18" lean-forward="true" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/resources/js/jquerysession.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="18" column="88" lean-forward="false" selection-start-line="18" selection-start-column="88" selection-end-line="18" selection-end-column="88" />
+        <state relative-caret-position="3645">
+          <caret line="135" column="22" lean-forward="false" selection-start-line="135" selection-start-column="12" selection-end-line="135" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/manageMark.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="103" column="130" lean-forward="false" selection-start-line="103" selection-start-column="117" selection-end-line="103" selection-end-column="130" />
+        <state relative-caret-position="-2680">
+          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/resources/js/manageMark.js">
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/register.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="181" column="33" lean-forward="false" selection-start-line="181" selection-start-column="19" selection-end-line="181" selection-end-column="33" />
+        <state relative-caret-position="1206">
+          <caret line="51" column="22" lean-forward="true" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/header.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="642">
+          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/resources/js/reg_login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="84" column="40" lean-forward="false" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/resources/js/application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="5" selection-end-column="3" />
+          <folding>
+            <marker date="1496902107263" expanded="true" signature="2343:2357" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/application.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-951">
+          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hanlp.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="25" lean-forward="false" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/common.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="19" column="108" lean-forward="false" selection-start-line="19" selection-start-column="108" selection-end-line="19" selection-end-column="108" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/SpringMVC/mvcController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="1146" column="62" lean-forward="false" selection-start-line="1146" selection-start-column="62" selection-end-line="1146" selection-end-column="62" />
+        <state relative-caret-position="-1412">
+          <caret line="670" column="12" lean-forward="true" selection-start-line="670" selection-start-column="12" selection-end-line="670" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1937#1938#0" expanded="true" />
-            <element signature="e#1966#1967#0" expanded="true" />
-            <element signature="e#2060#2061#0" expanded="true" />
-            <element signature="e#2084#2085#0" expanded="true" />
-            <element signature="e#2170#2171#0" expanded="true" />
-            <element signature="e#2191#2192#0" expanded="true" />
-            <element signature="method#produceCrossedData#0;class#mvcController#0" expanded="false" />
+            <element signature="method#isOSLinux#0;class#mvcController#0" expanded="false" />
+            <element signature="method#deleteFile#0;class#mvcController#0" expanded="false" />
+            <element signature="method#identityFile#0;class#mvcController#0" expanded="false" />
+            <element signature="method#testModel#0;class#mvcController#0" expanded="false" />
+            <element signature="method#train#0;class#mvcController#0" expanded="false" />
+            <element signature="method#filter#0;class#mvcController#0" expanded="false" />
             <element signature="method#saveServer#0;class#mvcController#0" expanded="false" />
             <element signature="method#getText#0;class#mvcController#0" expanded="false" />
-            <element signature="method#fileUpLoad#0;class#mvcController#0" expanded="false" />
             <element signature="method#insertFileInfo#0;class#mvcController#0" expanded="false" />
+            <element signature="method#queryAllFile#0;class#mvcController#0" expanded="false" />
             <element signature="method#connectMysql#0;class#mvcController#0" expanded="false" />
             <element signature="initializer##0;class#mvcController#0" expanded="false" />
-            <element signature="e#35689#35695#0" expanded="true" />
-            <element signature="e#37365#37371#0" expanded="true" />
-            <marker date="1496850481057" expanded="true" signature="3077:3132" ph="select url f... file" />
-            <marker date="1496850481057" expanded="true" signature="3793:3845" ph="delete from " />
-            <marker date="1496850481057" expanded="true" signature="11777:11868" ph="select file_... file" />
-            <marker date="1496850481057" expanded="true" signature="13125:13216" ph="select file_... file" />
-            <marker date="1496850481057" expanded="true" signature="18381:18472" ph="select file_... file" />
-            <marker date="1496850481057" expanded="true" signature="28092:28162" ph="select count... file" />
-            <marker date="1496850481057" expanded="true" signature="28592:28661" ph="update file " />
-            <marker date="1496850481057" expanded="true" signature="28963:29062" ph="insert into file... " />
-            <marker date="1496850481057" expanded="true" signature="30011:30085" ph="select file_... file" />
-            <marker date="1496850481057" expanded="true" signature="32858:32910" ph="select count... user" />
-            <marker date="1496850481057" expanded="true" signature="33242:33318" ph="insert into file... " />
-            <marker date="1496850481057" expanded="true" signature="33628:33667" ph="select id fr... user" />
-            <marker date="1496850481057" expanded="true" signature="34445:34501" ph="select count... user" />
-            <marker date="1496850481057" expanded="true" signature="34445:34518" ph="select count... user" />
-            <marker date="1496850481057" expanded="true" signature="35459:35532" ph="select count... file" />
-            <marker date="1496850481057" expanded="true" signature="36151:36202" ph="select user_... user" />
-            <marker date="1496850481057" expanded="true" signature="37135:37208" ph="select user_... user" />
-            <marker date="1496850481057" expanded="true" signature="37827:37878" ph="select count... file" />
+            <element signature="method#registerUser#0;class#mvcController#0" expanded="false" />
+            <element signature="method#loginUser#0;class#mvcController#0" expanded="false" />
+            <marker date="1496908860153" expanded="true" signature="3116:3171" ph="select url f... file" />
+            <marker date="1496908860153" expanded="true" signature="3832:3884" ph="delete from " />
+            <marker date="1496908860153" expanded="true" signature="15914:16005" ph="select file_... file" />
+            <marker date="1496908860153" expanded="true" signature="27007:27077" ph="select count... file" />
+            <marker date="1496908860153" expanded="true" signature="27507:27576" ph="update file " />
+            <marker date="1496908860153" expanded="true" signature="27878:27977" ph="insert into file... " />
+            <marker date="1496908860153" expanded="true" signature="28887:28961" ph="select file_... file" />
+            <marker date="1496908860153" expanded="true" signature="31734:31786" ph="select count... user" />
+            <marker date="1496908860153" expanded="true" signature="32118:32194" ph="insert into file... " />
+            <marker date="1496908860153" expanded="true" signature="32504:32543" ph="select id fr... user" />
+            <marker date="1496908860153" expanded="true" signature="33321:33377" ph="select count... user" />
+            <marker date="1496908860153" expanded="true" signature="33321:33394" ph="select count... user" />
+            <marker date="1496908860153" expanded="true" signature="34335:34408" ph="select count... file" />
+            <marker date="1496908860153" expanded="true" signature="35011:35062" ph="select user_... user" />
+            <marker date="1496908860153" expanded="true" signature="35974:36034" ph="update user_... " />
+            <marker date="1496908860153" expanded="true" signature="35980:36034" ph="select user_... user" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/identification.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>

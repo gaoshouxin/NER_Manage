@@ -11,7 +11,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="<%=request.getContextPath()%>/index.jsp">系统主界面</a>
+          <a class="navbar-brand" href="<%=request.getContextPath()%>/mvc/getManageMark">系统主界面</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -26,12 +26,24 @@
 
           <ul class="nav navbar-nav navbar-right navbar-user">
             <li class="dropdown user-dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> 高守信 <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><span id="top_name"></span> <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
+                <li onclick="logOut()"><a href="<%=request.getContextPath()%>/mvc/getLogin"><i class="fa fa-power-off"></i> 退出登录</a></li>
               </ul>
             </li>
           </ul>
         </div>
       </nav>
 <div id="mask" class="mask"></div>
+
+<script type="text/javascript">
+    function logOut() {
+        $.session.remove("user_id");
+    }
+    function setTopName() {
+        $("#top_name").text("  "+ $.session.get("user_name"));
+    }
+    $(document).ready(function() {
+        setTopName()
+    });
+</script>

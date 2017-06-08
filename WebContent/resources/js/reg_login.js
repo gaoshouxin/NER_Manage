@@ -38,6 +38,7 @@ function  register() {
                 alert(data);
             }else{
                 $.session.set("user_id", data);
+                $.session.set("user_name", user_name);
                 window.location.href = "getManageMark";
             }
         },
@@ -81,6 +82,7 @@ function login() {
                 alert(data);
             }else{
                 $.session.set("user_id", data);
+                $.session.set("user_name", user_name);
                 window.location.href = "getManageMark";
             }
         },

@@ -36,5 +36,6 @@
 
             $("#mask").hide();
         }
+
     </script>
 

@@ -18,6 +18,7 @@ import java.util.Queue;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Controller;
@@ -332,6 +333,8 @@ public class mvcController {
     	String trainFilePath = request.getParameter("trainFileUrl");
     	String templateFilePath = request.getParameter("templateFileUrl");
     	String parameter = request.getParameter("parameter");
+    	String userId = request.getParameter("user_id");
+
     	String fileName = trainFilePath.substring(trainFilePath.lastIndexOf('_') + 1,trainFilePath.indexOf('.'));
     	String modelPath = request.getServletContext().getRealPath("/resources/model/")+"/"+fileName+"_model";
 
@@ -353,95 +356,13 @@ public class mvcController {
 			}
 			File file = new File(modelPath);
 			if(file.exists()){
-				insertFileInfo(request.getServletContext().getRealPath("/resources/model/"),"D",fileName+"_model");
+				int userID = Integer.valueOf(userId).intValue();
+				insertFileInfo(request.getServletContext().getRealPath("/resources/model/"),"D",fileName+"_model",userID);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
     }
-    /**
-     * 查询所有已存在模型
-     * @param req
-     * @param rep
-     */
-    @RequestMapping("/queryAllModel")
-    public void queryAllModel(HttpServletRequest req,HttpServletResponse rep){
-    	rep.setContentType("text/html;charset=utf-8");//设置响应的编码格式，不然会出现中文乱码现象  
-    	PreparedStatement queryStatment = null;
-    	Connection conn = connectMysql();
-    	ResultSet rs = null;
-    	try {
-			queryStatment = conn.prepareStatement("select file_name,url from file where user_id = ? and file_type= ? ORDER BY update_time DESC ");
-			queryStatment.setString(1,req.getParameter("user_id"));
-			queryStatment.setString(2, "D");
-	    	rs = queryStatment.executeQuery();
-	    	PrintWriter out = rep.getWriter();
-	    	List<FileInfo> list = new ArrayList<FileInfo>();
-	    	FileInfo file = null;
-	    	while(rs.next()){
-	    		String fileName = rs.getString("file_name");
-	    		String url = rs.getString("url");
-	    		file = new FileInfo();
-	    		file.setFileName(fileName);
-	    		file.setUrl(url);
-	    		list.add(file);
-	    	}
-	    	JSONArray json = JSONArray.fromObject(list);
-	    	out.write(json.toString());  
-	        out.flush();  
-	        out.close(); 
-	    	rs.close();
-	    	queryStatment.close();
-	    	conn.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} catch(IOException e){
-			e.printStackTrace();
-		}
-    }
-    /**
-     * 查询所有格式化为文件
-     * @param req
-     * @param rep
-     */
-    @RequestMapping("/queryAllFormatedFile")
-    public void queryAllFormatedFile(HttpServletRequest req,HttpServletResponse rep){
-    	rep.setContentType("text/html;charset=utf-8");//设置响应的编码格式，不然会出现中文乱码现象  
-    	PreparedStatement queryStatment = null;
-    	Connection conn = connectMysql();
-    	ResultSet rs =null;
-    	try {
-			queryStatment = conn.prepareStatement("select file_name,url from file where user_id = ? and file_type= ? ORDER BY update_time DESC ");
-			queryStatment.setString(1,req.getParameter("user_id"));
-			queryStatment.setString(2, "F");
-	    	rs = queryStatment.executeQuery();
-	    	PrintWriter out = rep.getWriter();
-	    	List<FileInfo> list = new ArrayList<FileInfo>();
-	    	FileInfo file = null;
-	    	while(rs.next()){
-	    		String fileName = rs.getString("file_name");
-	    		String url = rs.getString("url");
-	    		file = new FileInfo();
-	    		file.setFileName(fileName);
-	    		file.setUrl(url);
-	    		list.add(file);
-	    	}
-	    	JSONArray json = JSONArray.fromObject(list);
-	    	out.write(json.toString());  
-	        out.flush();  
-	        out.close(); 
-	    	rs.close();
-	    	queryStatment.close();
-	    	conn.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch(IOException e){
-			e.printStackTrace();
-		}
-    }
-
-
 
 
     /**
@@ -535,6 +456,7 @@ public class mvcController {
     	response.setContentType("text/html;charset=utf-8");
     	String filePath = request.getParameter("fileUrl");
     	String fileName = request.getParameter("fileName");
+    	String userId = request.getParameter("userId");
     	String realPath = request.getServletContext().getRealPath("/resources/formated/");
     	String targetPath =realPath + "/"+"formated_"+fileName;
     	String result= filter(filePath,targetPath);
@@ -542,8 +464,8 @@ public class mvcController {
     	try{
 			out = response.getWriter();
         	if(result.equals("格式化成功")){
-    	    	//保存数据库
-				insertFileInfo(realPath,"F","formated_"+fileName);
+    	    	int userID = Integer.valueOf(userId).intValue();
+				insertFileInfo(realPath,"F","formated_"+fileName,userID);
         	}
         	out.write(result);
         	out.close() ;
@@ -582,26 +504,66 @@ public class mvcController {
 	    	rs.close();
 	    	queryStatment.close();
 	    	conn.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch(Exception e){
 			e.printStackTrace();
 		}
 		return json;
     }
+
+	/**
+	 * 查询所有已存在模型
+	 * @param request
+	 * @param response
+	 */
+	@RequestMapping("/queryAllModel")
+	public void queryAllModel(HttpServletRequest request,HttpServletResponse response){
+		response.setContentType("text/html;charset=utf-8");//设置响应的编码格式，不然会出现中文乱码现象
+		String userId = request.getParameter("user_id");
+		try {
+			PrintWriter out = response.getWriter();
+			out = response.getWriter();
+			JSONArray json = queryTargetFile(userId,"D");
+			out.write(json.toString());
+			out.flush();
+			out.close();
+		} catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	/**
+	 * 查询所有格式化为文件
+	 * @param request
+	 * @param response
+	 */
+	@RequestMapping("/queryAllFormatedFile")
+	public void queryAllFormatedFile(HttpServletRequest request,HttpServletResponse response){
+		response.setContentType("text/html;charset=utf-8");//设置响应的编码格式，不然会出现中文乱码现象
+		String userId = request.getParameter("user_id");
+		try {
+			PrintWriter out = response.getWriter();
+			out = response.getWriter();
+			JSONArray json = queryTargetFile(userId,"F");
+			out.write(json.toString());
+			out.flush();
+			out.close();
+		}  catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+
     /**
      * 查询所有标注好的文件
-     * @param req
-     * @param rep
+     * @param request
+     * @param response
      */
     @RequestMapping("/queryAllMarkedFile")
-    public void queryAllMarkedFile(HttpServletRequest req,HttpServletResponse rep){
-    	rep.setContentType("text/html;charset=utf-8");//设置响应的编码格式，不然会出现中文乱码现象  
+    public void queryAllMarkedFile(HttpServletRequest request,HttpServletResponse response){
+    	response.setContentType("text/html;charset=utf-8");//设置响应的编码格式，不然会出现中文乱码现象
+		String userId = request.getParameter("user_id");
     	PrintWriter out;
 		try {
-			out = rep.getWriter();
-			JSONArray json = queryTargetFile("45","M");
+			out = response.getWriter();
+			JSONArray json = queryTargetFile(userId,"M");
 	    	out.write(json.toString());  
 	        out.flush();  
 	        out.close();
@@ -704,6 +666,7 @@ public class mvcController {
     	String filePath = request.getParameter("fileUrl");
     	String splitNum = request.getParameter("crossedVal");
     	String fileName = request.getParameter("fileName");
+    	String userId = request.getParameter("userId");
 		response.setContentType("text/html;charset=utf-8");
 		try{
 			PrintWriter out = response.getWriter();
@@ -735,7 +698,8 @@ public class mvcController {
 						}
 					}
 				}
-				insertFileInfo(realPath,"A","train_"+fileName);
+				int userID = Integer.valueOf(userId).intValue();
+				insertFileInfo(realPath,"A","train_"+fileName,userID);
 				realPath = request.getServletContext().getRealPath("/resources/trainAndTest/");
 				String targetTestPath = realPath + "/" + "test_" + fileName;
 				FileWriter fwTest = new FileWriter(targetTestPath,false);
@@ -745,7 +709,7 @@ public class mvcController {
 					osw.write(lineTxt+"\n");
 					osw.flush();
 				}
-				insertFileInfo(realPath,"E","test_"+fileName);
+				insertFileInfo(realPath,"E","test_"+fileName,userID);
 				osw.close();
 				out.write("操作成功！");
 			}else{
@@ -768,13 +732,15 @@ public class mvcController {
     public void saveServer(HttpServletRequest request,HttpServletResponse response){
     	String realPath = request.getServletContext().getRealPath("/resources/marked/");
     	String targetPath =realPath + "/"+"marked_"+request.getParameter("fileName");
+    	String userId = request.getParameter("userId");
     	try {
 			FileOutputStream fos = new FileOutputStream(targetPath);
 			OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
 			String str = request.getParameter("data");
 			osw.write(str);
 			osw.flush();
-	    	insertFileInfo(targetPath,"M","marked_"+request.getParameter("fileName"));
+			int userID = Integer.valueOf(userId).intValue();
+	    	insertFileInfo(targetPath,"M","marked_"+request.getParameter("fileName"),userID);
 			osw.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -820,9 +786,10 @@ public class mvcController {
      * @throws IOException
      */
     @RequestMapping(value="/fileUpload", method = RequestMethod.POST)
-    public void fileUpLoad(@RequestParam("file") MultipartFile file,HttpServletRequest request, HttpServletResponse response) throws IOException{ 
+    public void fileUpLoad(@RequestParam("file") MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws IOException{
     	String fileType = new String( request.getParameter("file_type").getBytes("ISO-8859-1"),"utf-8");
-    	String realPath = null;
+		String userId = "45";
+		String realPath = null;
     	String fileFlag = null;
     	if(fileType.equals("待标记文件")){
     		realPath = request.getServletContext().getRealPath("/resources/needMark/");
@@ -837,18 +804,16 @@ public class mvcController {
     		realPath = request.getServletContext().getRealPath("/resources/trainAndTest/");
     		fileFlag = "E";
     	}
-    	System.out.println(realPath);
-    	String fileName = new String(file.getOriginalFilename().getBytes("ISO-8859-1"),"utf-8");
-    	File filePath =new File(realPath);   
-    	
-    	//如果文件夹不存在则创建    
+		String fileName = new String(file.getOriginalFilename().getBytes("ISO-8859-1"),"utf-8");
+    	File filePath =new File(realPath);
     	if  (!filePath.exists()  && !filePath.isDirectory())      
     	{
     	    filePath .mkdir();    
     	} 
     	if(!file.isEmpty()){
     		FileUtils.copyInputStreamToFile(file.getInputStream(), new File(realPath+"/",fileName));
-    		insertFileInfo(realPath,fileFlag,fileName);
+    		int userID = Integer.valueOf(userId).intValue();
+    		insertFileInfo(realPath,fileFlag,fileName,userID);
 		}
     }
     /**
@@ -857,7 +822,7 @@ public class mvcController {
      * @param fileFlag
      * @param fileName
      */
-    private void insertFileInfo(String filePath,String fileFlag,String fileName){
+    private void insertFileInfo(String filePath,String fileFlag,String fileName,int userId){
     	PreparedStatement insertStatement = null;
     	PreparedStatement queryStatment = null;
     	PreparedStatement updateStatment = null;
@@ -887,7 +852,7 @@ public class mvcController {
 			}else {
 				insertStatement  = conn.prepareStatement("insert into " + "file" +   
 						"(user_id,url,file_name,update_time,file_type) values (?,?,?,?,?)");
-				insertStatement.setString(1, "45");
+				insertStatement.setInt(1, userId);
 	        	insertStatement.setString(2, filePath+"/"+fileName);
 	        	insertStatement.setString(3, fileName);
                 insertStatement.setString(4, updatetime);
@@ -898,7 +863,6 @@ public class mvcController {
 	            conn.close();
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	
@@ -1107,13 +1071,13 @@ public class mvcController {
 			rs = queryUserInfo.executeQuery();
 			PrintWriter out = response.getWriter();
 			List<User> list = new ArrayList<User>();
-			User user = null;
+			User user = new User();
 			while(rs.next()){
 				String userName = rs.getString("user_name");
 				String userPhone = rs.getString("user_phone");
 				String userEmail = rs.getString("user_email");
 				String updateTime = rs.getString("update_time");
-				user = new User();
+
 				user.setUserPhone(userPhone);
 				user.setUserName(userName);
 				user.setUserEmail(userEmail);
@@ -1145,41 +1109,25 @@ public class mvcController {
 		String userId = request.getParameter("user_id");
 		String userPhone = request.getParameter("user_phone");
 		String userEmail = request.getParameter("user_email");
-		PreparedStatement queryUserInfo = null;
+		PreparedStatement updateUserInfo = null;
 		Connection conn = connectMysql();
-		ResultSet rs = null;
 		try {
-			queryUserInfo = conn.prepareStatement("select user_phone,user_email,user_name,update_time from user where id = ?");
-			queryUserInfo.setString(1,userId);
-			rs = queryUserInfo.executeQuery();
+			updateUserInfo = conn.prepareStatement("update user set user_phone = ? , user_email = ? where id = ?");
+			updateUserInfo.setString(1,userPhone);
+			updateUserInfo.setString(2,userEmail);
+			updateUserInfo.setString(3,userId);
+			int result = updateUserInfo.executeUpdate();
+
 			PrintWriter out = response.getWriter();
-			List<User> list = new ArrayList<User>();
-			User user = null;
-			while(rs.next()){
-				String userName = rs.getString("user_name");
-				String userPhone = rs.getString("user_phone");
-				String userEmail = rs.getString("user_email");
-				String updateTime = rs.getString("update_time");
-				user = new User();
-				user.setUserPhone(userPhone);
-				user.setUserName(userName);
-				user.setUserEmail(userEmail);
-				user.setUpdateTime(updateTime);
+			if ( result > 0){
+				out.write("更新成功");
+			}else{
+				out.write("更新失败，请重试");
 			}
-			queryUserInfo = conn.prepareStatement("select count(*) fileSum from file where user_id = ?");
-			queryUserInfo.setString(1,userId);
-			rs = queryUserInfo.executeQuery();
-			while (rs.next()){
-				int  fileSum = rs.getInt("fileSum");
-				user.setFileSum(Integer.toString(fileSum));
-			}
-			list.add(user);
-			JSONArray json = JSONArray.fromObject(list);
-			out.write(json.toString());
+			conn.commit();
 			out.flush();
 			out.close();
-			rs.close();
-			queryUserInfo.close();
+			updateUserInfo.close();
 			conn.close();
 		}  catch(Exception e){
 			e.printStackTrace();

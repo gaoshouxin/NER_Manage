@@ -6,11 +6,12 @@ $(document).ready(function() {
 });
 
 function showAllModel(){
+    var user_id = $.session.get("user_id");
 	$.ajax({
 		url : "queryAllModel",
 		type : "post",
 		data : {
-			user_id : "45"
+			user_id : user_id
 		},
 		dataType : "json",
 		async : false,

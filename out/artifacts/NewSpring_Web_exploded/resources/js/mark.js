@@ -14,7 +14,7 @@ function showAllFile(){
 		url : "queryAllOrgFile",
 		type : "post",
 		data : {
-			user_id : "45",
+			user_id : $.session.get("user_id"),
 			file_type : "O"
 		},
 		dataType : "json",
@@ -211,7 +211,8 @@ function saveServer(){
         type:"post",
         data : {
 			fileName : fileName,
-			data :data
+			data :data,
+            userId : $.session.get("userId")
 		},
 		async : false,
         success: function (data) {

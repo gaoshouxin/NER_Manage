@@ -23,6 +23,7 @@
 						<label>上传文件</label>
 						<div class="form-group input-group">
 			                <input type="text" id="file_name" class="form-control" readOnly="true">
+							<input type="text" id="user_id" class="form-control" style="display: none">
 			                <span  class="input-group-btn">
 			                  <button  id="choose_file" class="btn btn-primary" type="button">选择文件</button>
 			                </span>
@@ -118,6 +119,7 @@
 		$("#upload_file").click();
 		$("#upload_file").change(function(){
 			$("#file_name").val($("#upload_file").val());
+			$("#user_id").val($.session.get("user_id"));
 		});		
 	});
 </script>

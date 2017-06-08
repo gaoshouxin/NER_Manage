@@ -20,7 +20,7 @@ function showMarkedFile(){
 		url : "queryAllMarkedFile",
 		type : "post",
 		data : {
-			user_id : "45"
+			user_id : $.session.get("user_id")
 		},
 		dataType : "json",
 		async : false,
@@ -57,7 +57,8 @@ function formatText(){
 		type : "post",
 		data : {
 			fileUrl : fileUrl,
-			fileName : fileName
+			fileName : fileName,
+            userId : $.session.get("user_id")
 		},
 		success : function(data) {
 			hideMask();
@@ -75,7 +76,7 @@ function showFormatedFile(){
 		url : "queryAllFormatedFile",
 		type : "post",
 		data : {
-			user_id : "45"
+			user_id : $.session.get("user_id")
 		},
 		dataType : "json",
 		async : false,
@@ -104,7 +105,7 @@ function showAllModel(){
 		url : "queryAllModel",
 		type : "post",
 		data : {
-			user_id : "45"
+			user_id : $.session.get("user_id")
 		},
 		dataType : "json",
 		async : false,
@@ -151,7 +152,8 @@ function  produceCrossedData(){
         data : {
         	fileName: fileName,
             fileUrl : fileUrl,
-			crossedVal :crossedVal
+			crossedVal :crossedVal,
+            userId : $.session.get("user_id")
         },
         success : function(data) {
             hideMask();
@@ -169,7 +171,7 @@ function showTarinFile() {
         url : "queryAllTrainFile",
         type : "post",
         data : {
-            user_id : "45"
+            user_id : $.session.get("user_id")
         },
         dataType : "json",
         async : false,
@@ -198,7 +200,7 @@ function showTestFile() {
         url : "queryAllTestFile",
         type : "post",
         data : {
-            user_id : "45"
+            user_id : $.session.get("user_id")
         },
         dataType : "json",
         async : false,
@@ -243,7 +245,8 @@ function train(){
         data : {
         	trainFileUrl : trainFileUrl,
             templateFileUrl : templateFileUrl,
-            parameter : parameter
+            parameter : parameter,
+            user_id : $.session.get("user_id")
         },
         success : function(data) {
             $("#trained_data").val(data);
@@ -305,7 +308,7 @@ function  showTemplateFile() {
         url : "queryAllTemplateFile",
         type : "post",
         data : {
-            user_id : "45"
+            user_id : $.session.get("user_id")
         },
         dataType : "json",
         async : false,

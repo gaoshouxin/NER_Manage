@@ -1,47 +1,5 @@
 
 	$(function() {
-		$("#submit-project").click(function() {
-			var projectName = $("#project_name").val();
-			var markSign = $("#mark_sign").val();
-			if (($.trim(projectName) == "")) {
-				alert("请输入工程名");
-				return;
-			} else if (markSign.length > 1) {
-				alert("字符太长，只能输入一个字符");
-				return;
-			}
-			if (($.trim(projectName) == "")) {
-				markSign = "#";
-			}
-			($.trim(projectName) == "")
-			$.ajax({
-				url : "createProject",
-				type : "post",
-				data : {
-					project_name : projectName,
-					mark_sign : markSign
-				},
-				dataType : "text",
-				async : false,
-				success : function(data) {
-					if (data == "1") {
-						alert("创建成功");
-						$("#project-list").empty()
-						showProjetList();
-					} else {
-						alert("该项目名已存在");
-					}
-				},
-				error : function(XMLHttpRequest, textStatus, errorThrown) {
-					alert("网络错误，请重试");
-				},
-			});
-		});
-
-		$("#reset-project").click(function() {
-			$("#mark_sign").val("").focus(); //清空并获得焦点
-			$("#project_name").val("").focus();
-		});
 		
 		$("#cancel_upload").click(function(){
 			$("#file_name").val("");
@@ -49,6 +7,7 @@
 		
 		$("#confirm_upload").click(function(){
 			var fileName = $("#file_name").val();
+			var userId = $("#user_id").val();
 			if($.trim(fileName) == ""){
 				alert("请选择文件");
 				return ;
@@ -76,14 +35,9 @@
 		});
 		
 		$("#user_editor").click(function(){
-			$("#user_name").attr("readOnly",false);
 			$("#user_phone").attr("readOnly",false);
 			$("#user_email").attr("readOnly",false);
 			$("#user_confirm").attr("disabled",false);
-		});
-		
-		$("#user_confirm").click(function(){
-			
 		});
 
 	});
@@ -104,7 +58,7 @@
 			url : "queryAllFile",
 			type : "post",
 			data : {
-				user_id : "45"
+				user_id : $.session.get("user_id")
 			},
 			dataType : "json",
 			async : false,
@@ -130,7 +84,7 @@
 			url : "deleteFile",
 			type : "post",
 			data : {
-				userId : "45",
+				userId : $.session.get("user_id"),
 				fileName : fileName
 			},
 			dataType : "text",
@@ -141,6 +95,7 @@
 			},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
 				alert("网络错误，请重试");
+
 			}
 		});
 	}
@@ -172,8 +127,34 @@
                 });
             },
             error : function(XMLHttpRequest, textStatus, errorThrown) {
-                alert("网络错误，请重试");
+                window.location.href = "getLogin";
             }
         });
     }
+
+    function editConfirm() {
+		var user_phone = $("#user_phone").val();
+		var user_email = $("#user_email").val();
+		var user_id = $.session.get("user_id");
+        $.ajax({
+            url : "updateUserInfo",
+            type : "post",
+            data : {
+                user_id : user_id,
+				user_phone : user_phone,
+				user_email : user_email
+            },
+            dataType : "text",
+            success : function(data) {
+            	alert(data);
+            	showUserInfo();
+                $("#user_phone").attr("readOnly",true);
+                $("#user_email").attr("readOnly",true);
+                $("#user_confirm").attr("disabled",true);
+            },
+            error : function(XMLHttpRequest, textStatus, errorThrown) {
+                alert("网络错误，请重试");
+            }
+        });
+	}
 	

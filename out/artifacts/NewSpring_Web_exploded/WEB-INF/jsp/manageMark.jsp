@@ -23,6 +23,7 @@
 						<label>上传文件</label>
 						<div class="form-group input-group">
 			                <input type="text" id="file_name" class="form-control" readOnly="true">
+							<input type="text" id="user_id" class="form-control" style="display: none">
 			                <span  class="input-group-btn">
 			                  <button  id="choose_file" class="btn btn-primary" type="button">选择文件</button>
 			                </span>
@@ -101,7 +102,7 @@
 			                <input class="form-control" id ="sum_file" readOnly="true">
 			            </div>
 			            <div style="text-Align:center;"> 
-			            	<button type="button" id="user_confirm" class="btn btn-success" disabled="true">确认</button>
+			            	<button type="button" id="user_confirm" class="btn btn-success" disabled="true" onclick="editConfirm()">确认</button>
 			            	<button type="button" id="user_editor" class="btn btn-danger">编辑</button>
 						</div> 
                 	</form>
@@ -118,6 +119,7 @@
 		$("#upload_file").click();
 		$("#upload_file").change(function(){
 			$("#file_name").val($("#upload_file").val());
+			$("#user_id").val($.session.get("user_id"));
 		});		
 	});
 </script>
