@@ -5,33 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18b29e7f-b92c-4489-b91a-f1d8359a39c2" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/needMark/test3.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/needMark/test4.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/test/SpringMVC/mvcController.class" afterPath="$PROJECT_DIR$/build/classes/test/SpringMVC/mvcController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/classes/test/SpringMVC/mvcController.class" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/classes/test/SpringMVC/mvcController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/model/test2_model" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/model/test2_model" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/trainAndTest/temp.data" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/trainAndTest/temp.data" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/common.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/common.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/header.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/header.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/manageMark.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/manageMark.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/resources/js/application.js" afterPath="$PROJECT_DIR$/WebContent/resources/js/application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/resources/js/identification.js" afterPath="$PROJECT_DIR$/WebContent/resources/js/identification.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/resources/js/manageMark.js" afterPath="$PROJECT_DIR$/WebContent/resources/js/manageMark.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/resources/js/mark.js" afterPath="$PROJECT_DIR$/WebContent/resources/js/mark.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/resources/js/reg_login.js" afterPath="$PROJECT_DIR$/WebContent/resources/js/reg_login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/jsp/common.jsp" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/jsp/common.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/jsp/header.jsp" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/jsp/header.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/jsp/manageMark.jsp" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/jsp/manageMark.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/formated/formated_marked_test2.txt" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/formated/formated_marked_test2.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/js/application.js" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/js/application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/js/identification.js" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/js/identification.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/js/manageMark.js" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/js/manageMark.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/js/mark.js" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/js/mark.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/js/reg_login.js" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/js/reg_login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/marked/marked_test2.txt" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/marked/marked_test2.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/trainAndTest/train_formated_marked_test2.txt" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/resources/trainAndTest/train_formated_marked_test2.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/SpringMVC/mvcController.java" afterPath="$PROJECT_DIR$/src/test/SpringMVC/mvcController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/mark.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/mark.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/jsp/mark.jsp" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/jsp/mark.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,18 +35,18 @@
       <file leaf-file-name="register.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/register.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1206">
+            <state relative-caret-position="378">
               <caret line="51" column="22" lean-forward="true" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mvcController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mvcController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/SpringMVC/mvcController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1412">
-              <caret line="670" column="12" lean-forward="true" selection-start-line="670" selection-start-column="12" selection-end-line="670" selection-end-column="12" />
+            <state relative-caret-position="430">
+              <caret line="422" column="74" lean-forward="true" selection-start-line="422" selection-start-column="74" selection-end-line="422" selection-end-column="74" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#isOSLinux#0;class#mvcController#0" expanded="false" />
@@ -78,7 +54,6 @@
                 <element signature="method#identityFile#0;class#mvcController#0" expanded="false" />
                 <element signature="method#testModel#0;class#mvcController#0" expanded="false" />
                 <element signature="method#train#0;class#mvcController#0" expanded="false" />
-                <element signature="method#filter#0;class#mvcController#0" expanded="false" />
                 <element signature="method#saveServer#0;class#mvcController#0" expanded="false" />
                 <element signature="method#getText#0;class#mvcController#0" expanded="false" />
                 <element signature="method#insertFileInfo#0;class#mvcController#0" expanded="false" />
@@ -108,22 +83,93 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="identification.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="identification.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/identification.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
+            <state relative-caret-position="1296">
               <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/common.jsp">
+      <file leaf-file-name="manageMark.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/manageMark.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2724">
+              <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/login.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="33" column="112" lean-forward="true" selection-start-line="33" selection-start-column="112" selection-end-line="33" selection-end-column="112" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/application.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-807">
+              <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mark.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/mark.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="11" column="69" lean-forward="false" selection-start-line="11" selection-start-column="69" selection-end-line="11" selection-end-column="69" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#select#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1496922004120" expanded="true" signature="2914:2924" ph="..." />
+                <marker date="1496922004120" expanded="true" signature="5710:5714" ph="..." />
+                <marker date="1496922004120" expanded="true" signature="5820:5824" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="identification.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/resources/js/identification.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="27">
+              <caret line="60" column="21" lean-forward="false" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/resources/js/application.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="81">
-              <caret line="19" column="108" lean-forward="false" selection-start-line="19" selection-start-column="108" selection-end-line="19" selection-end-column="108" />
-              <folding />
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="5" selection-end-column="3" />
+              <folding>
+                <marker date="1496902107263" expanded="true" signature="2343:2357" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mark.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/resources/js/mark.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="483">
+              <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+              <folding>
+                <marker date="1496903596183" expanded="true" signature="4082:4096" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -140,7 +186,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>filter</find>
       <find>insertF</find>
       <find>ISO</find>
       <find>format</find>
@@ -170,6 +215,7 @@
       <find>file_name</find>
       <find>fileUpload</find>
       <find>45</find>
+      <find>topbar</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -188,7 +234,6 @@
         <option value="$PROJECT_DIR$/src/test/SpringMVC/model/Measure.java" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/application.jsp" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/identyfile.jsp" />
-        <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/mark.jsp" />
         <option value="$PROJECT_DIR$/src/test/SpringMVC/regLoginController.java" />
         <option value="$PROJECT_DIR$/WebContent/resources/js/jquerysession.js" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/register.jsp" />
@@ -204,6 +249,7 @@
         <option value="$PROJECT_DIR$/WebContent/resources/js/reg_login.js" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/common.jsp" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/identification.jsp" />
+        <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/mark.jsp" />
       </list>
     </option>
   </component>
@@ -1005,12 +1051,12 @@
       <workItem from="1496817123101" duration="9024000" />
       <workItem from="1496830651754" duration="19105000" />
       <workItem from="1496880030423" duration="12165000" />
-      <workItem from="1496894253027" duration="12481000" />
+      <workItem from="1496894253027" duration="16532000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="202924000" />
+    <option name="totallyTimeSpent" value="206975000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1022,7 +1068,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1082,9 +1128,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1496798767831" expanded="true" signature="2995:3005" ph="..." />
-            <marker date="1496798767831" expanded="true" signature="5791:5795" ph="..." />
-            <marker date="1496798767831" expanded="true" signature="5901:5905" ph="..." />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1496922004120" expanded="true" signature="2914:2924" ph="..." />
+            <marker date="1496922004120" expanded="true" signature="5710:5714" ph="..." />
+            <marker date="1496922004120" expanded="true" signature="5820:5824" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1107,7 +1156,6 @@
             <element signature="method#identityFile#0;class#mvcController#0" expanded="false" />
             <element signature="method#testModel#0;class#mvcController#0" expanded="false" />
             <element signature="method#train#0;class#mvcController#0" expanded="false" />
-            <element signature="method#filter#0;class#mvcController#0" expanded="false" />
             <element signature="method#saveServer#0;class#mvcController#0" expanded="false" />
             <element signature="method#getText#0;class#mvcController#0" expanded="false" />
             <element signature="method#insertFileInfo#0;class#mvcController#0" expanded="false" />
@@ -1179,9 +1227,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1496798767831" expanded="true" signature="2995:3005" ph="..." />
-            <marker date="1496798767831" expanded="true" signature="5791:5795" ph="..." />
-            <marker date="1496798767831" expanded="true" signature="5901:5905" ph="..." />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1496922004120" expanded="true" signature="2914:2924" ph="..." />
+            <marker date="1496922004120" expanded="true" signature="5710:5714" ph="..." />
+            <marker date="1496922004120" expanded="true" signature="5820:5824" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1204,7 +1255,6 @@
             <element signature="method#identityFile#0;class#mvcController#0" expanded="false" />
             <element signature="method#testModel#0;class#mvcController#0" expanded="false" />
             <element signature="method#train#0;class#mvcController#0" expanded="false" />
-            <element signature="method#filter#0;class#mvcController#0" expanded="false" />
             <element signature="method#saveServer#0;class#mvcController#0" expanded="false" />
             <element signature="method#getText#0;class#mvcController#0" expanded="false" />
             <element signature="method#insertFileInfo#0;class#mvcController#0" expanded="false" />
@@ -1259,7 +1309,6 @@
             <element signature="method#identityFile#0;class#mvcController#0" expanded="false" />
             <element signature="method#testModel#0;class#mvcController#0" expanded="false" />
             <element signature="method#train#0;class#mvcController#0" expanded="false" />
-            <element signature="method#filter#0;class#mvcController#0" expanded="false" />
             <element signature="method#saveServer#0;class#mvcController#0" expanded="false" />
             <element signature="method#getText#0;class#mvcController#0" expanded="false" />
             <element signature="method#insertFileInfo#0;class#mvcController#0" expanded="false" />
@@ -1299,7 +1348,6 @@
             <element signature="method#identityFile#0;class#mvcController#0" expanded="false" />
             <element signature="method#testModel#0;class#mvcController#0" expanded="false" />
             <element signature="method#train#0;class#mvcController#0" expanded="false" />
-            <element signature="method#filter#0;class#mvcController#0" expanded="false" />
             <element signature="method#saveServer#0;class#mvcController#0" expanded="false" />
             <element signature="method#getText#0;class#mvcController#0" expanded="false" />
             <element signature="method#insertFileInfo#0;class#mvcController#0" expanded="false" />
@@ -1409,14 +1457,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/resources/js/identification.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5154">
-          <caret line="60" column="21" lean-forward="false" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/identyfile.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="571">
@@ -1429,56 +1469,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="33" column="112" lean-forward="true" selection-start-line="33" selection-start-column="112" selection-end-line="33" selection-end-column="112" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/resources/js/mark.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-          <folding>
-            <marker date="1496903596183" expanded="true" signature="4082:4096" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/mark.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="41" />
-          <folding>
-            <marker date="1496798767831" expanded="true" signature="2995:3005" ph="..." />
-            <marker date="1496798767831" expanded="true" signature="5791:5795" ph="..." />
-            <marker date="1496798767831" expanded="true" signature="5901:5905" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/resources/js/manageMark.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3645">
           <caret line="135" column="22" lean-forward="false" selection-start-line="135" selection-start-column="12" selection-end-line="135" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/manageMark.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2680">
-          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/register.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1206">
-          <caret line="51" column="22" lean-forward="true" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -1499,24 +1493,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/resources/js/application.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="5" selection-end-column="3" />
-          <folding>
-            <marker date="1496902107263" expanded="true" signature="2343:2357" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/application.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-951">
-          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/hanlp.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
@@ -1533,10 +1509,93 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/resources/js/mark.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+          <folding>
+            <marker date="1496903596183" expanded="true" signature="4082:4096" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/mark.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="69" lean-forward="false" selection-start-line="11" selection-start-column="69" selection-end-line="11" selection-end-column="69" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1496922004120" expanded="true" signature="2914:2924" ph="..." />
+            <marker date="1496922004120" expanded="true" signature="5710:5714" ph="..." />
+            <marker date="1496922004120" expanded="true" signature="5820:5824" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/register.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="51" column="22" lean-forward="true" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/manageMark.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2724">
+          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="33" column="112" lean-forward="true" selection-start-line="33" selection-start-column="112" selection-end-line="33" selection-end-column="112" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/identification.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1296">
+          <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/application.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-807">
+          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/resources/js/identification.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="60" column="21" lean-forward="false" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/resources/js/application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="5" selection-end-column="3" />
+          <folding>
+            <marker date="1496902107263" expanded="true" signature="2343:2357" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/SpringMVC/mvcController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1412">
-          <caret line="670" column="12" lean-forward="true" selection-start-line="670" selection-start-column="12" selection-end-line="670" selection-end-column="12" />
+        <state relative-caret-position="430">
+          <caret line="422" column="74" lean-forward="true" selection-start-line="422" selection-start-column="74" selection-end-line="422" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#isOSLinux#0;class#mvcController#0" expanded="false" />
@@ -1544,7 +1603,6 @@
             <element signature="method#identityFile#0;class#mvcController#0" expanded="false" />
             <element signature="method#testModel#0;class#mvcController#0" expanded="false" />
             <element signature="method#train#0;class#mvcController#0" expanded="false" />
-            <element signature="method#filter#0;class#mvcController#0" expanded="false" />
             <element signature="method#saveServer#0;class#mvcController#0" expanded="false" />
             <element signature="method#getText#0;class#mvcController#0" expanded="false" />
             <element signature="method#insertFileInfo#0;class#mvcController#0" expanded="false" />
@@ -1570,14 +1628,6 @@
             <marker date="1496908860153" expanded="true" signature="35974:36034" ph="update user_... " />
             <marker date="1496908860153" expanded="true" signature="35980:36034" ph="select user_... user" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/identification.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
