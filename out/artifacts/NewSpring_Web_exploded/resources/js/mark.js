@@ -205,6 +205,7 @@ function download(){
 function saveServer(){
 	var data = getFileStr("#");
 	var fileName = $("#select_file option:selected").val();
+	var userId = $.session.get("user_id");
 	showMask();
 	$.ajax({
         url:"saveServer",
@@ -212,7 +213,7 @@ function saveServer(){
         data : {
 			fileName : fileName,
 			data :data,
-            userId : $.session.get("userId")
+            userId : userId
 		},
 		async : false,
         success: function (data) {

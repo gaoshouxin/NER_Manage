@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="18b29e7f-b92c-4489-b91a-f1d8359a39c2" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/mark.jsp" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/jsp/mark.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/jsp/mark.jsp" afterPath="$PROJECT_DIR$/out/artifacts/NewSpring_Web_exploded/WEB-INF/jsp/mark.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/resources/js/mark.js" afterPath="$PROJECT_DIR$/WebContent/resources/js/mark.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/SpringMVC/mvcController.java" afterPath="$PROJECT_DIR$/src/test/SpringMVC/mvcController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,18 +35,18 @@
       <file leaf-file-name="register.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/register.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="51" column="22" lean-forward="true" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
+            <state relative-caret-position="1377">
+              <caret line="51" column="22" lean-forward="false" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mvcController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mvcController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/SpringMVC/mvcController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="422" column="74" lean-forward="true" selection-start-line="422" selection-start-column="74" selection-end-line="422" selection-end-column="74" />
+            <state relative-caret-position="90">
+              <caret line="738" column="54" lean-forward="true" selection-start-line="738" selection-start-column="54" selection-end-line="738" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#isOSLinux#0;class#mvcController#0" expanded="false" />
@@ -54,7 +54,6 @@
                 <element signature="method#identityFile#0;class#mvcController#0" expanded="false" />
                 <element signature="method#testModel#0;class#mvcController#0" expanded="false" />
                 <element signature="method#train#0;class#mvcController#0" expanded="false" />
-                <element signature="method#saveServer#0;class#mvcController#0" expanded="false" />
                 <element signature="method#getText#0;class#mvcController#0" expanded="false" />
                 <element signature="method#insertFileInfo#0;class#mvcController#0" expanded="false" />
                 <element signature="method#queryAllFile#0;class#mvcController#0" expanded="false" />
@@ -62,22 +61,22 @@
                 <element signature="initializer##0;class#mvcController#0" expanded="false" />
                 <element signature="method#registerUser#0;class#mvcController#0" expanded="false" />
                 <element signature="method#loginUser#0;class#mvcController#0" expanded="false" />
-                <marker date="1496908860153" expanded="true" signature="3116:3171" ph="select url f... file" />
-                <marker date="1496908860153" expanded="true" signature="3832:3884" ph="delete from " />
-                <marker date="1496908860153" expanded="true" signature="15914:16005" ph="select file_... file" />
-                <marker date="1496908860153" expanded="true" signature="27007:27077" ph="select count... file" />
-                <marker date="1496908860153" expanded="true" signature="27507:27576" ph="update file " />
-                <marker date="1496908860153" expanded="true" signature="27878:27977" ph="insert into file... " />
-                <marker date="1496908860153" expanded="true" signature="28887:28961" ph="select file_... file" />
-                <marker date="1496908860153" expanded="true" signature="31734:31786" ph="select count... user" />
-                <marker date="1496908860153" expanded="true" signature="32118:32194" ph="insert into file... " />
-                <marker date="1496908860153" expanded="true" signature="32504:32543" ph="select id fr... user" />
-                <marker date="1496908860153" expanded="true" signature="33321:33377" ph="select count... user" />
-                <marker date="1496908860153" expanded="true" signature="33321:33394" ph="select count... user" />
-                <marker date="1496908860153" expanded="true" signature="34335:34408" ph="select count... file" />
-                <marker date="1496908860153" expanded="true" signature="35011:35062" ph="select user_... user" />
-                <marker date="1496908860153" expanded="true" signature="35974:36034" ph="update user_... " />
-                <marker date="1496908860153" expanded="true" signature="35980:36034" ph="select user_... user" />
+                <marker date="1497077699755" expanded="true" signature="3116:3171" ph="select url f... file" />
+                <marker date="1497077699755" expanded="true" signature="3832:3884" ph="delete from " />
+                <marker date="1497077699755" expanded="true" signature="15914:16005" ph="select file_... file" />
+                <marker date="1497077699755" expanded="true" signature="27008:27078" ph="select count... file" />
+                <marker date="1497077699755" expanded="true" signature="27508:27577" ph="update file " />
+                <marker date="1497077699755" expanded="true" signature="27879:27978" ph="insert into file... " />
+                <marker date="1497077699755" expanded="true" signature="28888:28962" ph="select file_... file" />
+                <marker date="1497077699755" expanded="true" signature="31735:31787" ph="select count... user" />
+                <marker date="1497077699755" expanded="true" signature="32119:32195" ph="insert into file... " />
+                <marker date="1497077699755" expanded="true" signature="32505:32544" ph="select id fr... user" />
+                <marker date="1497077699755" expanded="true" signature="33322:33378" ph="select count... user" />
+                <marker date="1497077699755" expanded="true" signature="33322:33395" ph="select count... user" />
+                <marker date="1497077699755" expanded="true" signature="34336:34409" ph="select count... file" />
+                <marker date="1497077699755" expanded="true" signature="35012:35063" ph="select user_... user" />
+                <marker date="1497077699755" expanded="true" signature="35975:36035" ph="update user_... " />
+                <marker date="1497077699755" expanded="true" signature="35981:36035" ph="select user_... user" />
               </folding>
             </state>
           </provider>
@@ -86,28 +85,28 @@
       <file leaf-file-name="identification.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/identification.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1296">
-              <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+            <state relative-caret-position="27">
+              <caret line="63" column="26" lean-forward="false" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="manageMark.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/manageMark.jsp">
+      <file leaf-file-name="header.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/header.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2724">
-              <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+            <state relative-caret-position="1026">
+              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/login.jsp">
+      <file leaf-file-name="common.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/common.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="33" column="112" lean-forward="true" selection-start-line="33" selection-start-column="112" selection-end-line="33" selection-end-column="112" />
+            <state relative-caret-position="27">
+              <caret line="19" column="108" lean-forward="false" selection-start-line="19" selection-start-column="108" selection-end-line="19" selection-end-column="108" />
               <folding />
             </state>
           </provider>
@@ -116,9 +115,33 @@
       <file leaf-file-name="application.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/application.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-807">
+            <state relative-caret-position="27">
               <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="41" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="manageMark.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/manageMark.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="27">
+              <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="identyfile.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/identyfile.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3024">
+              <caret line="236" column="9" lean-forward="false" selection-start-line="236" selection-start-column="9" selection-end-line="236" selection-end-column="9" />
+              <folding>
+                <marker date="1496308159874" expanded="true" signature="3015:3025" ph="..." />
+                <marker date="1496308159874" expanded="true" signature="5811:5815" ph="..." />
+                <marker date="1496308159874" expanded="true" signature="5921:5925" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -126,12 +149,9 @@
       <file leaf-file-name="mark.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/mark.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="11" column="69" lean-forward="false" selection-start-line="11" selection-start-column="69" selection-end-line="11" selection-end-column="69" />
+            <state relative-caret-position="297">
+              <caret line="27" column="92" lean-forward="false" selection-start-line="27" selection-start-column="92" selection-end-line="27" selection-end-column="92" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#select#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <marker date="1496922004120" expanded="true" signature="2914:2924" ph="..." />
                 <marker date="1496922004120" expanded="true" signature="5710:5714" ph="..." />
                 <marker date="1496922004120" expanded="true" signature="5820:5824" ph="..." />
@@ -140,35 +160,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="identification.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/resources/js/identification.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="60" column="21" lean-forward="false" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebContent/resources/js/application.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="5" selection-end-column="3" />
-              <folding>
-                <marker date="1496902107263" expanded="true" signature="2343:2357" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mark.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mark.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WebContent/resources/js/mark.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+            <state relative-caret-position="237">
+              <caret line="212" column="16" lean-forward="true" selection-start-line="212" selection-start-column="16" selection-end-line="212" selection-end-column="16" />
               <folding>
-                <marker date="1496903596183" expanded="true" signature="4082:4096" ph="..." />
+                <marker date="1497080881900" expanded="true" signature="4082:4096" ph="..." />
               </folding>
             </state>
           </provider>
@@ -243,13 +241,13 @@
         <option value="$PROJECT_DIR$/WebContent/resources/js/application.js" />
         <option value="$PROJECT_DIR$/WebContent/resources/js/identification.js" />
         <option value="$PROJECT_DIR$/WebContent/resources/js/manageMark.js" />
-        <option value="$PROJECT_DIR$/WebContent/resources/js/mark.js" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/header.jsp" />
-        <option value="$PROJECT_DIR$/src/test/SpringMVC/mvcController.java" />
         <option value="$PROJECT_DIR$/WebContent/resources/js/reg_login.js" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/common.jsp" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/identification.jsp" />
         <option value="$PROJECT_DIR$/WebContent/WEB-INF/jsp/mark.jsp" />
+        <option value="$PROJECT_DIR$/src/test/SpringMVC/mvcController.java" />
+        <option value="$PROJECT_DIR$/WebContent/resources/js/mark.js" />
       </list>
     </option>
   </component>
@@ -1051,12 +1049,14 @@
       <workItem from="1496817123101" duration="9024000" />
       <workItem from="1496830651754" duration="19105000" />
       <workItem from="1496880030423" duration="12165000" />
-      <workItem from="1496894253027" duration="16532000" />
+      <workItem from="1496894253027" duration="17137000" />
+      <workItem from="1496967062329" duration="3723000" />
+      <workItem from="1497076335691" duration="2875000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="206975000" />
+    <option name="totallyTimeSpent" value="214178000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1068,7 +1068,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1091,10 +1091,10 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290993" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1681128" sideWeight="0.49676377" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37527114" sideWeight="0.49676377" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286334" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18230277" sideWeight="0.4935484" order="7" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18710022" sideWeight="0.4935484" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26226014" sideWeight="0.5064516" order="5" side_tool="true" content_ui="tabs" />
@@ -1114,7 +1114,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="18" />
+      <option name="time" value="21" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1128,9 +1128,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <marker date="1496922004120" expanded="true" signature="2914:2924" ph="..." />
             <marker date="1496922004120" expanded="true" signature="5710:5714" ph="..." />
             <marker date="1496922004120" expanded="true" signature="5820:5824" ph="..." />
@@ -1156,7 +1153,6 @@
             <element signature="method#identityFile#0;class#mvcController#0" expanded="false" />
             <element signature="method#testModel#0;class#mvcController#0" expanded="false" />
             <element signature="method#train#0;class#mvcController#0" expanded="false" />
-            <element signature="method#saveServer#0;class#mvcController#0" expanded="false" />
             <element signature="method#getText#0;class#mvcController#0" expanded="false" />
             <element signature="method#insertFileInfo#0;class#mvcController#0" expanded="false" />
             <element signature="method#queryAllFile#0;class#mvcController#0" expanded="false" />
@@ -1164,22 +1160,22 @@
             <element signature="initializer##0;class#mvcController#0" expanded="false" />
             <element signature="method#registerUser#0;class#mvcController#0" expanded="false" />
             <element signature="method#loginUser#0;class#mvcController#0" expanded="false" />
-            <marker date="1496908860153" expanded="true" signature="3116:3171" ph="select url f... file" />
-            <marker date="1496908860153" expanded="true" signature="3832:3884" ph="delete from " />
-            <marker date="1496908860153" expanded="true" signature="15914:16005" ph="select file_... file" />
-            <marker date="1496908860153" expanded="true" signature="27007:27077" ph="select count... file" />
-            <marker date="1496908860153" expanded="true" signature="27507:27576" ph="update file " />
-            <marker date="1496908860153" expanded="true" signature="27878:27977" ph="insert into file... " />
-            <marker date="1496908860153" expanded="true" signature="28887:28961" ph="select file_... file" />
-            <marker date="1496908860153" expanded="true" signature="31734:31786" ph="select count... user" />
-            <marker date="1496908860153" expanded="true" signature="32118:32194" ph="insert into file... " />
-            <marker date="1496908860153" expanded="true" signature="32504:32543" ph="select id fr... user" />
-            <marker date="1496908860153" expanded="true" signature="33321:33377" ph="select count... user" />
-            <marker date="1496908860153" expanded="true" signature="33321:33394" ph="select count... user" />
-            <marker date="1496908860153" expanded="true" signature="34335:34408" ph="select count... file" />
-            <marker date="1496908860153" expanded="true" signature="35011:35062" ph="select user_... user" />
-            <marker date="1496908860153" expanded="true" signature="35974:36034" ph="update user_... " />
-            <marker date="1496908860153" expanded="true" signature="35980:36034" ph="select user_... user" />
+            <marker date="1497077699755" expanded="true" signature="3116:3171" ph="select url f... file" />
+            <marker date="1497077699755" expanded="true" signature="3832:3884" ph="delete from " />
+            <marker date="1497077699755" expanded="true" signature="15914:16005" ph="select file_... file" />
+            <marker date="1497077699755" expanded="true" signature="27008:27078" ph="select count... file" />
+            <marker date="1497077699755" expanded="true" signature="27508:27577" ph="update file " />
+            <marker date="1497077699755" expanded="true" signature="27879:27978" ph="insert into file... " />
+            <marker date="1497077699755" expanded="true" signature="28888:28962" ph="select file_... file" />
+            <marker date="1497077699755" expanded="true" signature="31735:31787" ph="select count... user" />
+            <marker date="1497077699755" expanded="true" signature="32119:32195" ph="insert into file... " />
+            <marker date="1497077699755" expanded="true" signature="32505:32544" ph="select id fr... user" />
+            <marker date="1497077699755" expanded="true" signature="33322:33378" ph="select count... user" />
+            <marker date="1497077699755" expanded="true" signature="33322:33395" ph="select count... user" />
+            <marker date="1497077699755" expanded="true" signature="34336:34409" ph="select count... file" />
+            <marker date="1497077699755" expanded="true" signature="35012:35063" ph="select user_... user" />
+            <marker date="1497077699755" expanded="true" signature="35975:36035" ph="update user_... " />
+            <marker date="1497077699755" expanded="true" signature="35981:36035" ph="select user_... user" />
           </folding>
         </state>
       </provider>
@@ -1227,9 +1223,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <marker date="1496922004120" expanded="true" signature="2914:2924" ph="..." />
             <marker date="1496922004120" expanded="true" signature="5710:5714" ph="..." />
             <marker date="1496922004120" expanded="true" signature="5820:5824" ph="..." />
@@ -1255,7 +1248,6 @@
             <element signature="method#identityFile#0;class#mvcController#0" expanded="false" />
             <element signature="method#testModel#0;class#mvcController#0" expanded="false" />
             <element signature="method#train#0;class#mvcController#0" expanded="false" />
-            <element signature="method#saveServer#0;class#mvcController#0" expanded="false" />
             <element signature="method#getText#0;class#mvcController#0" expanded="false" />
             <element signature="method#insertFileInfo#0;class#mvcController#0" expanded="false" />
             <element signature="method#queryAllFile#0;class#mvcController#0" expanded="false" />
@@ -1263,22 +1255,22 @@
             <element signature="initializer##0;class#mvcController#0" expanded="false" />
             <element signature="method#registerUser#0;class#mvcController#0" expanded="false" />
             <element signature="method#loginUser#0;class#mvcController#0" expanded="false" />
-            <marker date="1496908860153" expanded="true" signature="3116:3171" ph="select url f... file" />
-            <marker date="1496908860153" expanded="true" signature="3832:3884" ph="delete from " />
-            <marker date="1496908860153" expanded="true" signature="15914:16005" ph="select file_... file" />
-            <marker date="1496908860153" expanded="true" signature="27007:27077" ph="select count... file" />
-            <marker date="1496908860153" expanded="true" signature="27507:27576" ph="update file " />
-            <marker date="1496908860153" expanded="true" signature="27878:27977" ph="insert into file... " />
-            <marker date="1496908860153" expanded="true" signature="28887:28961" ph="select file_... file" />
-            <marker date="1496908860153" expanded="true" signature="31734:31786" ph="select count... user" />
-            <marker date="1496908860153" expanded="true" signature="32118:32194" ph="insert into file... " />
-            <marker date="1496908860153" expanded="true" signature="32504:32543" ph="select id fr... user" />
-            <marker date="1496908860153" expanded="true" signature="33321:33377" ph="select count... user" />
-            <marker date="1496908860153" expanded="true" signature="33321:33394" ph="select count... user" />
-            <marker date="1496908860153" expanded="true" signature="34335:34408" ph="select count... file" />
-            <marker date="1496908860153" expanded="true" signature="35011:35062" ph="select user_... user" />
-            <marker date="1496908860153" expanded="true" signature="35974:36034" ph="update user_... " />
-            <marker date="1496908860153" expanded="true" signature="35980:36034" ph="select user_... user" />
+            <marker date="1497077699755" expanded="true" signature="3116:3171" ph="select url f... file" />
+            <marker date="1497077699755" expanded="true" signature="3832:3884" ph="delete from " />
+            <marker date="1497077699755" expanded="true" signature="15914:16005" ph="select file_... file" />
+            <marker date="1497077699755" expanded="true" signature="27008:27078" ph="select count... file" />
+            <marker date="1497077699755" expanded="true" signature="27508:27577" ph="update file " />
+            <marker date="1497077699755" expanded="true" signature="27879:27978" ph="insert into file... " />
+            <marker date="1497077699755" expanded="true" signature="28888:28962" ph="select file_... file" />
+            <marker date="1497077699755" expanded="true" signature="31735:31787" ph="select count... user" />
+            <marker date="1497077699755" expanded="true" signature="32119:32195" ph="insert into file... " />
+            <marker date="1497077699755" expanded="true" signature="32505:32544" ph="select id fr... user" />
+            <marker date="1497077699755" expanded="true" signature="33322:33378" ph="select count... user" />
+            <marker date="1497077699755" expanded="true" signature="33322:33395" ph="select count... user" />
+            <marker date="1497077699755" expanded="true" signature="34336:34409" ph="select count... file" />
+            <marker date="1497077699755" expanded="true" signature="35012:35063" ph="select user_... user" />
+            <marker date="1497077699755" expanded="true" signature="35975:36035" ph="update user_... " />
+            <marker date="1497077699755" expanded="true" signature="35981:36035" ph="select user_... user" />
           </folding>
         </state>
       </provider>
@@ -1309,7 +1301,6 @@
             <element signature="method#identityFile#0;class#mvcController#0" expanded="false" />
             <element signature="method#testModel#0;class#mvcController#0" expanded="false" />
             <element signature="method#train#0;class#mvcController#0" expanded="false" />
-            <element signature="method#saveServer#0;class#mvcController#0" expanded="false" />
             <element signature="method#getText#0;class#mvcController#0" expanded="false" />
             <element signature="method#insertFileInfo#0;class#mvcController#0" expanded="false" />
             <element signature="method#queryAllFile#0;class#mvcController#0" expanded="false" />
@@ -1317,22 +1308,22 @@
             <element signature="initializer##0;class#mvcController#0" expanded="false" />
             <element signature="method#registerUser#0;class#mvcController#0" expanded="false" />
             <element signature="method#loginUser#0;class#mvcController#0" expanded="false" />
-            <marker date="1496908860153" expanded="true" signature="3116:3171" ph="select url f... file" />
-            <marker date="1496908860153" expanded="true" signature="3832:3884" ph="delete from " />
-            <marker date="1496908860153" expanded="true" signature="15914:16005" ph="select file_... file" />
-            <marker date="1496908860153" expanded="true" signature="27007:27077" ph="select count... file" />
-            <marker date="1496908860153" expanded="true" signature="27507:27576" ph="update file " />
-            <marker date="1496908860153" expanded="true" signature="27878:27977" ph="insert into file... " />
-            <marker date="1496908860153" expanded="true" signature="28887:28961" ph="select file_... file" />
-            <marker date="1496908860153" expanded="true" signature="31734:31786" ph="select count... user" />
-            <marker date="1496908860153" expanded="true" signature="32118:32194" ph="insert into file... " />
-            <marker date="1496908860153" expanded="true" signature="32504:32543" ph="select id fr... user" />
-            <marker date="1496908860153" expanded="true" signature="33321:33377" ph="select count... user" />
-            <marker date="1496908860153" expanded="true" signature="33321:33394" ph="select count... user" />
-            <marker date="1496908860153" expanded="true" signature="34335:34408" ph="select count... file" />
-            <marker date="1496908860153" expanded="true" signature="35011:35062" ph="select user_... user" />
-            <marker date="1496908860153" expanded="true" signature="35974:36034" ph="update user_... " />
-            <marker date="1496908860153" expanded="true" signature="35980:36034" ph="select user_... user" />
+            <marker date="1497077699755" expanded="true" signature="3116:3171" ph="select url f... file" />
+            <marker date="1497077699755" expanded="true" signature="3832:3884" ph="delete from " />
+            <marker date="1497077699755" expanded="true" signature="15914:16005" ph="select file_... file" />
+            <marker date="1497077699755" expanded="true" signature="27008:27078" ph="select count... file" />
+            <marker date="1497077699755" expanded="true" signature="27508:27577" ph="update file " />
+            <marker date="1497077699755" expanded="true" signature="27879:27978" ph="insert into file... " />
+            <marker date="1497077699755" expanded="true" signature="28888:28962" ph="select file_... file" />
+            <marker date="1497077699755" expanded="true" signature="31735:31787" ph="select count... user" />
+            <marker date="1497077699755" expanded="true" signature="32119:32195" ph="insert into file... " />
+            <marker date="1497077699755" expanded="true" signature="32505:32544" ph="select id fr... user" />
+            <marker date="1497077699755" expanded="true" signature="33322:33378" ph="select count... user" />
+            <marker date="1497077699755" expanded="true" signature="33322:33395" ph="select count... user" />
+            <marker date="1497077699755" expanded="true" signature="34336:34409" ph="select count... file" />
+            <marker date="1497077699755" expanded="true" signature="35012:35063" ph="select user_... user" />
+            <marker date="1497077699755" expanded="true" signature="35975:36035" ph="update user_... " />
+            <marker date="1497077699755" expanded="true" signature="35981:36035" ph="select user_... user" />
           </folding>
         </state>
       </provider>
@@ -1348,7 +1339,6 @@
             <element signature="method#identityFile#0;class#mvcController#0" expanded="false" />
             <element signature="method#testModel#0;class#mvcController#0" expanded="false" />
             <element signature="method#train#0;class#mvcController#0" expanded="false" />
-            <element signature="method#saveServer#0;class#mvcController#0" expanded="false" />
             <element signature="method#getText#0;class#mvcController#0" expanded="false" />
             <element signature="method#insertFileInfo#0;class#mvcController#0" expanded="false" />
             <element signature="method#queryAllFile#0;class#mvcController#0" expanded="false" />
@@ -1356,22 +1346,22 @@
             <element signature="initializer##0;class#mvcController#0" expanded="false" />
             <element signature="method#registerUser#0;class#mvcController#0" expanded="false" />
             <element signature="method#loginUser#0;class#mvcController#0" expanded="false" />
-            <marker date="1496908860153" expanded="true" signature="3116:3171" ph="select url f... file" />
-            <marker date="1496908860153" expanded="true" signature="3832:3884" ph="delete from " />
-            <marker date="1496908860153" expanded="true" signature="15914:16005" ph="select file_... file" />
-            <marker date="1496908860153" expanded="true" signature="27007:27077" ph="select count... file" />
-            <marker date="1496908860153" expanded="true" signature="27507:27576" ph="update file " />
-            <marker date="1496908860153" expanded="true" signature="27878:27977" ph="insert into file... " />
-            <marker date="1496908860153" expanded="true" signature="28887:28961" ph="select file_... file" />
-            <marker date="1496908860153" expanded="true" signature="31734:31786" ph="select count... user" />
-            <marker date="1496908860153" expanded="true" signature="32118:32194" ph="insert into file... " />
-            <marker date="1496908860153" expanded="true" signature="32504:32543" ph="select id fr... user" />
-            <marker date="1496908860153" expanded="true" signature="33321:33377" ph="select count... user" />
-            <marker date="1496908860153" expanded="true" signature="33321:33394" ph="select count... user" />
-            <marker date="1496908860153" expanded="true" signature="34335:34408" ph="select count... file" />
-            <marker date="1496908860153" expanded="true" signature="35011:35062" ph="select user_... user" />
-            <marker date="1496908860153" expanded="true" signature="35974:36034" ph="update user_... " />
-            <marker date="1496908860153" expanded="true" signature="35980:36034" ph="select user_... user" />
+            <marker date="1497077699755" expanded="true" signature="3116:3171" ph="select url f... file" />
+            <marker date="1497077699755" expanded="true" signature="3832:3884" ph="delete from " />
+            <marker date="1497077699755" expanded="true" signature="15914:16005" ph="select file_... file" />
+            <marker date="1497077699755" expanded="true" signature="27008:27078" ph="select count... file" />
+            <marker date="1497077699755" expanded="true" signature="27508:27577" ph="update file " />
+            <marker date="1497077699755" expanded="true" signature="27879:27978" ph="insert into file... " />
+            <marker date="1497077699755" expanded="true" signature="28888:28962" ph="select file_... file" />
+            <marker date="1497077699755" expanded="true" signature="31735:31787" ph="select count... user" />
+            <marker date="1497077699755" expanded="true" signature="32119:32195" ph="insert into file... " />
+            <marker date="1497077699755" expanded="true" signature="32505:32544" ph="select id fr... user" />
+            <marker date="1497077699755" expanded="true" signature="33322:33378" ph="select count... user" />
+            <marker date="1497077699755" expanded="true" signature="33322:33395" ph="select count... user" />
+            <marker date="1497077699755" expanded="true" signature="34336:34409" ph="select count... file" />
+            <marker date="1497077699755" expanded="true" signature="35012:35063" ph="select user_... user" />
+            <marker date="1497077699755" expanded="true" signature="35975:36035" ph="update user_... " />
+            <marker date="1497077699755" expanded="true" signature="35981:36035" ph="select user_... user" />
           </folding>
         </state>
       </provider>
@@ -1444,9 +1434,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-4">
           <caret line="16" column="46" lean-forward="true" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
-          <folding>
-            <element signature="e#361#362#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1457,31 +1444,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/identyfile.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="236" column="9" lean-forward="false" selection-start-line="236" selection-start-column="9" selection-end-line="236" selection-end-column="9" />
-          <folding>
-            <marker date="1496308159874" expanded="true" signature="3015:3025" ph="..." />
-            <marker date="1496308159874" expanded="true" signature="5811:5815" ph="..." />
-            <marker date="1496308159874" expanded="true" signature="5921:5925" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/resources/js/manageMark.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3645">
           <caret line="135" column="22" lean-forward="false" selection-start-line="135" selection-start-column="12" selection-end-line="135" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/header.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="642">
-          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1489,7 +1455,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="489">
           <caret line="84" column="40" lean-forward="false" selection-start-line="84" selection-start-column="31" selection-end-line="84" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1497,86 +1462,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="2" column="25" lean-forward="false" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/common.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="19" column="108" lean-forward="false" selection-start-line="19" selection-start-column="108" selection-end-line="19" selection-end-column="108" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/resources/js/mark.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
-          <folding>
-            <marker date="1496903596183" expanded="true" signature="4082:4096" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/mark.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" column="69" lean-forward="false" selection-start-line="11" selection-start-column="69" selection-end-line="11" selection-end-column="69" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1496922004120" expanded="true" signature="2914:2924" ph="..." />
-            <marker date="1496922004120" expanded="true" signature="5710:5714" ph="..." />
-            <marker date="1496922004120" expanded="true" signature="5820:5824" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/register.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="51" column="22" lean-forward="true" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/manageMark.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2724">
-          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="33" column="112" lean-forward="true" selection-start-line="33" selection-start-column="112" selection-end-line="33" selection-end-column="112" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/identification.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1296">
-          <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/application.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-807">
-          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="41" />
+        <state relative-caret-position="891">
+          <caret line="33" column="112" lean-forward="false" selection-start-line="33" selection-start-column="112" selection-end-line="33" selection-end-column="112" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebContent/resources/js/identification.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
+        <state relative-caret-position="1620">
           <caret line="60" column="21" lean-forward="false" selection-start-line="60" selection-start-column="21" selection-end-line="60" selection-end-column="45" />
           <folding />
         </state>
@@ -1592,10 +1491,82 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/register.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1377">
+          <caret line="51" column="22" lean-forward="false" selection-start-line="51" selection-start-column="22" selection-end-line="51" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/header.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1026">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/identification.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="63" column="26" lean-forward="false" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/common.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="19" column="108" lean-forward="false" selection-start-line="19" selection-start-column="108" selection-end-line="19" selection-end-column="108" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/application.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="40" selection-end-line="2" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/manageMark.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/identyfile.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3024">
+          <caret line="236" column="9" lean-forward="false" selection-start-line="236" selection-start-column="9" selection-end-line="236" selection-end-column="9" />
+          <folding>
+            <marker date="1496308159874" expanded="true" signature="3015:3025" ph="..." />
+            <marker date="1496308159874" expanded="true" signature="5811:5815" ph="..." />
+            <marker date="1496308159874" expanded="true" signature="5921:5925" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/jsp/mark.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="27" column="92" lean-forward="false" selection-start-line="27" selection-start-column="92" selection-end-line="27" selection-end-column="92" />
+          <folding>
+            <marker date="1496922004120" expanded="true" signature="2914:2924" ph="..." />
+            <marker date="1496922004120" expanded="true" signature="5710:5714" ph="..." />
+            <marker date="1496922004120" expanded="true" signature="5820:5824" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/SpringMVC/mvcController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="422" column="74" lean-forward="true" selection-start-line="422" selection-start-column="74" selection-end-line="422" selection-end-column="74" />
+        <state relative-caret-position="90">
+          <caret line="738" column="54" lean-forward="true" selection-start-line="738" selection-start-column="54" selection-end-line="738" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#isOSLinux#0;class#mvcController#0" expanded="false" />
@@ -1603,7 +1574,6 @@
             <element signature="method#identityFile#0;class#mvcController#0" expanded="false" />
             <element signature="method#testModel#0;class#mvcController#0" expanded="false" />
             <element signature="method#train#0;class#mvcController#0" expanded="false" />
-            <element signature="method#saveServer#0;class#mvcController#0" expanded="false" />
             <element signature="method#getText#0;class#mvcController#0" expanded="false" />
             <element signature="method#insertFileInfo#0;class#mvcController#0" expanded="false" />
             <element signature="method#queryAllFile#0;class#mvcController#0" expanded="false" />
@@ -1611,22 +1581,32 @@
             <element signature="initializer##0;class#mvcController#0" expanded="false" />
             <element signature="method#registerUser#0;class#mvcController#0" expanded="false" />
             <element signature="method#loginUser#0;class#mvcController#0" expanded="false" />
-            <marker date="1496908860153" expanded="true" signature="3116:3171" ph="select url f... file" />
-            <marker date="1496908860153" expanded="true" signature="3832:3884" ph="delete from " />
-            <marker date="1496908860153" expanded="true" signature="15914:16005" ph="select file_... file" />
-            <marker date="1496908860153" expanded="true" signature="27007:27077" ph="select count... file" />
-            <marker date="1496908860153" expanded="true" signature="27507:27576" ph="update file " />
-            <marker date="1496908860153" expanded="true" signature="27878:27977" ph="insert into file... " />
-            <marker date="1496908860153" expanded="true" signature="28887:28961" ph="select file_... file" />
-            <marker date="1496908860153" expanded="true" signature="31734:31786" ph="select count... user" />
-            <marker date="1496908860153" expanded="true" signature="32118:32194" ph="insert into file... " />
-            <marker date="1496908860153" expanded="true" signature="32504:32543" ph="select id fr... user" />
-            <marker date="1496908860153" expanded="true" signature="33321:33377" ph="select count... user" />
-            <marker date="1496908860153" expanded="true" signature="33321:33394" ph="select count... user" />
-            <marker date="1496908860153" expanded="true" signature="34335:34408" ph="select count... file" />
-            <marker date="1496908860153" expanded="true" signature="35011:35062" ph="select user_... user" />
-            <marker date="1496908860153" expanded="true" signature="35974:36034" ph="update user_... " />
-            <marker date="1496908860153" expanded="true" signature="35980:36034" ph="select user_... user" />
+            <marker date="1497077699755" expanded="true" signature="3116:3171" ph="select url f... file" />
+            <marker date="1497077699755" expanded="true" signature="3832:3884" ph="delete from " />
+            <marker date="1497077699755" expanded="true" signature="15914:16005" ph="select file_... file" />
+            <marker date="1497077699755" expanded="true" signature="27008:27078" ph="select count... file" />
+            <marker date="1497077699755" expanded="true" signature="27508:27577" ph="update file " />
+            <marker date="1497077699755" expanded="true" signature="27879:27978" ph="insert into file... " />
+            <marker date="1497077699755" expanded="true" signature="28888:28962" ph="select file_... file" />
+            <marker date="1497077699755" expanded="true" signature="31735:31787" ph="select count... user" />
+            <marker date="1497077699755" expanded="true" signature="32119:32195" ph="insert into file... " />
+            <marker date="1497077699755" expanded="true" signature="32505:32544" ph="select id fr... user" />
+            <marker date="1497077699755" expanded="true" signature="33322:33378" ph="select count... user" />
+            <marker date="1497077699755" expanded="true" signature="33322:33395" ph="select count... user" />
+            <marker date="1497077699755" expanded="true" signature="34336:34409" ph="select count... file" />
+            <marker date="1497077699755" expanded="true" signature="35012:35063" ph="select user_... user" />
+            <marker date="1497077699755" expanded="true" signature="35975:36035" ph="update user_... " />
+            <marker date="1497077699755" expanded="true" signature="35981:36035" ph="select user_... user" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebContent/resources/js/mark.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="212" column="16" lean-forward="true" selection-start-line="212" selection-start-column="16" selection-end-line="212" selection-end-column="16" />
+          <folding>
+            <marker date="1497080881900" expanded="true" signature="4082:4096" ph="..." />
           </folding>
         </state>
       </provider>

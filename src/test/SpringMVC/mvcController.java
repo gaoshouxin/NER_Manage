@@ -731,7 +731,7 @@ public class mvcController {
     @RequestMapping("/saveServer")
     public void saveServer(HttpServletRequest request,HttpServletResponse response){
     	String realPath = request.getServletContext().getRealPath("/resources/marked/");
-    	String targetPath =realPath + "/"+"marked_"+request.getParameter("fileName");
+    	String targetPath = realPath + "/"+"marked_"+request.getParameter("fileName");
     	String userId = request.getParameter("userId");
     	try {
 			FileOutputStream fos = new FileOutputStream(targetPath);
